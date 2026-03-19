@@ -111,7 +111,9 @@
       "WebFetch(domain:developers.google.com)",
       "Bash(gh api:*)",
       "WebFetch(domain:github.com)",
-      "Bash(python3 scripts/campaign_performance_snapshot.py --customer-id 7087867966 --client-name \"GDM Google Ads\" --mode calendar-week)"
+      "Bash(python3 scripts/campaign_performance_snapshot.py --customer-id 7087867966 --client-name \"GDM Google Ads\" --mode calendar-week)",
+      "WebFetch(domain:go.fabestheticsny.com)",
+      "WebFetch(domain:support.google.com)"
     ],
     "additionalDirectories": [
       "/Users/bishalbarua"
