@@ -1,0 +1,23 @@
+# Credentials & secrets
+.env
+*.env
+*.json.bak
+credentials.json
+google-ads.yaml
+token.json
+
+# Claude local settings (machine-specific)
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Reports (optional — remove this line if you want to track reports in git)
+reports/
+
