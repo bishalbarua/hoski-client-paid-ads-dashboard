@@ -112,6 +112,9 @@
       "Bash(gh api:*)",
       "WebFetch(domain:github.com)",
       "Bash(python3 scripts/campaign_performance_snapshot.py --customer-id 7087867966 --client-name \"GDM Google Ads\" --mode calendar-week)"
+    ],
+    "additionalDirectories": [
+      "/Users/bishalbarua"
     ]
   }
 }
