@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 *)",
+      "Bash(pip *)",
+      "Bash(pip3 *)",
+      "Bash(ls *)",
+      "Bash(ls)",
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git branch *)",
+      "Bash(git branch)",
+      "Bash(git show *)",
+      "Bash(which *)",
+      "Bash(echo *)",
+      "Bash(cat *)",
+      "Bash(pwd)",
+      "WebSearch",
+      "WebFetch(domain:parkroadfurniture.com)",
+      "WebFetch(domain:thisoakhouse.ca)",
+      "WebFetch(domain:www.rustixstudio.ca)"
+    ],
+    "additionalDirectories": [
+      "/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/.claude/skills"
+    ]
+  }
+}

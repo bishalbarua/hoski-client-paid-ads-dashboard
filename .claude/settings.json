@@ -123,10 +123,12 @@
       "Bash(pandoc campaign-launch-brief.md -o campaign-launch-brief.docx --from markdown --to docx)",
       "Bash(pandoc campaign-launch-brief.md -o campaign-launch-brief.html --from markdown --to html --standalone --metadata title=\"Park Road — Campaign Launch Brief\")",
       "Bash(pandoc creative-brief-campaign-images.md -o creative-brief-campaign-images.docx --from markdown --to docx)",
-      "Bash(pandoc creative-brief-ad-assets.md -o creative-brief-ad-assets.docx --from markdown --to docx)"
+      "Bash(pandoc creative-brief-ad-assets.md -o creative-brief-ad-assets.docx --from markdown --to docx)",
+      "Read(//dev/**)"
     ],
     "additionalDirectories": [
-      "/Users/bishalbarua"
+      "/Users/bishalbarua",
+      "/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/.claude"
     ]
   }
 }

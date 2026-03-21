@@ -99,6 +99,38 @@ When the user references a client by name, look up the ID here and use it in API
 | Voit Dental (1) | 5216656756 |
 | Voit Dental (2) | 5907367258 |
 
+## Meta Ads API
+
+**Credentials:** Stored in environment variables (META_APP_ID, META_APP_SECRET, META_ACCESS_TOKEN)
+
+### Python Usage
+
+```python
+from facebook_business.api import FacebookAdsApi
+from facebook_business.adobjects.adaccount import AdAccount
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+FacebookAdsApi.init(
+    app_id=os.environ["META_APP_ID"],
+    app_secret=os.environ["META_APP_SECRET"],
+    access_token=os.environ["META_ACCESS_TOKEN"]
+)
+
+account = AdAccount("act_1509969187799563")  # ice Ad Account (demo)
+campaigns = account.get_campaigns(fields=["name", "status", "objective"])
+```
+
+### Client Meta Ad Accounts
+
+| Client Name | Meta Ad Account ID |
+|---|---|
+| ice Ad Account | act_1509969187799563 |
+
+Add client Meta account IDs here as clients are onboarded to Meta.
+
 ## Workspace Structure
 
 ```
