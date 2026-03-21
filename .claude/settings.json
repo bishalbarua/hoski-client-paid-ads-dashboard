@@ -113,7 +113,17 @@
       "WebFetch(domain:github.com)",
       "Bash(python3 scripts/campaign_performance_snapshot.py --customer-id 7087867966 --client-name \"GDM Google Ads\" --mode calendar-week)",
       "WebFetch(domain:go.fabestheticsny.com)",
-      "WebFetch(domain:support.google.com)"
+      "WebFetch(domain:support.google.com)",
+      "WebFetch(domain:go.parkroadfurniture.com)",
+      "Bash(pandoc --version)",
+      "Bash(pandoc \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Park Road Custom Furniture and Decor \\(7228467515\\)/notes/landing-page-copy-custom-furniture.md\" -o \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Park Road Custom Furniture and Decor \\(7228467515\\)/notes/landing-page-copy-custom-furniture.docx\" --from markdown --to docx)",
+      "Bash(pandoc \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Park Road Custom Furniture and Decor \\(7228467515\\)/notes/landing-page-copy-cottage-furniture.md\" -o \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Park Road Custom Furniture and Decor \\(7228467515\\)/notes/landing-page-copy-cottage-furniture.docx\" --from markdown --to docx)",
+      "Bash(pandoc \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Park Road Custom Furniture and Decor \\(7228467515\\)/notes/project-brief-landing-pages.md\" -o \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Park Road Custom Furniture and Decor \\(7228467515\\)/notes/project-brief-landing-pages.docx\" --from markdown --to docx)",
+      "Bash(pandoc \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Park Road Custom Furniture and Decor \\(7228467515\\)/notes/project-brief-landing-pages.md\" -o \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Park Road Custom Furniture and Decor \\(7228467515\\)/notes/project-brief-landing-pages.html\" --from markdown --to html --standalone --metadata title=\"Park Road — Landing Page Project Brief\")",
+      "Bash(pandoc campaign-launch-brief.md -o campaign-launch-brief.docx --from markdown --to docx)",
+      "Bash(pandoc campaign-launch-brief.md -o campaign-launch-brief.html --from markdown --to html --standalone --metadata title=\"Park Road — Campaign Launch Brief\")",
+      "Bash(pandoc creative-brief-campaign-images.md -o creative-brief-campaign-images.docx --from markdown --to docx)",
+      "Bash(pandoc creative-brief-ad-assets.md -o creative-brief-ad-assets.docx --from markdown --to docx)"
     ],
     "additionalDirectories": [
       "/Users/bishalbarua"

@@ -141,6 +141,7 @@ All skills live in `.claude/skills/`. Invoke by describing the task — Claude w
 | `/competitor-messaging-analysis` | Research competitors' positioning, proof points, and messaging gaps to sharpen ad copy differentiation |
 | `/ad-copy-testing-analyzer` | Analyze RSA asset performance — BEST/GOOD/LOW/LEARNING labels, copy angle patterns, specific swap recommendations with replacement copy, structural issues (over-pinning, low variety). Run after ads have 30+ days of data |
 | `/rsa-headline-generator` | Generate 15 RSA headlines + 4 descriptions from a keyword, service description, and proof points |
+| `/creative-director` | Brainstorm and produce campaign-ready image and video creative concepts for Google Ads, PMax, YouTube, and Meta — includes image concepts, AI image prompts, video hooks and scripts, UGC briefs, and a creative testing plan |
 | `/marketing-paid-advertising` | Reference framework for multi-platform strategy: bidding, budget allocation, unit economics, attribution |
 
 ### Prompt & Skill Building

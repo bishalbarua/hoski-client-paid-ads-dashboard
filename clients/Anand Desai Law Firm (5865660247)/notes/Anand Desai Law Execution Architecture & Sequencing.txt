@@ -1,0 +1,158 @@
+Anand Desai Law Execution Architecture & Sequencing
+Press The Right
+Arrow To Continue
+90 Day Implementation Pipeline Objective
+Establish a fully measurable, conversion-ready website and generate consistent qualified leads within the first 60 days, while building a strong long-term SEO foundation.
+
+X
+
+Phase 1 : Tracking & Infrastructure Setup
+Press The Right
+Arrow To Continue
+Timeline: Week 1
+What we’re doing:
+Key Implementations
+Outcome
+We are building the measurement layer that allows us to track every interaction and optimize performance based on real data.
+CallRail setup (call tracking + attribution)
+Google Analytics 4 (GA4)
+Google Tag Manager (GTM)
+Event tracking:
+Phone calls
+Form submissions
+Source attribution (Google Ads, Organic, Direct, etc.)
+Visitors clearly understand the offer
+Increased likelihood of calls and form submissions
+
+Phase 2 : Website Optimization (Conversion Layer)
+Press The Right
+Arrow To Continue
+What we’re doing:
+Key Improvements
+Outcome
+Improving the website’s ability to convert visitors into calls and inquiries.
+Fix credibility gaps (e.g., homepage counters)
+Update headline and primary messaging
+Strengthen calls-to-action across the site
+Add phone visibility (header, mobile, key pages)
+Improve Contact and Team pages with trust elements
+Integrate CallRail tracking across all phone numbers
+Visitors clearly understand the offer
+Increased likelihood of calls and form submissions
+Timeline: Weeks 1-2
+
+Phase 3 : Core Page Development (SEO + Conversion)
+Press The Right
+Arrow To Continue
+What we’re doing:
+Key Pages
+Outcome
+Building the most important pages that drive both search visibility and conversions.
+Case Results page (proof and credibility)
+Initial service pages:
+Car Accident
+Slip & Fall
+DUI Defense
+Strong foundation for both paid traffic and organic growth
+Improved credibility and authority
+Enhancements
+Clear structure and messaging
+Internal linking between pages
+Trust elements (results, reviews)
+Conversion-focused layout
+Timeline: Weeks 2-3
+
+Phase 4: Expansion & Local SEO
+Press The Right
+Arrow To Continue
+What we’re doing:
+Key Implementations
+Outcome
+Expanding the website’s reach and strengthening local presence.
+Additional service pages:
+Wrongful Death
+Truck Accidents
+Motorcycle Accidents
+Location page improvements (starting with Glendale)
+Structured data (schema markup)
+Google Business Profile optimization
+Review generation system (ongoing)
+Increased visibility in local searches
+Stronger authority signals for Google
+Growing review presence
+Timeline: Weeks 3-6
+
+Phase 5: Performance Optimization & Growth
+Press The Right
+Arrow To Continue
+What we’re doing:
+Ongoing optimization
+Outcome
+Using real data to refine performance and increase lead volume.
+Call analysis (via CallRail)
+Conversion rate improvements (CRO)
+Content refinements based on user behavior
+Internal linking and SEO adjustments
+Improved lead quality
+More efficient conversion paths
+Scalable performance
+Timeline: Weeks 4-8
+ 
+
+Lead Generation Layer(Runs in Parallel)
+Press The Right
+Arrow To Continue
+Paid Traffic Activation: 
+Google Ads campaigns aligned with key services
+Conversion tracking powered by CallRail
+Continuous optimization based on real call data
+Outcome
+Early lead flow within the first 30–60 days
+Data-driven scaling decisions
+
+Reporting &
+Communication
+Press The Right
+Arrow To Continue
+Weekly: 
+Calls and leads generated
+Key performance insights
+Active improvements
+Monthly
+Performance trends
+SEO progress
+Conversion improvements
+Next-step recommendations
+
+Milestones Overview
+Press The Right
+Arrow To Continue
+By Day 14
+By Day 30
+By Day 60
+Tracking fully operational
+Website optimized for conversion
+Initial pages live
+Core service pages launched
+Paid campaigns active
+First consistent lead data
+Stable lead flow established
+Optimization cycles in place
+SEO gaining traction
+ 
+By Day 90
+Strong digital foundation
+Scalable growth opportunities identified
+
+Clear visibility into where leads come from
+A website built to convert, not just inform
+A system that improves over time based on real data
+A structured path to consistent, qualified client inquiries
+What This Means for You
+Press The Right
+Arrow To Continue
+
+Thank you
+Press The Right
+Arrow To Continue
+FROM						MEDIA                             
