@@ -1,6 +1,7 @@
 # Voit Dental 1
 
-**Account ID:** 5216656756
+**Google Ads Account ID:** 5216656756
+**Meta Ads Account ID:** 236091069101354
 **Industry / Vertical:** Dental
 **Account Status:** Active
 

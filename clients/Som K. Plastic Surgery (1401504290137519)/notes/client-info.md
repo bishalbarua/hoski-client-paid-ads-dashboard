@@ -1,8 +1,7 @@
-# GDM Google Ads
+# Som K. Plastic Surgery
 
-**Google Ads Account ID:** 7087867966
-**Meta Ads Account ID:** 1229672268157520
-**Industry / Vertical:**
+**Meta Ads Account ID:** 1401504290137519
+**Industry / Vertical:** Healthcare — Plastic Surgery / Cosmetic Surgery
 **Account Status:** Active
 
 ---
@@ -11,7 +10,7 @@
 
 | Metric | Target |
 |---|---|
-| CPA (Cost per Lead/Purchase) | |
+| CPA (Cost per Lead) | |
 | Monthly Budget | |
 | ROAS (if applicable) | |
 | Target CPL by Campaign | |
@@ -20,18 +19,27 @@
 
 ## Business Info
 
-- **Services / products offered:**
+- **Services offered:**
 - **Primary location / geo targeting:**
 - **Key differentiators / USPs:**
-- **Typical client value (LTV or avg value):**
-- **Seasonality notes:**
+- **Typical patient value (LTV or avg procedure value):**
+- **Seasonality notes:** (Summer body season, post-holidays typically peak for cosmetic)
 
 ---
 
 ## Brand Terms
 
 <!-- List brand keywords that should NEVER be negated -->
--
+- som k
+- som k plastic surgery
+
+---
+
+## Active Platforms & Channels
+
+| Platform | ID | Status |
+|---|---|---|
+| Meta Ads | 1401504290137519 | Active |
 
 ---
 
@@ -76,8 +84,10 @@
 
 ## Ongoing To-Dos
 
-- [ ]
+- [ ] Confirm Google Ads account ID if applicable
+- [ ] Fill in service offerings and geo targeting
+- [ ] Document active campaign structure
 
 ---
 
-*Last updated: 2026-03-17*
+*Last updated: 2026-03-21*

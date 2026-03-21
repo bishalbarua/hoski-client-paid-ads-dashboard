@@ -1,6 +1,7 @@
 # Estate Jewelry Priced Right
 
-**Account ID:** 7709532223
+**Google Ads Account ID:** 7709532223
+**Meta Ads Account ID:** 422065096974825
 **Industry / Vertical:** Retail — Jewelry / E-commerce
 **Account Status:** Active
 

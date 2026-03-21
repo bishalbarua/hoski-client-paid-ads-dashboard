@@ -1,6 +1,7 @@
 # FaBesthetics
 
 **Account ID:** 9304117954
+**CallRail Account ID:** ACC019d018845c77a7c9ea68e941a010e31 (numeric: 746137944)
 **Industry / Vertical:** Aesthetics / Beauty / Med Spa
 **Account Status:** Active
 

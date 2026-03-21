@@ -1,6 +1,8 @@
 # Texas FHC
 
-**Account ID:** 8159668041
+**Google Ads Account ID:** 8159668041
+**CallRail Account ID:** ACC019cd9bd9bc9764e9e66ada1edd6faad (numeric: 641137695)
+**Meta Ads Account ID:** 331716185722452
 **Industry / Vertical:** Healthcare — Family Health / Chiropractic
 **Account Status:** Active
 

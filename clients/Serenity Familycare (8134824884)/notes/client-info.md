@@ -1,6 +1,7 @@
 # Serenity Familycare
 
-**Account ID:** 8134824884
+**Google Ads Account ID:** 8134824884
+**Meta Ads Account ID:** 853944849499524
 **Industry / Vertical:** Healthcare — Family Medicine / Primary Care
 **Account Status:** Active
 

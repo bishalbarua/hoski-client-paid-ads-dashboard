@@ -1,7 +1,7 @@
-# Voit Dental 2
+# Bloomer Health
 
-**Account ID:** 5907367258
-**Industry / Vertical:** Dental
+**Meta Ads Account ID:** 215505746566668
+**Industry / Vertical:** Healthcare
 **Account Status:** Active
 
 ---
@@ -10,7 +10,7 @@
 
 | Metric | Target |
 |---|---|
-| CPA (Cost per New Patient) | |
+| CPA (Cost per Lead) | |
 | Monthly Budget | |
 | ROAS (if applicable) | |
 | Target CPL by Campaign | |
@@ -22,16 +22,23 @@
 - **Services offered:**
 - **Primary location / geo targeting:**
 - **Key differentiators / USPs:**
-- **Typical patient value (LTV or avg treatment value):**
+- **Typical patient/client value (LTV or avg value):**
 - **Seasonality notes:**
-- **Relationship to Voit Dental 1:** (note if same practice / different location, or separate entity)
 
 ---
 
 ## Brand Terms
 
 <!-- List brand keywords that should NEVER be negated -->
-- voit dental
+- bloomer health
+
+---
+
+## Active Platforms & Channels
+
+| Platform | ID | Status |
+|---|---|---|
+| Meta Ads | 215505746566668 | Active |
 
 ---
 
@@ -76,8 +83,10 @@
 
 ## Ongoing To-Dos
 
-- [ ]
+- [ ] Confirm Google Ads account ID if applicable
+- [ ] Fill in service offerings and geo targeting
+- [ ] Document active campaign structure
 
 ---
 
-*Last updated: 2026-03-17*
+*Last updated: 2026-03-21*

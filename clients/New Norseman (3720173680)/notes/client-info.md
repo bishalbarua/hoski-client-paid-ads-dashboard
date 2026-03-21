@@ -1,7 +1,9 @@
 # Norseman Construction & Development Ltd.
 
 **Google Ads Account ID:** 3720173680
-**Meta Ads Account:** act_2824526581212963
+**CallRail Account ID:** ACC019d0c64c49170f1badefec21bfac8f4 (numeric: 871573536)
+**Meta Ads Account (Hoski BM):** act_1066181008711486
+**Meta Ads Account (alt):** act_2824526581212963
 **Industry / Vertical:** Residential Construction — Custom Home Builds, Renovations, Training
 **Business Type:** Local service business
 **Account Status:** Active
@@ -75,7 +77,7 @@
 | GA4 | Working |
 | GTM | Working |
 | Meta Pixel | Working |
-| CallRail | None |
+| CallRail | ACC019d0c64c49170f1badefec21bfac8f4 (numeric: 871573536) |
 
 ---
 

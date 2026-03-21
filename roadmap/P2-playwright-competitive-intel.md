@@ -42,4 +42,10 @@ Gaps vs. Your Current Ads:
 - Register in CLAUDE.md skills table
 
 ## Status
-- [ ] Not started
+- [x] Complete — 2026-03-21
+  - Covers both Google SERP and Meta Ad Library
+  - Playwright-driven: navigate, screenshot, extract verbatim ad copy
+  - Visits top 2-3 competitor landing pages per scan
+  - Outputs messaging frequency matrix + gap analysis + 3 ad test recommendations
+  - Saves to `clients/[client]/analysis/competitor-serp-YYYY-MM-DD.md`
+  - Integrates as data source for `/competitor-messaging-analysis`, `/rsa-headline-generator`, `/creative-director`

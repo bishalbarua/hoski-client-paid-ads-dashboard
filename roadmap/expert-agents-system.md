@@ -40,12 +40,72 @@ These run constantly and touch every client.
 
 ---
 
+## Meta Ads Agent System
+
+Meta requires its own agent team. The platform has fundamentally different operating logic from Google: creative is the targeting mechanism, attribution is broken post-iOS 14+ and requires triangulation, the learning algorithm is fragile and punishes edits, and audience decay is faster and more consequential. One generic "Meta Ads Specialist" agent is insufficient.
+
+### Meta Tier 1 — Core Operating Agents (daily/weekly)
+
+| Agent | Role | Core Expertise | Location | Status |
+|---|---|---|---|---|
+| **Meta Pixel & Events Guardian** | Audit pixel health, CAPI setup, event quality | EMQ score, CAPI deduplication, AEM priority, iOS 14+ attribution, view-through inflation | `system-prompts/agents/meta-pixel-events-guardian.md` | ✅ Built |
+| **Meta Campaign Strategist** | Campaign structure, objective selection, account architecture | Objective-to-outcome alignment, learning algorithm, CBO vs ABO, funnel layer architecture, audience exclusion logic | `system-prompts/agents/meta-campaign-strategist.md` | ✅ Built |
+| **Meta Creative Performance Analyst** | Read creative data, diagnose winners/losers, drive testing decisions | Creative lifecycle, hook/hold/CTR/CVR diagnostic framework, frequency as leading indicator, format and angle pattern recognition | `system-prompts/agents/meta-creative-performance-analyst.md` | ✅ Built |
+
+### Meta Tier 2 — Deep Specialist Agents
+
+| Agent | Role | Core Expertise | Status |
+|---|---|---|---|
+| **Meta Bid & Budget Optimizer** | CBO vs ABO decisions, bid caps, cost caps, budget allocation | Cost cap vs bid cap vs lowest cost mechanics, CBO spend distribution, minimum viable budget per ad set for learning exit | `system-prompts/agents/meta-bid-budget-optimizer.md` | ✅ Built |
+| **Meta Audience Architect** | Cold/warm/retention audience strategy | Broad vs interest vs LAL trade-offs, custom audience decay rates, exclusion strategy, audience overlap detection, iOS 14+ audience signal degradation | `system-prompts/agents/meta-audience-architect.md` | ✅ Built |
+| **Meta Creative Strategist** | Conceive and brief creative before production | Hook archetypes by funnel stage, UGC vs polished creative theory, video structure, platform-native formats (Reels vs Feed vs Stories), creative testing design | `system-prompts/agents/meta-creative-strategist.md` | ✅ Built |
+| **Meta Conversion Optimizer** | Diagnose conversion rate and attribution issues | Post-iOS attribution windows, blended ROAS vs Meta-reported gap, view-through attribution risks, MER vs ROAS framing | `system-prompts/agents/meta-conversion-optimizer.md` | ✅ Built |
+
+### Meta Tier 3 — Intelligence & Research Agents
+
+| Agent | Role | Core Expertise | Status |
+|---|---|---|---|
+| **Meta Ad Library Intelligence Agent** | Scrape and analyze competitor creatives | Creative longevity signals, angle mining, share-of-voice estimation, format benchmarking | `system-prompts/agents/meta-ad-library-intelligence.md` | ✅ Built |
+| **Meta Scaling Diagnosis Agent** | Identify why a campaign plateaued and how to break through | Audience saturation vs creative fatigue vs bid constraint vs offer problem, horizontal vs vertical scaling, duplication strategy | `system-prompts/agents/meta-scaling-diagnosis.md` | ✅ Built |
+
+### Meta Tier 4 — Operations & Client Layer
+
+| Agent | Role | Core Expertise | Status |
+|---|---|---|---|
+| **Meta Account Health Monitor** | Ongoing surveillance: disapprovals, frequency, pacing, signal drops | Frequency thresholds by objective, spend pacing math, delivery health signals, policy risk patterns | `system-prompts/agents/meta-account-health-monitor.md` | ✅ Built |
+| **Meta Reporting Analyst** | Internal and client-facing Meta reports | Which metrics to surface by objective, how to frame iOS-impacted data to clients, MER reporting alongside Meta-reported ROAS | `system-prompts/agents/meta-reporting-analyst.md` | ✅ Built |
+
+### Meta Build Priority
+
+```
+Phase 1 — Foundation (done)
+  ✅ Meta Pixel & Events Guardian     (bad data = wrong decisions everywhere)
+  ✅ Meta Campaign Strategist         (structural foundation)
+  ✅ Meta Creative Performance Analyst (creative is the primary lever on Meta)
+
+Phase 2 — Optimization (done)
+  ✅ Meta Bid & Budget Optimizer
+  ✅ Meta Audience Architect
+  ✅ Meta Account Health Monitor
+
+Phase 3 — Intelligence (done)
+  ✅ Meta Creative Strategist
+  ✅ Meta Conversion Optimizer
+  ✅ Meta Ad Library Intelligence Agent
+
+Phase 4 — Client Layer (done)
+  ✅ Meta Scaling Diagnosis Agent
+  ✅ Meta Reporting Analyst
+```
+
+---
+
 ## Tier 3 — Intelligence & Research Agents
 
 | Agent | Role | Core Expertise | Status |
 |---|---|---|---|
 | **Keyword Intelligence Agent** | Seed expansion + intent mapping | GAQL mining, intent layers (TOFU/MOFU/BOFU), ad group clustering | ☐ Not started |
-| **Competitor Intelligence Agent** | Monitor competitor ads + positioning | Auction insights, ad copy scraping, landing page analysis, messaging gaps | ☐ Not started |
+| **Competitive Intelligence Agent** | Monitor competitor ads + positioning across Google SERP and Meta Ad Library | Creative longevity signals, SERP signal reading, angle mining, saturation vs. white space framework, cross-channel synthesis | `system-prompts/agents/competitive-intelligence-agent.md` | ✅ Built |
 | **Landing Page CRO Agent** | Pre- and post-launch page audits | Message match, above-the-fold, trust signals, CTA hierarchy, load speed | ☐ Not started |
 | **Market Research Agent** | Industry trends + seasonality | Search trend analysis, seasonal demand curves, emerging query patterns | ☐ Not started |
 

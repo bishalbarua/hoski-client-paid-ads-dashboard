@@ -1,6 +1,8 @@
 # Park Road Custom Furniture and Decor
 
-**Account ID:** 7228467515
+**Google Ads Account ID:** 7228467515
+**CallRail Account ID:** ACC019cd46c328078208012e11450f9957e (numeric: 245428444)
+**Meta Ads Account ID:** 1302601091367185
 **Industry / Vertical:** Home Furnishings / Custom Furniture / Interior Decor
 **Account Status:** Active
 
