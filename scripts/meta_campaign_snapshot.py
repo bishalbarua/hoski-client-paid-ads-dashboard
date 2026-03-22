@@ -67,6 +67,26 @@ ALL_CLIENTS = {
     # "Client Name": "act_XXXXXXXXXXXXXXXXX",
 }
 
+# ─── CANONICAL META ACTION TYPES ─────────────────────────────────────────────
+#
+# Meta's API returns the SAME event under multiple action_type names.
+# Always use the pixel-specific names below. NEVER also add the generic
+# short-form names (e.g. "purchase", "lead", "add_to_cart") — they overlap
+# with the pixel names and will DOUBLE-COUNT.
+#
+# Metric              Use this key                            NOT this
+# ─────────────────── ─────────────────────────────────────── ───────────────
+# Online purchases    offsite_conversion.fb_pixel_purchase    purchase
+# Purchase value      offsite_conversion.fb_pixel_purchase    purchase (value)
+# Website leads       offsite_conversion.fb_pixel_lead        lead
+# Lead-gen form leads leadgen_grouped                         (no overlap)
+# Add to cart         offsite_conversion.fb_pixel_add_to_cart add_to_cart
+# Checkout started    offsite_conversion.fb_pixel_initiate_checkout initiate_checkout
+# Offline purchases   offline_conversion.purchase             (no overlap)
+#
+# Source: Meta Ads API docs — "Actions, Action Values, and Conversions"
+# https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/
+
 # ─── CHANGE THRESHOLDS ────────────────────────────────────────────────────────
 
 CRIT_CONV_DROP  = -0.40
@@ -197,10 +217,9 @@ def pull_campaign_metrics(account_id, start, end):
         actions      = {a["action_type"]: float(a["value"]) for a in (row.get("actions") or [])}
         action_vals  = {a["action_type"]: float(a["value"]) for a in (row.get("action_values") or [])}
 
-        purchases     = actions.get("offsite_conversion.fb_pixel_purchase", 0) + actions.get("purchase", 0)
-        purchase_val  = action_vals.get("offsite_conversion.fb_pixel_purchase", 0) + action_vals.get("purchase", 0)
-        leads         = (actions.get("lead", 0) +
-                         actions.get("offsite_conversion.fb_pixel_lead", 0) +
+        purchases     = actions.get("offsite_conversion.fb_pixel_purchase", 0)
+        purchase_val  = action_vals.get("offsite_conversion.fb_pixel_purchase", 0)
+        leads         = (actions.get("offsite_conversion.fb_pixel_lead", 0) +
                          actions.get("leadgen_grouped", 0))
         total_results = purchases + leads if (purchases + leads) > 0 else actions.get("omni_custom", 0)
 

@@ -141,9 +141,8 @@ def pull_frequency_data(account_id, start, end):
     def parse_row(row, id_key, name_key):
         actions = {a["action_type"]: float(a["value"]) for a in (row.get("actions") or [])}
         results = (actions.get("offsite_conversion.fb_pixel_purchase", 0) +
-                   actions.get("purchase", 0) +
-                   actions.get("lead", 0) +
-                   actions.get("offsite_conversion.fb_pixel_lead", 0))
+                   actions.get("offsite_conversion.fb_pixel_lead", 0) +
+                   actions.get("leadgen_grouped", 0))
         spend   = float(row.get("spend", 0))
         freq    = float(row.get("frequency", 0))
         ctr     = float(row.get("ctr", 0))

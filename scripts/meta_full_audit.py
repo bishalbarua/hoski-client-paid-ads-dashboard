@@ -139,9 +139,8 @@ def run_campaign_snapshot(account: AdAccount, curr_start: str, curr_end: str,
             actions = {a["action_type"]: float(a["value"]) for a in (r.get("actions") or [])}
             results = (
                 actions.get("offsite_conversion.fb_pixel_purchase", 0) +
-                actions.get("purchase", 0) +
-                actions.get("lead", 0) +
-                actions.get("offsite_conversion.fb_pixel_lead", 0)
+                actions.get("offsite_conversion.fb_pixel_lead", 0) +
+                actions.get("leadgen_grouped", 0)
             )
             spend = float(r.get("spend", 0))
             out[r["campaign_id"]] = {
@@ -200,9 +199,8 @@ def run_creative_health(account: AdAccount, curr_start: str, curr_end: str) -> l
         actions = {a["action_type"]: float(a["value"]) for a in (r.get("actions") or [])}
         results = (
             actions.get("offsite_conversion.fb_pixel_purchase", 0) +
-            actions.get("purchase", 0) +
-            actions.get("lead", 0) +
-            actions.get("offsite_conversion.fb_pixel_lead", 0)
+            actions.get("offsite_conversion.fb_pixel_lead", 0) +
+            actions.get("leadgen_grouped", 0)
         )
         dead = impr >= 1000 and ctr < 0.005
         ads.append({

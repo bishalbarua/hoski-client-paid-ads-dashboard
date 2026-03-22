@@ -140,11 +140,16 @@
       "Bash(curl -s -H \"Authorization: Token token=45995463d16e0f357ccaec93b29857ec\" \"https://api.callrail.com/v3/a/ACC019cd9bd9bc9764e9e66ada1edd6faad/calls.json?start_date=2026-03-14&end_date=2026-03-21&per_page=10\")",
       "Bash(curl -s -H \"Authorization: Token token=45995463d16e0f357ccaec93b29857ec\" \"https://api.callrail.com/v3/a/ACC019cd9bd9bc9764e9e66ada1edd6faad/calls.json?start_date=2026-03-14&end_date=2026-03-21&per_page=1&fields=tracking_source,utm_source,utm_medium,utm_campaign,first_call,lead_status\")",
       "Bash(curl -s -H \"Authorization: Token token=45995463d16e0f357ccaec93b29857ec\" \"https://api.callrail.com/v3/a/ACC019cd9bd9bc9764e9e66ada1edd6faad/calls.json?start_date=2026-03-14&end_date=2026-03-21&per_page=50&fields=source,source_name,utm_source,utm_medium\")",
-      "Bash(curl -s -H \"Authorization: Token token=45995463d16e0f357ccaec93b29857ec\" \"https://api.callrail.com/v3/a/ACC019cd9bd9bc9764e9e66ada1edd6faad/calls.json?start_date=2026-03-14&end_date=2026-03-21&per_page=5&fields=source,source_name,medium,utm_source,utm_medium,utm_campaign,referring_url,landing_page_url,referrer_domain,formatted_tracking_source\")"
+      "Bash(curl -s -H \"Authorization: Token token=45995463d16e0f357ccaec93b29857ec\" \"https://api.callrail.com/v3/a/ACC019cd9bd9bc9764e9e66ada1edd6faad/calls.json?start_date=2026-03-14&end_date=2026-03-21&per_page=5&fields=source,source_name,medium,utm_source,utm_medium,utm_campaign,referring_url,landing_page_url,referrer_domain,formatted_tracking_source\")",
+      "Bash(find /Users/bishalbarua/.claude -name *.md -type f)",
+      "Bash(grep -h \"Meta Ads Account ID\\\\|Google Ads Account ID\\\\|Account ID\" \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/\"*/notes/client-info.md)",
+      "Bash(python3 -c \":*)",
+      "Bash(env -i HOME=$HOME PATH=$PATH python3 -c \":*)"
     ],
     "additionalDirectories": [
       "/Users/bishalbarua",
-      "/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/.claude"
+      "/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/.claude",
+      "/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/.claude/skills"
     ]
   }
 }

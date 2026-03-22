@@ -3,6 +3,7 @@
 *.env
 *.json.bak
 credentials.json
+sheets-credentials.json
 google-ads.yaml
 token.json
 

@@ -32,11 +32,11 @@ These run constantly and touch every client.
 
 | Agent | Role | Core Expertise | Status |
 |---|---|---|---|
-| **PMax Intelligence Agent** | PMax diagnosis + optimization | Asset group scoring, channel distribution, brand cannibalization, PMax vs Search conflict | ☐ Not started |
-| **Shopping Feed Optimizer** | Product feed quality + performance | Feed attributes, title optimization, product group sculpting, merchant center issues | ☐ Not started |
-| **Audience Architect** | Audience strategy across platforms | In-market, affinity, RLSA, Customer Match, lookalike logic, exclusion strategy | ☐ Not started |
-| **Meta Ads Specialist** | Facebook/Instagram campaign strategy | Creative-led performance, pixel health, campaign objectives, iOS signal loss | ☐ Not started |
-| **Quality Score Engineer** | QS diagnosis + improvement | CTR expectations by position, ad relevance signals, landing page experience factors | ☐ Not started |
+| **PMax Intelligence Agent** | PMax diagnosis + optimization | Asset group scoring, channel distribution, brand cannibalization, PMax vs Search conflict | `system-prompts/agents/pmax-intelligence-agent.md` | ✅ Built |
+| **Shopping Feed Optimizer** | Product feed quality + performance | Feed attributes, title optimization, product group sculpting, merchant center issues | `system-prompts/agents/shopping-feed-optimizer.md` | ✅ Built |
+| **Audience Architect** | Audience strategy across platforms | In-market, affinity, RLSA, Customer Match, lookalike logic, exclusion strategy | `system-prompts/agents/audience-architect.md` | ✅ Built |
+| **Meta Ads Specialist** | Facebook/Instagram campaign strategy | Creative-led performance, pixel health, campaign objectives, iOS signal loss | ☐ Not started (covered by Meta agent system) |
+| **Quality Score Engineer** | QS diagnosis + improvement | CTR expectations by position, ad relevance signals, landing page experience factors | `system-prompts/agents/quality-score-engineer.md` | ✅ Built |
 
 ---
 
@@ -104,9 +104,9 @@ Phase 4 — Client Layer (done)
 
 | Agent | Role | Core Expertise | Status |
 |---|---|---|---|
-| **Keyword Intelligence Agent** | Seed expansion + intent mapping | GAQL mining, intent layers (TOFU/MOFU/BOFU), ad group clustering | ☐ Not started |
+| **Keyword Intelligence Agent** | Seed expansion + intent mapping | GAQL mining, intent layers (TOFU/MOFU/BOFU), ad group clustering | `system-prompts/agents/keyword-intelligence-agent.md` | ✅ Built |
 | **Competitive Intelligence Agent** | Monitor competitor ads + positioning across Google SERP and Meta Ad Library | Creative longevity signals, SERP signal reading, angle mining, saturation vs. white space framework, cross-channel synthesis | `system-prompts/agents/competitive-intelligence-agent.md` | ✅ Built |
-| **Landing Page CRO Agent** | Pre- and post-launch page audits | Message match, above-the-fold, trust signals, CTA hierarchy, load speed | ☐ Not started |
+| **Landing Page CRO Agent** | Pre- and post-launch page audits | Message match, above-the-fold, trust signals, CTA hierarchy, load speed | `system-prompts/agents/landing-page-cro-agent.md` | ✅ Built |
 | **Market Research Agent** | Industry trends + seasonality | Search trend analysis, seasonal demand curves, emerging query patterns | ☐ Not started |
 
 ---
@@ -115,10 +115,10 @@ Phase 4 — Client Layer (done)
 
 | Agent | Role | Core Expertise | Status |
 |---|---|---|---|
-| **Account Health Monitor** | Ongoing account surveillance | Anomaly detection, disapprovals, budget exhaustion, conversion drop alerts | ☐ Not started (see P1-anomaly-detection.md) |
-| **Reporting Analyst** | Internal + client report generation | Data narrative framing, YoY/MoM analysis, client-facing translation | ☐ Not started |
-| **Client Onboarding Agent** | New account intake + audit | Intake questionnaires, existing account audit, first 30-day plan | ☐ Not started |
-| **Budget Pacing Agent** | Monthly budget tracking + forecasting | Pacing math, reallocation logic, end-of-month projections | ☐ Not started |
+| **Account Health Monitor** | Ongoing account surveillance | Anomaly detection, disapprovals, budget exhaustion, conversion drop alerts | `system-prompts/agents/account-health-monitor.md` | ✅ Built |
+| **Reporting Analyst** | Internal + client report generation | Data narrative framing, YoY/MoM analysis, client-facing translation | `system-prompts/agents/reporting-analyst.md` | ✅ Built |
+| **Client Onboarding Agent** | New account intake + audit | Intake questionnaires, existing account audit, first 30-day plan | `system-prompts/agents/client-onboarding-agent.md` | ✅ Built |
+| **Budget Pacing Agent** | Monthly budget tracking + forecasting | Pacing math, reallocation logic, end-of-month projections | `system-prompts/agents/budget-pacing-agent.md` | ✅ Built |
 
 ---
 
@@ -145,17 +145,17 @@ Phase 1 — Foundation (build first)
 Phase 2 — Optimization (build next)
   ✅ Bid & Budget Optimizer
   ✅ Campaign Architect
-  ☐ Account Health Monitor
+  ✅ Account Health Monitor
 
 Phase 3 — Intelligence (build when Phase 2 done)
-  ☐ Keyword Intelligence Agent
-  ☐ Competitor Intelligence Agent
-  ☐ PMax Intelligence Agent
+  ✅ Keyword Intelligence Agent
+  ✅ Competitor Intelligence Agent
+  ✅ PMax Intelligence Agent
 
 Phase 4 — Client Layer
-  ☐ Reporting Analyst
-  ☐ Landing Page CRO Agent
-  ☐ Orchestrator / Account Manager Agent
+  ✅ Reporting Analyst
+  ✅ Landing Page CRO Agent
+  ✅ Orchestrator / Account Manager Agent (Marketing Director)
 ```
 
 ---

@@ -312,10 +312,11 @@ def check_learning_phase(account_id):
 
         actions = {a["action_type"]: float(a["value"]) for a in (row.get("actions") or [])}
         # Approximate optimization events: purchases + leads + post engagements
-        opt_events = (actions.get("purchase", 0) +
-                      actions.get("offsite_conversion.fb_pixel_purchase", 0) +
-                      actions.get("lead", 0) +
+        # Use pixel-specific action types only to avoid double-counting
+        # (Meta returns "purchase" and "offsite_conversion.fb_pixel_purchase" for the same event)
+        opt_events = (actions.get("offsite_conversion.fb_pixel_purchase", 0) +
                       actions.get("offsite_conversion.fb_pixel_lead", 0) +
+                      actions.get("leadgen_grouped", 0) +
                       actions.get("post_engagement", 0))
 
         if opt_events < 50 and spend > 10:

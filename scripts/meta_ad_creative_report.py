@@ -283,10 +283,9 @@ def pull_ad_metrics(account_id, start, end, top=None):
         actions     = {a["action_type"]: float(a["value"]) for a in (row.get("actions") or [])}
         action_vals = {a["action_type"]: float(a["value"]) for a in (row.get("action_values") or [])}
 
-        purchases    = actions.get("offsite_conversion.fb_pixel_purchase", 0) + actions.get("purchase", 0)
-        purchase_val = action_vals.get("offsite_conversion.fb_pixel_purchase", 0) + action_vals.get("purchase", 0)
-        leads        = (actions.get("lead", 0) +
-                        actions.get("offsite_conversion.fb_pixel_lead", 0) +
+        purchases    = actions.get("offsite_conversion.fb_pixel_purchase", 0)
+        purchase_val = action_vals.get("offsite_conversion.fb_pixel_purchase", 0)
+        leads        = (actions.get("offsite_conversion.fb_pixel_lead", 0) +
                         actions.get("leadgen_grouped", 0))
         total_results = purchases + leads if (purchases + leads) > 0 else actions.get("omni_custom", 0)
 
