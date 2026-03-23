@@ -71,7 +71,7 @@ If critical context is missing, ask for it with a specific, numbered list. Do no
 Read the Marketing Director agent file:
 
 ```
-system-prompts/agents/marketing-director.md
+system-prompts/agents/cross-marketing-director.md
 ```
 
 As the Marketing Director, apply the Dependency Graph and Scope Filter to determine:
@@ -118,13 +118,13 @@ For each specialist in the sequence from the Scope Statement:
 
 | Specialist | File |
 |---|---|
-| Keyword Intelligence Agent | `system-prompts/agents/keyword-intelligence-agent.md` |
-| Search Terms Analyst | `system-prompts/agents/search-terms-analyst.md` |
-| Campaign Architect | `system-prompts/agents/campaign-architect.md` |
-| Ad Copy Strategist | `system-prompts/agents/ad-copy-strategist.md` |
-| Bid & Budget Optimizer | `system-prompts/agents/bid-budget-optimizer.md` |
-| Competitive Intelligence Agent | `system-prompts/agents/competitive-intelligence-agent.md` |
-| Conversion Tracking Guardian | `system-prompts/agents/conversion-tracking-guardian.md` |
+| Keyword Intelligence Agent | `system-prompts/agents/google-keyword-intelligence.md` |
+| Search Terms Analyst | `system-prompts/agents/google-search-terms-analyst.md` |
+| Campaign Architect | `system-prompts/agents/google-campaign-architect.md` |
+| Ad Copy Strategist | `system-prompts/agents/google-ad-copy-strategist.md` |
+| Bid & Budget Optimizer | `system-prompts/agents/google-bid-budget-optimizer.md` |
+| Competitive Intelligence Agent | `system-prompts/agents/cross-competitive-intelligence.md` |
+| Conversion Tracking Guardian | `system-prompts/agents/google-conversion-tracking-guardian.md` |
 | Meta Campaign Strategist | `system-prompts/agents/meta-campaign-strategist.md` |
 | Meta Creative Strategist | `system-prompts/agents/meta-creative-strategist.md` |
 | Meta Audience Architect | `system-prompts/agents/meta-audience-architect.md` |
@@ -171,7 +171,7 @@ CLIENT CONSTRAINTS: [Budget limit, CPA target, preferences, restrictions from no
 
 Reload the Marketing Director agent file:
 ```
-system-prompts/agents/marketing-director.md
+system-prompts/agents/cross-marketing-director.md
 ```
 
 As the Marketing Director, read all specialist output sections and produce the synthesis. Use the Director Synthesis output format from the agent file:
@@ -193,7 +193,7 @@ As the Marketing Director, read all specialist output sections and produce the s
 Load the QA Specialist agent file:
 
 ```
-system-prompts/agents/qa-specialist.md
+system-prompts/agents/cross-qa-specialist.md
 ```
 
 As the QA Specialist, read the entire Team Workspace — all specialist outputs plus the Director Synthesis — and run the adversarial review across all six categories:
@@ -220,7 +220,7 @@ Issue a formal verdict: PASS / CONDITIONAL PASS / FAIL
 Reload the Marketing Director agent file:
 
 ```
-system-prompts/agents/marketing-director.md
+system-prompts/agents/cross-marketing-director.md
 ```
 
 As the Marketing Director, read the QA verdict and produce the final deliverable:

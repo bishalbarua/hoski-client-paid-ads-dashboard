@@ -20,11 +20,11 @@ These run constantly and touch every client.
 
 | Agent | Role | Core Expertise | Location | Status |
 |---|---|---|---|---|
-| **Search Terms Analyst** | Weekly query mining sweep | Intent classification, negative patterns, match type logic, query-to-ad-group fit | `system-prompts/agents/search-terms-analyst.md` | ✅ Built |
-| **Campaign Architect** | Design campaign structures from scratch | Account structure, campaign types, budget allocation, segmentation logic | `system-prompts/agents/campaign-architect.md` | ✅ Built |
-| **Ad Copy Strategist** | RSA creation, testing, rotation | Copywriting frameworks, asset performance patterns, angle diversification, pin strategy | `system-prompts/agents/ad-copy-strategist.md` | ✅ Built |
-| **Bid & Budget Optimizer** | Bid strategy selection + pacing | Smart bidding signals, tROAS/tCPA math, portfolio strategies, auction theory | `system-prompts/agents/bid-budget-optimizer.md` | ✅ Built |
-| **Conversion Tracking Guardian** | Audit + protect data integrity | Tag implementation, attribution models, primary/secondary designation, double-counting | `system-prompts/agents/conversion-tracking-guardian.md` | ✅ Built |
+| **Search Terms Analyst** | Weekly query mining sweep | Intent classification, negative patterns, match type logic, query-to-ad-group fit | `system-prompts/agents/google-search-terms-analyst.md` | ✅ Built |
+| **Campaign Architect** | Design campaign structures from scratch | Account structure, campaign types, budget allocation, segmentation logic | `system-prompts/agents/google-campaign-architect.md` | ✅ Built |
+| **Ad Copy Strategist** | RSA creation, testing, rotation | Copywriting frameworks, asset performance patterns, angle diversification, pin strategy | `system-prompts/agents/google-ad-copy-strategist.md` | ✅ Built |
+| **Bid & Budget Optimizer** | Bid strategy selection + pacing | Smart bidding signals, tROAS/tCPA math, portfolio strategies, auction theory | `system-prompts/agents/google-bid-budget-optimizer.md` | ✅ Built |
+| **Conversion Tracking Guardian** | Audit + protect data integrity | Tag implementation, attribution models, primary/secondary designation, double-counting | `system-prompts/agents/google-conversion-tracking-guardian.md` | ✅ Built |
 
 ---
 
@@ -32,11 +32,11 @@ These run constantly and touch every client.
 
 | Agent | Role | Core Expertise | Status |
 |---|---|---|---|
-| **PMax Intelligence Agent** | PMax diagnosis + optimization | Asset group scoring, channel distribution, brand cannibalization, PMax vs Search conflict | `system-prompts/agents/pmax-intelligence-agent.md` | ✅ Built |
-| **Shopping Feed Optimizer** | Product feed quality + performance | Feed attributes, title optimization, product group sculpting, merchant center issues | `system-prompts/agents/shopping-feed-optimizer.md` | ✅ Built |
-| **Audience Architect** | Audience strategy across platforms | In-market, affinity, RLSA, Customer Match, lookalike logic, exclusion strategy | `system-prompts/agents/audience-architect.md` | ✅ Built |
+| **PMax Intelligence Agent** | PMax diagnosis + optimization | Asset group scoring, channel distribution, brand cannibalization, PMax vs Search conflict | `system-prompts/agents/google-pmax-intelligence.md` | ✅ Built |
+| **Shopping Feed Optimizer** | Product feed quality + performance | Feed attributes, title optimization, product group sculpting, merchant center issues | `system-prompts/agents/google-shopping-feed-optimizer.md` | ✅ Built |
+| **Audience Architect** | Audience strategy across platforms | In-market, affinity, RLSA, Customer Match, lookalike logic, exclusion strategy | `system-prompts/agents/google-audience-architect.md` | ✅ Built |
 | **Meta Ads Specialist** | Facebook/Instagram campaign strategy | Creative-led performance, pixel health, campaign objectives, iOS signal loss | ☐ Not started (covered by Meta agent system) |
-| **Quality Score Engineer** | QS diagnosis + improvement | CTR expectations by position, ad relevance signals, landing page experience factors | `system-prompts/agents/quality-score-engineer.md` | ✅ Built |
+| **Quality Score Engineer** | QS diagnosis + improvement | CTR expectations by position, ad relevance signals, landing page experience factors | `system-prompts/agents/google-quality-score-engineer.md` | ✅ Built |
 
 ---
 
@@ -104,9 +104,9 @@ Phase 4 — Client Layer (done)
 
 | Agent | Role | Core Expertise | Status |
 |---|---|---|---|
-| **Keyword Intelligence Agent** | Seed expansion + intent mapping | GAQL mining, intent layers (TOFU/MOFU/BOFU), ad group clustering | `system-prompts/agents/keyword-intelligence-agent.md` | ✅ Built |
-| **Competitive Intelligence Agent** | Monitor competitor ads + positioning across Google SERP and Meta Ad Library | Creative longevity signals, SERP signal reading, angle mining, saturation vs. white space framework, cross-channel synthesis | `system-prompts/agents/competitive-intelligence-agent.md` | ✅ Built |
-| **Landing Page CRO Agent** | Pre- and post-launch page audits | Message match, above-the-fold, trust signals, CTA hierarchy, load speed | `system-prompts/agents/landing-page-cro-agent.md` | ✅ Built |
+| **Keyword Intelligence Agent** | Seed expansion + intent mapping | GAQL mining, intent layers (TOFU/MOFU/BOFU), ad group clustering | `system-prompts/agents/google-keyword-intelligence.md` | ✅ Built |
+| **Competitive Intelligence Agent** | Monitor competitor ads + positioning across Google SERP and Meta Ad Library | Creative longevity signals, SERP signal reading, angle mining, saturation vs. white space framework, cross-channel synthesis | `system-prompts/agents/cross-competitive-intelligence.md` | ✅ Built |
+| **Landing Page CRO Agent** | Pre- and post-launch page audits | Message match, above-the-fold, trust signals, CTA hierarchy, load speed | `system-prompts/agents/cross-landing-page-cro.md` | ✅ Built |
 | **Market Research Agent** | Industry trends + seasonality | Search trend analysis, seasonal demand curves, emerging query patterns | ☐ Not started |
 
 ---
@@ -115,10 +115,10 @@ Phase 4 — Client Layer (done)
 
 | Agent | Role | Core Expertise | Status |
 |---|---|---|---|
-| **Account Health Monitor** | Ongoing account surveillance | Anomaly detection, disapprovals, budget exhaustion, conversion drop alerts | `system-prompts/agents/account-health-monitor.md` | ✅ Built |
-| **Reporting Analyst** | Internal + client report generation | Data narrative framing, YoY/MoM analysis, client-facing translation | `system-prompts/agents/reporting-analyst.md` | ✅ Built |
-| **Client Onboarding Agent** | New account intake + audit | Intake questionnaires, existing account audit, first 30-day plan | `system-prompts/agents/client-onboarding-agent.md` | ✅ Built |
-| **Budget Pacing Agent** | Monthly budget tracking + forecasting | Pacing math, reallocation logic, end-of-month projections | `system-prompts/agents/budget-pacing-agent.md` | ✅ Built |
+| **Account Health Monitor** | Ongoing account surveillance | Anomaly detection, disapprovals, budget exhaustion, conversion drop alerts | `system-prompts/agents/google-account-health-monitor.md` | ✅ Built |
+| **Reporting Analyst** | Internal + client report generation | Data narrative framing, YoY/MoM analysis, client-facing translation | `system-prompts/agents/google-reporting-analyst.md` | ✅ Built |
+| **Client Onboarding Agent** | New account intake + audit | Intake questionnaires, existing account audit, first 30-day plan | `system-prompts/agents/cross-client-onboarding.md` | ✅ Built |
+| **Budget Pacing Agent** | Monthly budget tracking + forecasting | Pacing math, reallocation logic, end-of-month projections | `system-prompts/agents/google-budget-pacing.md` | ✅ Built |
 
 ---
 

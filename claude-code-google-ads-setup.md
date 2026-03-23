@@ -536,7 +536,7 @@ When you want to use one, just tell Claude: *"Use the audit agent prompt to audi
 
 ### Starter Agent: PPC Audit Agent
 
-**`system-prompts/agents/ppc-audit-agent.md`**
+**`system-prompts/agents/google-ppc-audit.md`**
 
 ````markdown
 # PPC Audit Agent
@@ -604,7 +604,7 @@ Always include specific numbers: campaign names, keyword text, actual spend figu
 
 ### Starter Agent: Negative Keyword Agent
 
-**`system-prompts/agents/negative-keyword-agent.md`**
+**`system-prompts/agents/google-negative-keyword.md`**
 
 ````markdown
 # Negative Keyword Agent
@@ -644,7 +644,7 @@ You are a specialist in identifying wasted spend through search term analysis an
 
 ### Starter Agent: Ad Copy Agent
 
-**`system-prompts/agents/ad-copy-agent.md`**
+**`system-prompts/agents/google-ad-copy-strategist.md`**
 
 ````markdown
 # Ad Copy Agent
@@ -744,7 +744,7 @@ Open your workspace folder in VS Code (File > Open Folder) and open the Claude C
 > *"Write a Google Ads script that identifies keywords with more than $100 spend and zero conversions in the last 30 days, and logs them to a Google Sheet."*
 
 ### Test 4: Audit
-> *"Read the audit agent prompt in system-prompts/agents/ppc-audit-agent.md, then perform a full audit of account [YOUR-ACCOUNT-ID]."*
+> *"Read the audit agent prompt in system-prompts/agents/google-ppc-audit.md, then perform a full audit of account [YOUR-ACCOUNT-ID]."*
 
 If all four work, you're fully set up.
 
