@@ -38,4 +38,4 @@ Hoski.ca                        | $620    | 22   | $28    | 5.8%  | -
 - Update `/weekly-check` skill to reference this rollup as the starting point
 
 ## Status
-- [ ] Not started
+- [x] Complete (2026-03-23): `scripts/mcc_rollup.py`

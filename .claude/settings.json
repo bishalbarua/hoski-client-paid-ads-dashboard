@@ -1,4 +1,7 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
   "permissions": {
     "allow": [
       "WebFetch(domain:www.google.com)",
@@ -207,7 +210,22 @@
       "Bash(sed -i '' 's|system-prompts/agents/qa-specialist\\\\.md|system-prompts/agents/cross-qa-specialist.md|g' .claude/skills/marketing-director/SKILL.md)",
       "Bash(sed -i '' 's|system-prompts/agents/ppc-audit-agent\\\\.md|system-prompts/agents/google-ppc-audit.md|g' claude-code-google-ads-setup.md)",
       "Bash(sed -i '' 's|system-prompts/agents/negative-keyword-agent\\\\.md|system-prompts/agents/google-negative-keyword.md|g' claude-code-google-ads-setup.md)",
-      "Bash(sed -i '' 's|system-prompts/agents/ad-copy-agent\\\\.md|system-prompts/agents/google-ad-copy-strategist.md|g' claude-code-google-ads-setup.md)"
+      "Bash(sed -i '' 's|system-prompts/agents/ad-copy-agent\\\\.md|system-prompts/agents/google-ad-copy-strategist.md|g' claude-code-google-ads-setup.md)",
+      "Bash(find \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Hoski.ca \\(5544702166\\)\" -type f)",
+      "Bash(wc -l \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/scripts\"/*.py)",
+      "Bash(grep \"\\\\.py$\")",
+      "Bash(python scripts/google_campaign_performance_snapshot.py --customer-id 3720173680)",
+      "Bash(python scripts/meta_campaign_snapshot.py --account-id act_1066181008711486)",
+      "Bash(find '/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Texas FHC \\(8159668041\\)' -type f -name *)",
+      "Bash(find \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Texas FHC \\(8159668041\\)\" -type f)",
+      "Bash(find '/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/scripts' -type f -name *.py)",
+      "Bash(tail -60 \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/GDM Google Ads \\(7087867966\\)/notes/GTM-THG4TJRW_workspace14.json\")",
+      "WebFetch(domain:estatejewelrypricedright.com)",
+      "WebFetch(domain:www.ads-institute.com)",
+      "Bash(find \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/FaBesthetics \\(9304117954\\)\" -type f)",
+      "Bash(find \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/FaBesthetics \\(9304117954\\)/data\" -type f)",
+      "Bash(find '/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager' -maxdepth 2 -type f \\\\\\(-name *.json -o -name config* -o -name clients* \\\\\\))",
+      "Bash(python scripts/google_campaign_performance_snapshot.py --customer_id 9304117954 --days 7)"
     ],
     "additionalDirectories": [
       "/Users/bishalbarua",

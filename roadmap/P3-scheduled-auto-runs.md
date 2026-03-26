@@ -49,5 +49,6 @@ Runs in the cloud on schedule even if your Mac is off.
 - Requires environment variables to be available in whichever scheduler is chosen
 
 ## Status
-- [ ] Not started
-- Blocked by: P1-cross-client-rollup, P1-anomaly-detection
+- [x] Complete (2026-03-23): `scripts/scheduler_config.md` documents full cron + launchd setup for all scripts.
+  Shell wrapper scripts and GitHub Actions configs are documented in scheduler_config.md.
+  P1 blockers resolved.

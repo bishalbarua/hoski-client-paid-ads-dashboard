@@ -56,4 +56,4 @@ ANOMALY REPORT — 2026-03-19
 - `scripts/anomaly_config.py` — thresholds config (easy to tune per client)
 
 ## Status
-- [ ] Not started
+- [x] Complete (2026-03-23): `scripts/anomaly_monitor.py` + `scripts/anomaly_config.py`

@@ -1,0 +1,829 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2026-03-25 16:16:22",
+    "containerVersion": {
+        "path": "accounts/6343249023/containers/245755225/versions/0",
+        "accountId": "6343249023",
+        "containerId": "245755225",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/6343249023/containers/245755225",
+            "accountId": "6343249023",
+            "containerId": "245755225",
+            "name": "go.fabestheticsny.com GHL",
+            "publicId": "GTM-54KM6DRV",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1773149702722",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6343249023/containers/245755225/workspaces?apiLink=container",
+            "features": {
+                "supportUserPermissions": true,
+                "supportEnvironments": true,
+                "supportWorkspaces": true,
+                "supportGtagConfigs": false,
+                "supportBuiltInVariables": true,
+                "supportClients": false,
+                "supportFolders": true,
+                "supportTags": true,
+                "supportTemplates": true,
+                "supportTriggers": true,
+                "supportVariables": true,
+                "supportVersions": true,
+                "supportZones": true,
+                "supportTransformations": false
+            },
+            "tagIds": [
+                "GTM-54KM6DRV"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "tagId": "3",
+                "name": "GA4 Tag G-E8VY10JCF2",
+                "type": "googtag",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "tagId",
+                        "value": "G-E8VY10JCF2"
+                    }
+                ],
+                "fingerprint": "1773149533629",
+                "firingTriggerId": [
+                    "2147479573"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "tagId": "4",
+                "name": "GA4 Generate lead",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "eventSettingsTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "campaign_source"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{dlv - utm_source}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "campaign_medium"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{dlv - utm_medium}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "campaign_name"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{dlv - utm_campaign}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "campaign_content"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{dlv - utm_content}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "campaign_term"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{dlv - utm_term}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "generate_lead"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "G-E8VY10JCF2"
+                    }
+                ],
+                "fingerprint": "1773238099670",
+                "firingTriggerId": [
+                    "5",
+                    "22"
+                ],
+                "tagFiringOption": "ONCE_PER_PAGE",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "tagId": "6",
+                "name": "Conversion Linker",
+                "type": "gclidw",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableCrossDomain",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableUrlPassthrough",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableCookieOverrides",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1773080524443",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "tagId": "7",
+                "name": "Google Ads Tag AW-658407689",
+                "type": "googtag",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "tagId",
+                        "value": "AW-658407689"
+                    }
+                ],
+                "fingerprint": "1773081060852",
+                "firingTriggerId": [
+                    "2147479573"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "tagId": "9",
+                "name": "GAds Remarketing",
+                "type": "sp",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableConversionLinker",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableDynamicRemarketing",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionId",
+                        "value": "658407689"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "customParamsFormat",
+                        "value": "NONE"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "rdp",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1773081406642",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "tagId": "12",
+                "name": "Phone Calls Click Tag",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "eventSettingsTable",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "phone_number"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Click URL}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameter",
+                                        "value": "page_location"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "parameterValue",
+                                        "value": "{{Page URL}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "phone_call_click"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "G-E8VY10JCF2"
+                    }
+                ],
+                "fingerprint": "1773152647212",
+                "firingTriggerId": [
+                    "11"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "tagId": "15",
+                "name": "UTM Capture - Store to LocalStorage",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\n(function() {\n  var params = new URLSearchParams(window.location.search);\n  var utms = ['utm_source', 'utm_medium', 'utm_campaign', \n              'utm_content', 'utm_term'];\n  \n  utms.forEach(function(key) {\n    var val = params.get(key);\n    if (val) {\n      localStorage.setItem('fab_' + key, val);\n    }\n  });\n})();\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1773236668323",
+                "firingTriggerId": [
+                    "14"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "tagId": "16",
+                "name": "UTM Restore - Push to dataLayer",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\n(function() {\n  var utms = ['utm_source', 'utm_medium', 'utm_campaign', \n              'utm_content', 'utm_term'];\n  var utmData = {};\n  \n  utms.forEach(function(key) {\n    var val = localStorage.getItem('fab_' + key);\n    if (val) utmData[key] = val;\n  });\n\n  window.dataLayer = window.dataLayer || [];\n  dataLayer.push({\n    'event': 'utm_restored',\n    'utm_source':   utmData.utm_source   || '(not set)',\n    'utm_medium':   utmData.utm_medium   || '(not set)',\n    'utm_campaign': utmData.utm_campaign || '(not set)',\n    'utm_content':  utmData.utm_content  || '(not set)',\n    'utm_term':     utmData.utm_term     || '(not set)'\n  });\n})();\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1773236719425",
+                "firingTriggerId": [
+                    "5"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "tagId": "23",
+                "name": "CallRail Tag",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": " <script type=\"text/javascript\" src=\"//cdn.callrail.com/companies/393121212/cf9da51576486483f519/12/swap.js\"></script> "
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1773952564686",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "triggerId": "5",
+                "name": "PageView - ThankYou",
+                "type": "PAGEVIEW",
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page URL}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "/thank-you"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1773080429882"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "triggerId": "11",
+                "name": "Phone Call Click Trigger",
+                "type": "LINK_CLICK",
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click URL}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "tel:"
+                            }
+                        ]
+                    }
+                ],
+                "autoEventFilter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Click URL}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "tel:"
+                            }
+                        ]
+                    }
+                ],
+                "waitForTags": {
+                    "type": "BOOLEAN",
+                    "value": "true"
+                },
+                "checkValidation": {
+                    "type": "BOOLEAN",
+                    "value": "true"
+                },
+                "waitForTagsTimeout": {
+                    "type": "TEMPLATE",
+                    "value": "2000"
+                },
+                "uniqueTriggerId": {
+                    "type": "TEMPLATE"
+                },
+                "fingerprint": "1773152527756"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "triggerId": "14",
+                "name": "PageView - Lander",
+                "type": "PAGEVIEW",
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page URL}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "/laser-hair-removal-mahopac-offer"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1773236658996"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "triggerId": "22",
+                "name": "Custom Event - utm_restored",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "utm_restored"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1773238048680"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "variableId": "17",
+                "name": "dlv - utm_source",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "utm_source"
+                    }
+                ],
+                "fingerprint": "1773236886205",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "variableId": "18",
+                "name": "dlv - utm_medium",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "utm_medium"
+                    }
+                ],
+                "fingerprint": "1773236907345",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "variableId": "19",
+                "name": "dlv - utm_campaign",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "utm_campaign"
+                    }
+                ],
+                "fingerprint": "1773236925341",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "variableId": "20",
+                "name": "dlv - utm_content",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "utm_content"
+                    }
+                ],
+                "fingerprint": "1773236943070",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "variableId": "21",
+                "name": "dlv - utm_term",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "utm_term"
+                    }
+                ],
+                "fingerprint": "1773236961698",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "variableId": "24",
+                "name": "url - ec_email",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "ec_email"
+                    }
+                ],
+                "fingerprint": "1774020705110",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "variableId": "25",
+                "name": "url - ec_phone",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "ec_phone"
+                    }
+                ],
+                "fingerprint": "1774020734137",
+                "formatValue": {}
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "EVENT",
+                "name": "Event"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "CLICK_ELEMENT",
+                "name": "Click Element"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "CLICK_CLASSES",
+                "name": "Click Classes"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "CLICK_ID",
+                "name": "Click ID"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "CLICK_TARGET",
+                "name": "Click Target"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "CLICK_URL",
+                "name": "Click URL"
+            },
+            {
+                "accountId": "6343249023",
+                "containerId": "245755225",
+                "type": "CLICK_TEXT",
+                "name": "Click Text"
+            }
+        ],
+        "fingerprint": "1774455382886",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6343249023/containers/245755225/versions/0?apiLink=version"
+    }
+}

@@ -380,7 +380,7 @@ def pull_meta(account_id, start, end, include_creative=True):
 CLIENT_META = {
     "GDM": {
         "vertical":     "ecom",
-        "roas_target":  3.5,
+        "roas_target":  4.0,
         "known_issues": {
             "all":    "Campaigns paused Mar 18-26 (client traveling). CallRail not live — call attribution gap.",
             "google": "Offline purchase upload via Zapier may lag 24-48h; true ROAS likely higher.",
@@ -388,7 +388,7 @@ CLIENT_META = {
     },
     "Estate Jewelry Priced Right": {
         "vertical":     "ecom",
-        "roas_target":  None,
+        "roas_target":  3.0,
         "known_issues": {
             "google": "CRITICAL: Primary GA4 purchase conversion is HIDDEN — campaigns not optimizing toward purchases. ROAS unreliable.",
         },

@@ -38,4 +38,13 @@ Runs weekly. Logs quality scores to a Google Sheet over time to track improvemen
 - `google-ads-scripts/quality-score-tracker.js`
 
 ## Status
-- [ ] Not started
+- [x] Complete (2026-03-23): All 5 P2 scripts built, plus 4 additional scripts:
+  - `google-ads-scripts/budget-pacing-alert.js`
+  - `google-ads-scripts/conversion-drop-alert.js`
+  - `google-ads-scripts/impression-share-monitor.js`
+  - `google-ads-scripts/zero-impression-keywords.js`
+  - `google-ads-scripts/quality-score-tracker.js`
+  - `google-ads-scripts/auction-insights-tracker.js` (new)
+  - `google-ads-scripts/search-term-auto-negatives.js` (new)
+  - `google-ads-scripts/rsa-ad-strength-audit.js` (new)
+  - `google-ads-scripts/label-performance-tagger.js` (new)
