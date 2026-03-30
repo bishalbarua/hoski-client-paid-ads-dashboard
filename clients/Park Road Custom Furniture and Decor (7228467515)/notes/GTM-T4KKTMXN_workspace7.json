@@ -1,0 +1,396 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2026-03-26 19:33:10",
+    "containerVersion": {
+        "path": "accounts/6263085574/containers/202940790/versions/0",
+        "accountId": "6263085574",
+        "containerId": "202940790",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/6263085574/containers/202940790",
+            "accountId": "6263085574",
+            "containerId": "202940790",
+            "name": "parkroadfurniture.com",
+            "publicId": "GTM-T4KKTMXN",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1735401548074",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6263085574/containers/202940790/workspaces?apiLink=container",
+            "features": {
+                "supportUserPermissions": true,
+                "supportEnvironments": true,
+                "supportWorkspaces": true,
+                "supportGtagConfigs": false,
+                "supportBuiltInVariables": true,
+                "supportClients": false,
+                "supportFolders": true,
+                "supportTags": true,
+                "supportTemplates": true,
+                "supportTriggers": true,
+                "supportVariables": true,
+                "supportVersions": true,
+                "supportZones": true,
+                "supportTransformations": false
+            },
+            "tagIds": [
+                "GTM-T4KKTMXN"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "tagId": "3",
+                "name": "Conversion Linker",
+                "type": "gclidw",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableCrossDomain",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableUrlPassthrough",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableCookieOverrides",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1736283794695",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "tagId": "5",
+                "name": "Google Ads Conversion Tracking",
+                "type": "awct",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableNewCustomerReporting",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableConversionLinker",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableProductReporting",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableEnhancedConversion",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionCookiePrefix",
+                        "value": "_gcl"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableShippingData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionId",
+                        "value": "16808971588"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionLabel",
+                        "value": "z_I3CKu0z4EaEMSaks8-"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "rdp",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1736284499242",
+                "firingTriggerId": [
+                    "4"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "tagId": "7",
+                "name": "GA4 - Global Config",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "GA4 - Page View Tag"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "G-T38QWF8346"
+                    }
+                ],
+                "fingerprint": "1750710248890",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "tagId": "9",
+                "name": "Google Tag",
+                "type": "googtag",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "tagId",
+                        "value": "G-8JPPTDQDKK"
+                    }
+                ],
+                "fingerprint": "1750713853814",
+                "firingTriggerId": [
+                    "2147479573",
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "tagId": "10",
+                "name": "Google Tag AW-16808971588",
+                "type": "googtag",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "tagId",
+                        "value": "AW-16808971588"
+                    }
+                ],
+                "fingerprint": "1758111086170",
+                "firingTriggerId": [
+                    "2147479573"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "tagId": "13",
+                "name": "Google Ads - GHL - Form Submission (Calendar Page)",
+                "type": "awct",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableNewCustomerReporting",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableConversionLinker",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableProductReporting",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableShippingData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionId",
+                        "value": "16808971588"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionLabel",
+                        "value": "rbH3CP71wZwbEMSaks8-"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "rdp",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1758111218977",
+                "firingTriggerId": [
+                    "11",
+                    "12"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "triggerId": "4",
+                "name": "Page View",
+                "type": "PAGEVIEW",
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "/contact"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1736284488887"
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "triggerId": "11",
+                "name": "Virtual - Form Submission (Calendar Page)",
+                "type": "PAGEVIEW",
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page URL}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "hcwbxW8u9P12eduR9EFo"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1761071526999"
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "triggerId": "12",
+                "name": "InStore - Form Submission (Calendar Page)",
+                "type": "PAGEVIEW",
+                "filter": [
+                    {
+                        "type": "CONTAINS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page URL}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "suderpUU7sVWaEQL6hwA"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1761071501587"
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "6263085574",
+                "containerId": "202940790",
+                "type": "EVENT",
+                "name": "Event"
+            }
+        ],
+        "fingerprint": "1774553590152",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6263085574/containers/202940790/versions/0?apiLink=version"
+    }
+}

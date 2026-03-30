@@ -1,0 +1,555 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2026-03-27 18:55:17",
+    "containerVersion": {
+        "path": "accounts/6270556512/containers/207118332/versions/0",
+        "accountId": "6270556512",
+        "containerId": "207118332",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/6270556512/containers/207118332",
+            "accountId": "6270556512",
+            "containerId": "207118332",
+            "name": "www.lawdesai.com",
+            "publicId": "GTM-NSXNGWCR",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1765289918139",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6270556512/containers/207118332/workspaces?apiLink=container",
+            "features": {
+                "supportUserPermissions": true,
+                "supportEnvironments": true,
+                "supportWorkspaces": true,
+                "supportGtagConfigs": false,
+                "supportBuiltInVariables": true,
+                "supportClients": false,
+                "supportFolders": true,
+                "supportTags": true,
+                "supportTemplates": true,
+                "supportTriggers": true,
+                "supportVariables": true,
+                "supportVersions": true,
+                "supportZones": true,
+                "supportTransformations": false
+            },
+            "tagIds": [
+                "GTM-NSXNGWCR"
+            ]
+        },
+        "tag": [
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "tagId": "6",
+                "name": "GA4 - generate_lead",
+                "type": "gaawe",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "sendEcommerceData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventName",
+                        "value": "generate_lead"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "measurementIdOverride",
+                        "value": "G-E5Q94T597D"
+                    }
+                ],
+                "fingerprint": "1774630815066",
+                "firingTriggerId": [
+                    "5"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_NEEDED"
+                }
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "tagId": "7",
+                "name": "FormElementor - Listener",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\ndocument.addEventListener('submit', function(e) {\n  var form = e.target;\n  // Check it's an Elementor form\n  if (form.classList.contains('elementor-form') || form.closest('.elementor-form-fields')) {\n    window.dataLayer = window.dataLayer || [];\n    window.dataLayer.push({\n      'event': 'elementorFormSubmitted',\n      'formId': form.getAttribute('id') || '',\n      'pageUrl': window.location.href\n    });\n  }\n}, true); // useCapture: true to catch before Elementor prevents default\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1774623236294",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "tagId": "8",
+                "name": "FormerlyApexChat",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "< script type=\"text/javascript\">\nwindow.ChatInterceptor = function () {\n// replace this code with what your website needs:\n_gaq.push(['_trackEvent', 'Invitation', 'Click']);\n};\n< /script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1747963414323",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "paused": true,
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "tagId": "9",
+                "name": "ConversionLinker",
+                "type": "gclidw",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableCrossDomain",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableUrlPassthrough",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableCookieOverrides",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1740653210639",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "tagId": "10",
+                "name": "GAds generate_lead",
+                "type": "awct",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableNewCustomerReporting",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableConversionLinker",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableProductReporting",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionCookiePrefix",
+                        "value": "_gcl"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableShippingData",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionId",
+                        "value": "16485769580"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionLabel",
+                        "value": "TLXSCMzk4KMaEOzCg7U9"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "rdp",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1774630842133",
+                "firingTriggerId": [
+                    "5"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_NEEDED"
+                }
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "tagId": "11",
+                "name": "Сall",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\n  gtag('config', 'AW-16485769580/I9A1CKimkqQaEOzCg7U9', {\n    'phone_conversion_number': '+18332707800'\n  });\n</script>\n"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1741075402981",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "paused": true,
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "tagId": "14",
+                "name": "GA4 Config G-E5Q94T597D",
+                "type": "googtag",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "tagId",
+                        "value": "G-E5Q94T597D"
+                    }
+                ],
+                "fingerprint": "1774631950060",
+                "firingTriggerId": [
+                    "2147479573"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "tagId": "16",
+                "name": "CallRail DNI",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script type=\"text/javascript\" src=\"//cdn.callrail.com/companies/664976352/771444b26940e7ac007f/12/swap.js\"></script> "
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1774633619867",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "triggerId": "5",
+                "name": "Elementor FormSubmitted",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "elementorFormSubmitted"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1774632713454"
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "EVENT",
+                "name": "Event"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "CLICK_ELEMENT",
+                "name": "Click Element"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "CLICK_CLASSES",
+                "name": "Click Classes"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "CLICK_ID",
+                "name": "Click ID"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "CLICK_TARGET",
+                "name": "Click Target"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "CLICK_URL",
+                "name": "Click URL"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "CLICK_TEXT",
+                "name": "Click Text"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "FORM_ELEMENT",
+                "name": "Form Element"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "FORM_CLASSES",
+                "name": "Form Classes"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "FORM_ID",
+                "name": "Form ID"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "FORM_TARGET",
+                "name": "Form Target"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "FORM_URL",
+                "name": "Form URL"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "FORM_TEXT",
+                "name": "Form Text"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "ERROR_MESSAGE",
+                "name": "Error Message"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "ERROR_URL",
+                "name": "Error URL"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "ERROR_LINE",
+                "name": "Error Line"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "CONTAINER_VERSION",
+                "name": "Container Version"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "DEBUG_MODE",
+                "name": "Debug Mode"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "RANDOM_NUMBER",
+                "name": "Random Number"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "CONTAINER_ID",
+                "name": "Container ID"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "HTML_ID",
+                "name": "HTML ID"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "ENVIRONMENT_NAME",
+                "name": "Environment Name"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "VIDEO_PROVIDER",
+                "name": "Video Provider"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "VIDEO_PERCENT",
+                "name": "Video Percent"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "VIDEO_CURRENT_TIME",
+                "name": "Video Current Time"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "SCROLL_DEPTH_THRESHOLD",
+                "name": "Scroll Depth Threshold"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "SCROLL_DEPTH_UNITS",
+                "name": "Scroll Depth Units"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "SCROLL_DEPTH_DIRECTION",
+                "name": "Scroll Direction"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "ELEMENT_VISIBILITY_RATIO",
+                "name": "Percent Visible"
+            },
+            {
+                "accountId": "6270556512",
+                "containerId": "207118332",
+                "type": "ELEMENT_VISIBILITY_TIME",
+                "name": "On-Screen Duration"
+            }
+        ],
+        "fingerprint": "1774637717944",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6270556512/containers/207118332/versions/0?apiLink=version"
+    }
+}

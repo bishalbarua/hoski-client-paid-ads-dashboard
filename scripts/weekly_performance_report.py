@@ -67,8 +67,9 @@ META_CLIENTS = {
     "Serenity Familycare":                  "853944849499524",
     "Som K. Plastic Surgery":               "1401504290137519",
     "Sunstone Health":                      "4292269397710725",
+    "Synergy Spine & Nerve Center":         "2121931534696543",
     "Texas FHC":                            "331716185722452",
-    "Voit Dental 1":                        "236091069101354",
+    "Voit Dental 1":                        "1092673602882817",
 }
 
 MCC_ID = "4781259815"
@@ -108,7 +109,7 @@ def last_sun_sat_week(override_start=None, override_end=None):
 # Online purchases    offsite_conversion.fb_pixel_purchase     purchase
 # Purchase value      offsite_conversion.fb_pixel_purchase     purchase (value)
 # Website leads       offsite_conversion.fb_pixel_lead         lead
-# Lead-gen leads      leadgen_grouped                          (no overlap)
+# Lead-gen leads      onsite_conversion.lead_grouped           (no overlap; replaces old leadgen_grouped)
 # Add to cart         offsite_conversion.fb_pixel_add_to_cart  add_to_cart
 # Checkout started    offsite_conversion.fb_pixel_initiate_checkout
 # Offline purchases   offline_conversion.purchase              (no overlap)
@@ -298,7 +299,7 @@ def pull_meta(account_id, start, end, include_creative=True):
 
         spend            += float(row.get("spend", 0))
         form_leads       += (acts.get("offsite_conversion.fb_pixel_lead", 0) +
-                             acts.get("leadgen_grouped", 0))
+                             acts.get("onsite_conversion.lead_grouped", 0))
         call_leads       += acts.get("onsite_conversion.flow_complete", 0)
         online_purchase  += acts.get("offsite_conversion.fb_pixel_purchase", 0)
         offline_purchase += acts.get("offline_conversion.purchase", 0)
@@ -320,7 +321,7 @@ def pull_meta(account_id, start, end, include_creative=True):
                 a = {x["action_type"]: float(x["value"]) for x in (r.get("actions") or [])}
                 return (
                     a.get("offsite_conversion.fb_pixel_purchase", 0),
-                    a.get("offsite_conversion.fb_pixel_lead", 0) + a.get("leadgen_grouped", 0),
+                    a.get("offsite_conversion.fb_pixel_lead", 0) + a.get("onsite_conversion.lead_grouped", 0),
                     float(r.get("spend", 0)),
                 )
 
@@ -581,17 +582,15 @@ def build_row(client_name, platform, account_id, data, week_start, week_end):
     spend           = data.get("spend", 0) or 0
     form_leads      = data.get("form_leads", 0) or 0
     call_leads      = data.get("call_leads", 0) or 0
-    blended_leads   = form_leads + call_leads
-    blended_cpl     = round(spend / blended_leads, 2) if blended_leads > 0 else ""
     online_purch    = data.get("online_purchase", 0) or 0
     offline_purch   = data.get("offline_purchase", 0) or 0
-    total_purch     = online_purch + offline_purch
     purchase_value  = data.get("purchase_value", 0) or 0
     add_to_carts    = data.get("add_to_carts", 0) or 0
     checkouts       = data.get("checkouts", 0) or 0
-    total_revenue   = purchase_value
-    roas            = round(total_revenue / spend, 2) if spend > 0 and total_revenue > 0 else ""
 
+    # Columns J, K, O, S, T are left blank here — formulas are written by
+    # apply_sheet_formulas() after the rows land in the sheet so they can
+    # reference their own row numbers.
     return [
         week_start,
         week_end,
@@ -602,17 +601,17 @@ def build_row(client_name, platform, account_id, data, week_start, week_end):
         _r(spend),
         _r(form_leads, 0),
         _r(call_leads, 0),
-        _r(blended_leads, 0),
-        blended_cpl,
-        "",                              # Closed Leads — manual / CRM
+        "",                              # J: Blended Leads — formula
+        "",                              # K: Blended CPL   — formula
+        "",                              # L: Closed Leads  — manual / CRM
         _r(online_purch, 0),
         _r(offline_purch, 0),
-        _r(total_purch, 0),
+        "",                              # O: Total Purchase — formula
         _r(purchase_value),
         _r(add_to_carts, 0),
         _r(checkouts, 0),
-        _r(total_revenue),
-        roas,
+        "",                              # S: Total Revenue  — formula
+        "",                              # T: ROAS           — formula
         data.get("top_creative", ""),
         generate_notes(client_name, platform, data),
         date.today().isoformat(),
@@ -624,15 +623,13 @@ def build_row(client_name, platform, account_id, data, week_start, week_end):
 TAB_NAME = "Weekly Report"
 
 
-def write_to_sheet(rows, week_start, replace=False, platform_filter=None):
+def write_to_sheet(rows, week_start, replace=False, platform_filter=None, client_filter=None):
     """
-    Write rows to the 'Weekly Report' tab, then re-sort the full sheet by
-    Client (col C) then Platform (col D) so Google and Meta always appear
-    together per client.
+    Write rows to the 'Weekly Report' tab.
 
-    replace=True removes existing rows that match BOTH week_start AND
-    platform_filter before appending, leaving the other platform's rows
-    untouched.
+    replace=True removes existing rows that match week_start AND
+    platform_filter AND client_filter before appending, so a single-client
+    or single-platform re-run never wipes other clients' data.
     """
     sheet_id   = os.environ.get("GOOGLE_SHEETS_ID")
     creds_path = os.environ.get("GOOGLE_SHEETS_CREDS_PATH",
@@ -668,8 +665,9 @@ def write_to_sheet(rows, week_start, replace=False, platform_filter=None):
         print(f"[Sheets] Created tab '{TAB_NAME}' with headers.")
 
     if replace:
-        # Remove rows matching week_start AND platform_filter (col D, index 3).
-        # Rows from other platforms or other weeks are kept untouched.
+        # Remove rows matching week_start AND platform_filter (col D, index 3)
+        # AND client_filter (col C, index 2). Only rows matching all active
+        # filters are removed — other clients/platforms/weeks are untouched.
         existing = ws.get_all_values()
         if len(existing) > 1:
             kept = [existing[0]]  # always keep header
@@ -677,28 +675,64 @@ def write_to_sheet(rows, week_start, replace=False, platform_filter=None):
             for r in existing[1:]:
                 week_match     = r and r[0] == week_start
                 platform_match = (not platform_filter) or (len(r) > 3 and r[3] == platform_filter)
-                if week_match and platform_match:
+                client_match   = (not client_filter)   or (len(r) > 2 and r[2] == client_filter)
+                if week_match and platform_match and client_match:
                     removed += 1
                 else:
                     kept.append(r)
             ws.clear()
             if kept:
                 ws.update(kept, value_input_option="USER_ENTERED")
-            print(f"[Sheets] Replaced {removed} existing {platform_filter or 'all'} rows for week {week_start}.")
+            label = client_filter or "all clients"
+            print(f"[Sheets] Replaced {removed} existing rows for {label} / week {week_start}.")
 
     ws.append_rows(rows, value_input_option="USER_ENTERED")
     print(f"[Sheets] Appended {len(rows)} rows to '{TAB_NAME}' (week {week_start}).")
+    apply_sheet_formulas(ws)
 
-    # Re-sort entire sheet by Client (col C = index 2) then Platform (col D = index 3),
-    # keeping the header row pinned at the top.
-    all_data = ws.get_all_values()
-    if len(all_data) > 2:
-        header   = all_data[0]
-        data_rows = all_data[1:]
-        data_rows.sort(key=lambda r: (r[2] if len(r) > 2 else "", r[3] if len(r) > 3 else ""))
-        ws.clear()
-        ws.update([header] + data_rows, value_input_option="USER_ENTERED")
-        print(f"[Sheets] Re-sorted {len(data_rows)} rows by client and platform.")
+
+def apply_sheet_formulas(ws):
+    """
+    Write formulas into the computed columns for every data row:
+      J = Blended Leads  (H + I)
+      K = Blended CPL    (G / J)
+      O = Total Purchase (M + N)
+      S = Total Revenue  (= P, Purchase Value)
+      T = ROAS           (S / G)
+    Safe to call repeatedly — rewrites formulas in place without touching
+    any other columns.
+    """
+    num_rows = len(ws.get_all_values())  # includes header
+    if num_rows < 2:
+        return
+
+    updates = []
+    for r in range(2, num_rows + 1):
+        updates += [
+            # J: Blended Leads = Form Leads + Call Leads
+            {"range": f"J{r}", "values": [[
+                f'=IF(OR(H{r}<>"",I{r}<>""),IFERROR(VALUE(H{r}),0)+IFERROR(VALUE(I{r}),0),"")'
+            ]]},
+            # K: Blended CPL = Spend / Blended Leads
+            {"range": f"K{r}", "values": [[
+                f'=IFERROR(IF(J{r}>0,ROUND(G{r}/J{r},2),""),"")'
+            ]]},
+            # O: Total Purchase = Online + Offline
+            {"range": f"O{r}", "values": [[
+                f'=IF(OR(M{r}<>"",N{r}<>""),IFERROR(VALUE(M{r}),0)+IFERROR(VALUE(N{r}),0),"")'
+            ]]},
+            # S: Total Revenue = Purchase Value
+            {"range": f"S{r}", "values": [[
+                f'=IF(P{r}<>"",P{r},"")'
+            ]]},
+            # T: ROAS = Total Revenue / Spend
+            {"range": f"T{r}", "values": [[
+                f'=IFERROR(IF(AND(G{r}<>"",G{r}>0,S{r}<>"",S{r}>0),ROUND(S{r}/G{r},2),""),"")'
+            ]]},
+        ]
+
+    ws.batch_update(updates, value_input_option="USER_ENTERED")
+    print(f"[Sheets] Applied formulas to {num_rows - 1} data rows (J, K, O, S, T).")
 
 
 # ─── DASHBOARD ────────────────────────────────────────────────────────────────
@@ -753,7 +787,7 @@ def create_dashboard():
     )
     f_week_end = (
         "=IFERROR(TEXT(MAX(FILTER('Weekly Report'!B2:B,"
-        "'Weekly Report'!A2:A=B2)),\"yyyy-mm-dd\"),\"\")"
+        "'Weekly Report'!A2:A=DATEVALUE(B2))),\"yyyy-mm-dd\"),\"\")"
     )
 
     # Detail QUERY: one row per client x platform for the latest week.
@@ -921,7 +955,8 @@ def main():
         else:
             platform_filter = None   # both platforms — replace all rows for the week
         write_to_sheet(all_rows, week_start, replace=args.replace,
-                       platform_filter=platform_filter)
+                       platform_filter=platform_filter,
+                       client_filter=args.client or None)
         if not args.no_dashboard:
             create_dashboard()
     else:

@@ -1,6 +1,7 @@
 # Synergy Spine & Nerve Center
 
-**Account ID:** 7628667762
+**Google Ads Account ID:** 7628667762
+**Meta Ads Account ID:** act_2121931534696543
 **Industry / Vertical:** Healthcare — Chiropractic / Neurology / Pain Management
 **Account Status:** Active
 

@@ -1,7 +1,7 @@
 # Voit Dental — Client Intelligence Brief
 
 **Google Ads Account ID:** 5216656756
-**Meta Ads Account ID:** 236091069101354
+**Meta Ads Account ID:** 1092673602882817
 **Industry / Vertical:** Dental (Full Arch Implants / Prosthodontics)
 **Account Status:** Active
 **Last updated:** 2026-03-22

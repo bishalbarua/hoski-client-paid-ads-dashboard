@@ -264,6 +264,7 @@ Aetna, Anthem, BCBS, Humana, Medicare, Ambetter, BSW Health Plan, TriWest, UHC â
 7. **Old domain:** Several paused campaigns point to texasjointandspine.com. Confirm if live or being sunset.
 8. **Budget mismatch:** "TX - Search - [Best Converters]" set to $25/day but spending ~$4,730/month â€” investigate overspend.
 9. **New Hoski campaigns:** Both launched Mar 17, still in learning phase, 0 conversions. Monitor closely.
+For future reference, please do not schedule Medicare patients. Especially if they need transportation. They can not afford our services.
 
 ---
 
