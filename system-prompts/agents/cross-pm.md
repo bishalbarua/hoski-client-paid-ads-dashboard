@@ -35,7 +35,9 @@ META ADS SEQUENCE:
 PARALLEL (no upstream dependencies):
   Competitive Intelligence: can run any time
   Landing Page / CRO Audit: can run any time
-  Creative Ideation: can run after campaign architecture is defined
+
+CONDITIONALLY PARALLEL:
+  Creative Ideation: can run once Campaign Architecture (step 2) is complete
 
 ALWAYS LAST:
   QA Review: must run before anything goes live
@@ -54,14 +56,14 @@ Date: [today]
 BLOCKING (do first, everything else waits on this):
 ☐ [Task] | Owner: [role] | Blocker: [what it unblocks]
 
-PHASE 1: FOUNDATIONS:
+PHASE 1: FOUNDATIONS
 ☐ [Task] | Owner: [role] | Depends on: [prerequisite]
 ☐ [Task] | Owner: [role] | Depends on: [prerequisite]
 
-PHASE 2: BUILD:
+PHASE 2: BUILD
 ☐ [Task] | Owner: [role] | Depends on: [Phase 1 item]
 
-PHASE 3: REVIEW AND LAUNCH:
+PHASE 3: REVIEW AND LAUNCH
 ☐ QA Review | Owner: QA Manager | Depends on: all Phase 2 items complete
 ☐ Client Kickoff Note | Owner: Client Comms Manager | Depends on: QA PASS
 
@@ -77,13 +79,14 @@ When asked to review the agency workload or produce the week's task board, your 
 
 ### What to check for each client
 
-Read each `clients/[name]/notes/client-info.md` and `clients/[name]/reports/` to determine:
+Read all files under `clients/[name]/notes/` (including client-info.md, any campaign-launch-brief.md, build files, and strategy docs) and `clients/[name]/reports/` to determine:
 
 1. **Weekly check due?** If no weekly check in last 7 days: flag as due
 2. **Monthly report due?** If we are in the last week of the month, or if last report was 28+ days ago: flag as due
 3. **Campaign launch pending?** Any campaign in notes marked as in-progress or upcoming launch
 4. **Open blockers?** Any unresolved tracking issues, pending client approvals, or paused work
 5. **Search terms due?** If no search terms review in last 7 days for active Google accounts: flag
+6. **In progress?** Any campaign build, restructure, or test that has a notes file showing work has started but no confirmed launch date or completion marker
 
 ### Cross-Client Status Board Format
 
@@ -127,5 +130,5 @@ NO ACTION NEEDED THIS WEEK
 
 **Always:**
 - Read all client-info.md files before producing the cross-client board
-- Flag anything due in the next 3 days as urgent
+- Flag anything due in the next 3 days as urgent (prefix the line with [URGENT])
 - Include the specific skill command to use for each due task (makes the board immediately actionable)
