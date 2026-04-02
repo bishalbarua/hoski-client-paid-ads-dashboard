@@ -16,12 +16,14 @@ Before loading any agent, complete the setup steps below. Rushing to specialist 
 | Skill | When to Use |
 |---|---|
 | `/marketing-director` | Complex multi-specialist tasks: builds, audits, restructures, strategic diagnosis |
-| `/weekly-check` | Weekly operational review for a single client |
+| `/google-manager` | Weekly Google operations: pacing, search terms, copy, negatives |
+| `/meta-manager` | Weekly Meta operations: creative, pacing, pixel health |
+| `/cmo` | Agency-level cross-client review and priority routing |
 | `/ppc-account-health-check` | One-time strategic health assessment |
 | `/ads-strategy-architect` | New client strategy from a business URL |
 | `/campaign-scaling-expert` | Scaling roadmap for existing campaigns |
 
-**Rule:** Use `/marketing-director` when the task genuinely requires more than one specialist. For focused single-domain questions, use the dedicated skill — it is faster and more precise.
+**Rule:** Use `/marketing-director` when the task genuinely requires more than one specialist. For focused single-domain questions, use the dedicated skill: it is faster and more precise.
 
 ---
 
@@ -35,7 +37,7 @@ TEAM WORKSPACE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Client:   [name or "new client"]
 Date:     [today's date]
-Request:  [what was asked — verbatim or close paraphrase]
+Request:  [what was asked, verbatim or close paraphrase]
 Context:  [client notes file loaded / data provided / no prior context]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -89,8 +91,8 @@ DIRECTOR SCOPE STATEMENT
 Request category: [New build / Performance diagnosis / Creative / Audit / Other]
 
 Specialists to deploy (in order):
-  1. [Specialist name] — [one sentence on why needed]
-  2. [Specialist name] — [why]
+  1. [Specialist name]: [one sentence on why needed]
+  2. [Specialist name]: [why]
   3. [...]
 
 Dependency sequence: [brief note on why this order]
@@ -114,22 +116,18 @@ Do not proceed to specialist work until this is written.
 
 For each specialist in the sequence from the Scope Statement:
 
-**3a. Load the specialist's agent file using the Read tool.** File locations:
+**3a. Load the appropriate skill file using the Read tool.** Skill file locations (new layer architecture):
 
-| Specialist | File |
+| Work Type | Skill File to Load |
 |---|---|
-| Keyword Intelligence Agent | `system-prompts/agents/google-keyword-intelligence.md` |
-| Search Terms Analyst | `system-prompts/agents/google-search-terms-analyst.md` |
-| Campaign Architect | `system-prompts/agents/google-campaign-architect.md` |
-| Ad Copy Strategist | `system-prompts/agents/google-ad-copy-strategist.md` |
-| Bid & Budget Optimizer | `system-prompts/agents/google-bid-budget-optimizer.md` |
-| Competitive Intelligence Agent | `system-prompts/agents/cross-competitive-intelligence.md` |
-| Conversion Tracking Guardian | `system-prompts/agents/google-conversion-tracking-guardian.md` |
-| Meta Campaign Strategist | `system-prompts/agents/meta-campaign-strategist.md` |
-| Meta Creative Strategist | `system-prompts/agents/meta-creative-strategist.md` |
-| Meta Audience Architect | `system-prompts/agents/meta-audience-architect.md` |
-| Meta Bid & Budget Optimizer | `system-prompts/agents/meta-bid-budget-optimizer.md` |
-| Meta Creative Performance Analyst | `system-prompts/agents/meta-creative-performance-analyst.md` |
+| Google Ads strategy (structure, keywords, bids) | `.claude/skills/google-strategist/SKILL.md` |
+| Google Ads execution (weekly ops, search terms) | `.claude/skills/google-manager/SKILL.md` |
+| Meta Ads strategy (funnel, audiences, creative brief) | `.claude/skills/meta-strategist/SKILL.md` |
+| Meta Ads execution (monitoring, creative, pacing) | `.claude/skills/meta-manager/SKILL.md` |
+| Creative work (audit, ideation, copy, concepts) | `.claude/skills/creative-strategist/SKILL.md` |
+| Landing page / CRO work | `.claude/skills/cro-strategist/SKILL.md` |
+| Competitive intelligence | `.claude/skills/competitive/SKILL.md` |
+| QA review (always last) | `.claude/skills/qa/SKILL.md` |
 
 **3b. Issue a scoped Director brief before the specialist begins.** Use the Marketing Director's brief format:
 
@@ -196,7 +194,7 @@ Load the QA Specialist agent file:
 system-prompts/agents/cross-qa-specialist.md
 ```
 
-As the QA Specialist, read the entire Team Workspace — all specialist outputs plus the Director Synthesis — and run the adversarial review across all six categories:
+As the QA Specialist, read the entire Team Workspace (all specialist outputs plus the Director Synthesis) and run the adversarial review across all six categories:
 
 1. Data Hallucinations
 2. Logical Gaps and Internal Contradictions
@@ -226,7 +224,7 @@ system-prompts/agents/cross-marketing-director.md
 As the Marketing Director, read the QA verdict and produce the final deliverable:
 
 **If QA verdict is PASS:**
-Present the Director Synthesis as the final output under the Final Report header. Add one line: "QA review completed — all outputs cleared."
+Present the Director Synthesis as the final output under the Final Report header. Add one line: "QA review completed, all outputs cleared."
 
 **If QA verdict is CONDITIONAL PASS:**
 Revise only the flagged sections using the QA's corrective actions. Do not rewrite sections that were cleared. Present the corrected synthesis under the Final Report header. Add a brief QA Notes section listing what was revised and why.
@@ -258,6 +256,6 @@ After the final report, offer to provide the full Team Workspace on request: "Th
 
 3. **QA is not optional.** Every session ends with a QA review. If the output is clean, QA passes in a few minutes. If there are real problems, QA is what catches them before they become client-visible errors.
 
-4. **One coherent report, not a pile of specialist outputs.** The user should receive a single, integrated, prioritized report — not a multi-section document where they have to reconcile contradictions themselves. The Director's job is integration.
+4. **One coherent report, not a pile of specialist outputs.** The user should receive a single, integrated, prioritized report, not a multi-section document where they have to reconcile contradictions themselves. The Director's job is integration.
 
 5. **What not to touch is as important as what to fix.** Every account has things working well. The action plan that only lists fixes without protecting what is working creates optimization-induced regression.
