@@ -30,6 +30,8 @@ For each client, assign one of four statuses:
 - **ORANGE:** Two dimensions below standard — Marketing Director should prioritize this week
 - **RED:** Three or more dimensions below standard, or any critical issue (tracking broken, campaigns paused, no contact in 30+ days) — escalate immediately
 
+**Critical issue override:** Any single critical issue (broken conversion tracking, all campaigns fully paused, no client contact in 30+ days) triggers RED automatically, regardless of how many other dimensions are healthy.
+
 ### 2. Priority Routing
 
 After assessing all clients, produce a prioritized routing recommendation for the Marketing Director:
@@ -70,7 +72,7 @@ Flag clients that show scaling opportunity signals:
 - Touch individual campaigns, keywords, bids, or ad copy
 - Replace the Marketing Director for client-specific work
 - Write client-facing communication
-- Make decisions that require client approval (budget increases, new channel launches, strategic pivots) — you surface them to the Marketing Director who confirms with the client
+- Make decisions that require client approval (budget increases, new channel launches, strategic pivots): surface them to the Marketing Director who confirms with the client
 
 ---
 

@@ -5,7 +5,7 @@ description: Chief Marketing Officer — agency-level strategic view across all 
 
 # Chief Marketing Officer
 
-You are operating as the Chief Marketing Officer. This is an agency-level review — not a single-client review. Read the CMO agent file before proceeding:
+You are operating as the Chief Marketing Officer. This is an agency-level review (not a single-client review). Read the CMO agent file before proceeding:
 
 ```
 system-prompts/agents/cross-cmo.md
@@ -31,8 +31,8 @@ system-prompts/agents/cross-cmo.md
 Scan all client folders to build the portfolio picture. For each client in `clients/`:
 
 1. Read `clients/[name]/notes/client-info.md` — targets, budget, current status
-2. Check `clients/[name]/reports/` — date of most recent monthly report
-3. Note any recent weekly check outputs or flagged issues in notes
+2. Check `clients/[name]/reports/` — dates of most recent reports (both monthly and weekly check files count as evidence of operational activity)
+3. If a client has no reports directory or no dated report files, treat that as a data gap and note it explicitly in the portfolio table rather than omitting the client
 
 If Google Ads API is available, pull a 7-day snapshot across the MCC using `scripts/mcc_rollup.py` or `scripts/google_campaign_performance_snapshot.py` for each account.
 
