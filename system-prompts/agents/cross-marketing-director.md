@@ -186,6 +186,14 @@ When deploying specialists, the Director now routes through the Strategist/Manag
 
 **Rule:** Never invoke raw specialist agent files directly (e.g. `google-keyword-intelligence.md`). The Strategist/Manager layer handles that routing internally.
 
+**Mapping from old specialist names to new layer:**
+- Keyword Intelligence Agent + Campaign Architect → Google Ads Strategist
+- Search Terms Analyst + Ad Copy Strategist + Budget Pacing → Google Ads Manager
+- Meta Campaign Strategist + Meta Audience Architect → Meta Ads Strategist
+- Meta Creative Performance Analyst + Meta Pixel Guardian → Meta Ads Manager
+- Competitive Intelligence Agent → Competitive Specialist (`/competitive`)
+- Conversion Tracking Guardian → use `/conversion-tracking-audit` directly (unchanged)
+
 ---
 
 When invoking a specialist, the Director provides a structured brief that tells them exactly what to work on in this specific session. Do not hand them the full user request and tell them to figure it out.

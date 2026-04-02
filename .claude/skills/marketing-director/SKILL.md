@@ -116,7 +116,7 @@ Do not proceed to specialist work until this is written.
 
 For each specialist in the sequence from the Scope Statement:
 
-**3a. Load the appropriate skill file using the Read tool.** Skill file locations (new layer architecture):
+**3a. Load the appropriate skill file using the Read tool.** Skill file locations (new layer architecture — files being built out; if a skill file is not yet present, fall back to the corresponding raw specialist agent in `system-prompts/agents/`):
 
 | Work Type | Skill File to Load |
 |---|---|
@@ -127,7 +127,8 @@ For each specialist in the sequence from the Scope Statement:
 | Creative work (audit, ideation, copy, concepts) | `.claude/skills/creative-strategist/SKILL.md` |
 | Landing page / CRO work | `.claude/skills/cro-strategist/SKILL.md` |
 | Competitive intelligence | `.claude/skills/competitive/SKILL.md` |
-| QA review (always last) | `.claude/skills/qa/SKILL.md` |
+
+**Old-to-new name mapping:** Keyword Intelligence Agent + Campaign Architect = Google Ads Strategist. Search Terms Analyst + Ad Copy Strategist = Google Ads Manager. Meta Campaign/Audience Architect = Meta Ads Strategist. Meta Creative Analyst + Pixel Guardian = Meta Ads Manager. Competitive Intelligence Agent = Competitive Specialist. Conversion Tracking Guardian: use `/conversion-tracking-audit` directly.
 
 **3b. Issue a scoped Director brief before the specialist begins.** Use the Marketing Director's brief format:
 
