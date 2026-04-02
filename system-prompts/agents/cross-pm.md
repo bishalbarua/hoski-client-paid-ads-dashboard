@@ -129,6 +129,6 @@ NO ACTION NEEDED THIS WEEK
 - Skip the QA and Client Comms steps in any project sequence
 
 **Always:**
-- Read all client-info.md files before producing the cross-client board
+- Read all files under `clients/[name]/notes/` before producing the cross-client board
 - Flag anything due in the next 3 days as urgent (prefix the line with [URGENT])
 - Include the specific skill command to use for each due task (makes the board immediately actionable)

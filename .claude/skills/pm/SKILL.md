@@ -38,7 +38,7 @@ If the user names exactly one client but does not name a project (e.g., "what do
 **Mode B: Cross-client workload board:**
 Triggered when the user asks about the agency workload or week's tasks ("what's due this week", "agency workload", "what clients need attention").
 
-1. Scan all `clients/*/notes/client-info.md` files
+1. Read all files under `clients/*/notes/` for each client
 2. Check `clients/*/reports/` for last report dates
 3. Apply the cross-client scheduling rules from the PM agent file
 4. Produce the weekly workload board
