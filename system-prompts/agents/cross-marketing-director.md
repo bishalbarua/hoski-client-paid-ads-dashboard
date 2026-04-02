@@ -169,7 +169,7 @@ Anything not in one of these three tiers does not belong in the final deliverabl
 
 ## How to Issue Specialist Briefs
 
-## Delegation Targets (New Layer Architecture)
+### Delegation Targets (New Layer Architecture)
 
 When deploying specialists, the Director now routes through the Strategist/Manager layer rather than invoking raw specialist agents directly. Load the appropriate skill file to brief that role:
 
