@@ -2,7 +2,7 @@
 **Client:** Park Road Custom Furniture and Decor
 **Account ID:** 7228467515
 **Date:** 2026-03-21
-**Campaigns:** Custom Furniture (London + SW Ontario) | Cottage Furniture (Ontario-wide)
+**Campaigns:** hoski_custom_furniture_search_1apr26 | hoski_cottage_furniture_search_1apr26
 **Prepared by:** Bishal
 
 ---
@@ -114,7 +114,7 @@ class
 
 | Setting | Value |
 |---|---|
-| Campaign name | `Park Road — Custom Furniture` |
+| Campaign name | `hoski_custom_furniture_search_1apr26` |
 | Campaign type | Search |
 | Goal | Leads |
 | Networks | Search Network only — uncheck Display Network and Search Partners for launch |
@@ -136,16 +136,16 @@ Build in this order. Ad Groups 1–5 launch at go-live. Ad Group 6 is Phase 2.
 
 | Priority | Ad Group Name | Theme | Launch Phase |
 |---|---|---|---|
-| 1 | `Custom Furniture — Core` | Direct custom intent | Launch day |
-| 2 | `Furniture Store London` | Local discovery intent | Launch day |
-| 3 | `Dining Room` | Dining room buyers | Week 1 |
-| 4 | `Canadian Made — Solid Wood` | Quality-conscious buyers | Week 1 |
-| 5 | `Living and Bedroom` | Living room and bedroom buyers | Week 2 |
-| 6 | `Entertainment and Storage` | Built-ins and storage | Phase 2 (30+ days) |
+| 1 | `custom_furniture_core` | Direct custom intent | Launch day |
+| 2 | `furniture_store_london` | Local discovery intent | Launch day |
+| 3 | `dining_room` | Dining room buyers | Week 1 |
+| 4 | `canadian_made_solid_wood` | Quality-conscious buyers | Week 1 |
+| 5 | `living_and_bedroom` | Living room and bedroom buyers | Week 2 |
+| 6 | `entertainment_and_storage` | Built-ins and storage | Phase 2 (30+ days) |
 
 ---
 
-### Ad Group 1: Custom Furniture — Core
+### Ad Group 1: custom_furniture_core
 
 **Keywords:**
 ```
@@ -197,7 +197,7 @@ Build in this order. Ad Groups 1–5 launch at go-live. Ad Group 6 is Phase 2.
 
 ---
 
-### Ad Group 2: Furniture Store London
+### Ad Group 2: furniture_store_london
 
 **Keywords:**
 ```
@@ -251,7 +251,7 @@ Build in this order. Ad Groups 1–5 launch at go-live. Ad Group 6 is Phase 2.
 
 ---
 
-### Ad Group 3: Dining Room
+### Ad Group 3: dining_room
 
 **Keywords:**
 ```
@@ -277,7 +277,7 @@ Use the `/rsa-headline-generator` skill to generate full 15+4 RSA for this group
 
 ---
 
-### Ad Group 4: Canadian Made — Solid Wood
+### Ad Group 4: canadian_made_solid_wood
 
 **Keywords:**
 ```
@@ -297,7 +297,7 @@ Use `/rsa-headline-generator` with: keyword = `canadian made furniture`, angle =
 
 ---
 
-### Ad Group 5: Living and Bedroom
+### Ad Group 5: living_and_bedroom
 
 **Keywords:**
 ```
@@ -325,7 +325,7 @@ Use `/rsa-headline-generator` with: keyword = `custom bedroom furniture london o
 
 ---
 
-### Ad Group 6: Entertainment and Storage (Phase 2)
+### Ad Group 6: entertainment_and_storage (Phase 2)
 
 Add at 30 days if budget allows and Ad Groups 1–5 are pacing well.
 
@@ -348,7 +348,7 @@ Add at 30 days if budget allows and Ad Groups 1–5 are pacing well.
 
 | Setting | Value |
 |---|---|
-| Campaign name | `Park Road — Cottage Furniture` |
+| Campaign name | `hoski_cottage_furniture_search_1apr26` |
 | Campaign type | Search |
 | Goal | Leads |
 | Networks | Search Network only |
@@ -390,16 +390,16 @@ Add these on top of the account-level negatives:
 
 | Priority | Ad Group Name | Theme | Est. Volume | Launch Phase |
 |---|---|---|---|---|
-| 1 | `Farmhouse Dining` | Farmhouse/rustic dining tables | 880–4,000/mo | Launch day |
-| 2 | `Muskoka Furniture` | Muskoka-branded furniture intent | 140–880/mo | Launch day |
-| 3 | `Cottage Furniture — Core` | Direct cottage furniture searches | 70–170/mo | Week 1 |
-| 4 | `Cottage Living Room` | Sofas, coffee tables, cottage lounge | 40–260/mo | Week 1 |
-| 5 | `Cottage Bedroom` | Beds, bedroom sets, bunk beds | 30–140/mo | Week 2 |
-| 6 | `Live Edge and Artisan` | Live edge, reclaimed wood, artisan | 20–30/mo | Phase 2 |
+| 1 | `farmhouse_dining` | Farmhouse/rustic dining tables | 880–4,000/mo | Launch day |
+| 2 | `muskoka_furniture` | Muskoka-branded furniture intent | 140–880/mo | Launch day |
+| 3 | `cottage_furniture_core` | Direct cottage furniture searches | 70–170/mo | Week 1 |
+| 4 | `cottage_living_room` | Sofas, coffee tables, cottage lounge | 40–260/mo | Week 1 |
+| 5 | `cottage_bedroom` | Beds, bedroom sets, bunk beds | 30–140/mo | Week 2 |
+| 6 | `live_edge_and_artisan` | Live edge, reclaimed wood, artisan | 20–30/mo | Phase 2 |
 
 ---
 
-### Ad Group 1: Farmhouse Dining
+### Ad Group 1: farmhouse_dining
 
 **Keywords:**
 ```
@@ -462,7 +462,7 @@ Add these on top of the account-level negatives:
 
 ---
 
-### Ad Group 2: Muskoka Furniture
+### Ad Group 2: muskoka_furniture
 
 **Keywords:**
 ```
@@ -518,7 +518,7 @@ Add these on top of the account-level negatives:
 
 ---
 
-### Ad Group 3: Cottage Furniture — Core
+### Ad Group 3: cottage_furniture_core
 
 **Keywords:**
 ```
@@ -539,7 +539,7 @@ Use `/rsa-headline-generator` with: keyword = `cottage furniture ontario`, angle
 
 ---
 
-### Ad Group 4: Cottage Living Room
+### Ad Group 4: cottage_living_room
 
 **Keywords:**
 ```
@@ -570,7 +570,7 @@ Use `/rsa-headline-generator` with: keyword = `cottage sofa ontario`, angle = cu
 
 ---
 
-### Ad Group 5: Cottage Bedroom
+### Ad Group 5: cottage_bedroom
 
 **Keywords:**
 ```
@@ -594,7 +594,7 @@ Use `/rsa-headline-generator` with: keyword = `cottage bed frame ontario`, angle
 
 ---
 
-### Ad Group 6: Live Edge and Artisan (Phase 2)
+### Ad Group 6: live_edge_and_artisan (Phase 2)
 
 Add at 30 days.
 
@@ -695,27 +695,27 @@ Add the Park Road phone number as a call asset (once confirmed with client). Ena
 
 ### Launch Day
 
-- [ ] Campaign 1 (Custom Furniture) set to Active
-- [ ] Campaign 2 (Cottage Furniture) set to Active
-- [ ] Daily budgets set: $20–27/day (Campaign 1), $20–40/day (Campaign 2)
-- [ ] All ad groups set to Active for Priority 1–2 groups
-- [ ] Priority 3–5 ad groups set as Paused — activate on schedule below
+- [ ] hoski_custom_furniture_search_1apr26 set to Active
+- [ ] hoski_cottage_furniture_search_1apr26 set to Active
+- [ ] Daily budgets set: $20–27/day (C1), $20–40/day (C2)
+- [ ] Ad groups 1–2 set to Active in both campaigns
+- [ ] Ad groups 3–5 set as Paused — activate on schedule below
 - [ ] All RSAs submitted (minimum 1 RSA per live ad group)
 - [ ] Account-level negative keyword list applied to both campaigns
-- [ ] Campaign-level negatives added to Campaign 2
+- [ ] Campaign-level negatives added to hoski_cottage_furniture_search_1apr26
 
 ### Week 1 (Days 2–7)
 
-- [ ] Activate Ad Group 3 (Dining Room) in Campaign 1
-- [ ] Activate Ad Group 4 (Canadian Made) in Campaign 1
-- [ ] Activate Ad Group 3 (Cottage Furniture Core) in Campaign 2
-- [ ] Activate Ad Group 4 (Cottage Living Room) in Campaign 2
+- [ ] Activate dining_room in hoski_custom_furniture_search_1apr26
+- [ ] Activate canadian_made_solid_wood in hoski_custom_furniture_search_1apr26
+- [ ] Activate cottage_furniture_core in hoski_cottage_furniture_search_1apr26
+- [ ] Activate cottage_living_room in hoski_cottage_furniture_search_1apr26
 - [ ] Check search terms for early irrelevant queries — add any obvious negatives
 
 ### Week 2 (Days 8–14)
 
-- [ ] Activate Ad Group 5 (Living and Bedroom) in Campaign 1
-- [ ] Activate Ad Group 5 (Cottage Bedroom) in Campaign 2
+- [ ] Activate living_and_bedroom in hoski_custom_furniture_search_1apr26
+- [ ] Activate cottage_bedroom in hoski_cottage_furniture_search_1apr26
 - [ ] First search terms review — use `/search-terms` skill
 - [ ] Confirm bunk bed keywords status with client and activate if confirmed
 

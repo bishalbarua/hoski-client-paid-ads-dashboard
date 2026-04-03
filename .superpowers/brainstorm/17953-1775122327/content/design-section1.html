@@ -1,0 +1,245 @@
+<h2>Section 1 of 4: Management Layer</h2>
+<p class="subtitle">CMO, Marketing Director, Project Manager — purpose, inputs, outputs, chain of command</p>
+
+<style>
+  .role-card {
+    background: #1a1a2e;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    border-left: 4px solid #e94560;
+  }
+  .role-card.dir  { border-left-color: #4361ee; }
+  .role-card.pm   { border-left-color: #7b8cde; }
+
+  .role-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .role-title { font-size: 15px; font-weight: 700; color: #fff; }
+  .role-skill { font-family: monospace; font-size: 12px; background: #0f0f1a; padding: 2px 8px; border-radius: 4px; color: #aaa; }
+  .role-badge { font-size: 10px; padding: 2px 7px; border-radius: 8px; font-weight: 700; }
+  .badge-new { background: #e94560; color: #fff; }
+  .badge-refactor { background: #f4a261; color: #000; }
+
+  .role-body { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .role-col h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin-bottom: 6px; }
+  .role-col p, .role-col li { font-size: 12px; color: #ccc; line-height: 1.6; }
+  .role-col ul { padding-left: 14px; margin: 0; }
+
+  .io-box {
+    background: #0f0f1a;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .io-box .io-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #666; margin-bottom: 4px; }
+  .io-row { display: flex; gap: 10px; margin-top: 10px; }
+  .io-row .io-box { flex: 1; }
+
+  .rule-list li { color: #e07a8f; font-size: 12px; }
+  .rule-list li span { color: #ccc; }
+
+  .chain {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    background: #0f0f1a; border-radius: 8px; padding: 10px 14px; margin-top: 8px;
+    font-size: 12px; color: #aaa;
+  }
+  .chain-node { background: #1a1a2e; border-radius: 6px; padding: 3px 10px; color: #fff; font-weight: 600; font-size: 11px; }
+  .chain-arrow { color: #555; }
+  .chain-node.active { border: 1px solid #e94560; }
+  .chain-node.dir-active { border: 1px solid #4361ee; }
+  .chain-node.pm-active { border: 1px solid #7b8cde; }
+</style>
+
+<!-- CMO -->
+<div class="role-card">
+  <div class="role-header">
+    <div class="role-title">Chief Marketing Officer</div>
+    <div class="role-skill">/cmo</div>
+    <div class="role-badge badge-new">NEW</div>
+  </div>
+
+  <div class="role-body">
+    <div class="role-col">
+      <h4>Purpose</h4>
+      <p>Agency-level strategic view only. Never touches individual campaign execution. Answers: how is the agency performing, where should we focus, which clients need attention, what's the growth story.</p>
+
+      <h4 style="margin-top:12px;">Decisions it owns</h4>
+      <ul>
+        <li>Cross-client budget and resource prioritization</li>
+        <li>Which clients to scale, stabilize, or flag</li>
+        <li>Agency-level reporting (investor/partner-facing)</li>
+        <li>Quarterly priorities across the book of business</li>
+        <li>New channel expansion decisions (TikTok, LinkedIn)</li>
+      </ul>
+    </div>
+
+    <div class="role-col">
+      <h4>Inputs</h4>
+      <ul>
+        <li>MCC rollup data (all client snapshots)</li>
+        <li>Monthly reports from all clients</li>
+        <li>Weekly check summaries (flagged items)</li>
+        <li>Agency targets / growth goals</li>
+      </ul>
+
+      <h4 style="margin-top:12px;">Outputs</h4>
+      <ul>
+        <li>Cross-client health scorecard</li>
+        <li>Quarterly priority list (P1/P2/P3 by client)</li>
+        <li>Agency performance narrative</li>
+        <li>Escalation decisions to Marketing Director</li>
+      </ul>
+
+      <h4 style="margin-top:12px;">Does NOT do</h4>
+      <ul class="rule-list">
+        <li><span>Touch individual campaigns or ad copy</span></li>
+        <li><span>Replace the Marketing Director for client work</span></li>
+        <li><span>Write client-facing communication</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chain" style="margin-top:12px;">
+    <span style="color:#666; font-size:11px;">Chain of command:</span>
+    <div class="chain-node active">CMO</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Marketing Director</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">PM</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Specialists</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Managers</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Client Comms</div>
+  </div>
+</div>
+
+<!-- Marketing Director -->
+<div class="role-card dir">
+  <div class="role-header">
+    <div class="role-title">Marketing Director</div>
+    <div class="role-skill">/marketing-director</div>
+    <div class="role-badge badge-refactor">REFACTOR</div>
+  </div>
+
+  <div class="role-body">
+    <div class="role-col">
+      <h4>What changes from current version</h4>
+      <ul>
+        <li>Currently invokes raw specialists directly (e.g. google-keyword-intelligence). After refactor: delegates to Strategist and Manager layer instead.</li>
+        <li>Currently has no explicit "reports to CMO" awareness. After refactor: escalates cross-client patterns upward.</li>
+        <li>Scope filter tightened: only single-client work. Cross-client decisions escalate to CMO.</li>
+      </ul>
+
+      <h4 style="margin-top:12px;">What stays the same</h4>
+      <ul>
+        <li>Dependency graph enforcement</li>
+        <li>Contradiction detection between specialists</li>
+        <li>3-tier priority triage (P1/P2/P3)</li>
+        <li>QA gate before final output</li>
+      </ul>
+    </div>
+
+    <div class="role-col">
+      <h4>New delegation pattern</h4>
+      <p style="margin-bottom:8px;">Old: Director → raw 31 specialists directly<br>New: Director → Strategist/Manager layer → specialists</p>
+
+      <div class="io-box">
+        <div class="io-label">Director now delegates to:</div>
+        <ul style="padding-left:14px; margin-top:6px;">
+          <li style="font-size:12px; color:#ccc;">/google-strategist (for Google planning)</li>
+          <li style="font-size:12px; color:#ccc;">/google-manager (for Google execution)</li>
+          <li style="font-size:12px; color:#ccc;">/meta-strategist (for Meta planning)</li>
+          <li style="font-size:12px; color:#ccc;">/meta-manager (for Meta execution)</li>
+          <li style="font-size:12px; color:#ccc;">/creative-strategist (for creative work)</li>
+          <li style="font-size:12px; color:#ccc;">/cro-strategist (for landing pages)</li>
+          <li style="font-size:12px; color:#ccc;">/competitive (for intel)</li>
+          <li style="font-size:12px; color:#ccc;">/qa (always, before delivery)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="chain" style="margin-top:12px;">
+    <span style="color:#666; font-size:11px;">Chain of command:</span>
+    <div class="chain-node">CMO</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node dir-active">Marketing Director</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">PM</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Specialists</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Managers</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Client Comms</div>
+  </div>
+</div>
+
+<!-- Project Manager -->
+<div class="role-card pm">
+  <div class="role-header">
+    <div class="role-title">Project Manager</div>
+    <div class="role-skill">/pm</div>
+    <div class="role-badge badge-new">NEW</div>
+  </div>
+
+  <div class="role-body">
+    <div class="role-col">
+      <h4>Mode A: Internal sequencing (single client)</h4>
+      <ul>
+        <li>Enforces the dependency graph (tracking verified before bidding, keywords before copy)</li>
+        <li>Flags when a downstream task is blocked by an upstream blocker</li>
+        <li>Produces a sequenced task list with owners and dependencies marked</li>
+        <li>Prevents the team from doing work out of order</li>
+      </ul>
+
+      <h4 style="margin-top:12px;">Mode B: Cross-client scheduling</h4>
+      <ul>
+        <li>Tracks all 17 clients: what's overdue, what's upcoming, what's in-flight</li>
+        <li>Surfaces which clients need a weekly check, monthly report, or campaign review this week</li>
+        <li>Flags clients that have gone quiet (no review in X days)</li>
+        <li>Produces a weekly agency workload view</li>
+      </ul>
+    </div>
+
+    <div class="role-col">
+      <h4>Inputs</h4>
+      <ul>
+        <li>All client-info.md files (for deadlines, budgets, status)</li>
+        <li>Report history (last monthly report date, last weekly check)</li>
+        <li>Current task request from Marketing Director</li>
+        <li>Known blockers (tracking broken, campaign paused, etc.)</li>
+      </ul>
+
+      <h4 style="margin-top:12px;">Outputs</h4>
+      <ul>
+        <li>Sequenced task list with dependency map</li>
+        <li>Cross-client status board (who needs what this week)</li>
+        <li>Blocker report (what's stuck and why)</li>
+        <li>Overdue items flagged with urgency level</li>
+      </ul>
+
+      <div class="io-box" style="margin-top:10px;">
+        <div class="io-label">Trigger phrases</div>
+        <p style="font-size:11px; color:#aaa; margin-top:4px;">"what needs to happen this week", "what's the order of operations for [client]", "which clients need attention", "sequence this project", "what's overdue"</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chain" style="margin-top:12px;">
+    <span style="color:#666; font-size:11px;">Chain of command:</span>
+    <div class="chain-node">CMO</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Marketing Director</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node pm-active">PM</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Specialists</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Managers</div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">Client Comms</div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:4px; font-size:11px;">Does this management layer look right? Reply to continue to Section 2: Channel Layer (Strategists and Managers).</p>

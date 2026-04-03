@@ -1,0 +1,239 @@
+<h2>Section 3 of 4: Cross-Channel Support Layer</h2>
+<p class="subtitle">Competitive Specialist, QA Manager, Client Communication Manager</p>
+
+<style>
+  .role-card {
+    background: #1a1a2e;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .role-card.comp   { border-left: 4px solid #c87137; }
+  .role-card.qa     { border-left: 4px solid #e9c46a; }
+  .role-card.comms  { border-left: 4px solid #74c69d; }
+
+  .role-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .role-title  { font-size: 14px; font-weight: 700; color: #fff; }
+  .role-skill  { font-family: monospace; font-size: 11px; background: #0f0f1a; padding: 2px 8px; border-radius: 4px; color: #aaa; }
+  .badge       { font-size: 9px; padding: 2px 6px; border-radius: 8px; font-weight: 700; }
+  .badge-new       { background: #e94560; color: #fff; }
+  .badge-refactor  { background: #f4a261; color: #000; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.09em; color: #777; margin-bottom: 5px; margin-top: 0; }
+  ul { padding-left: 14px; margin: 0; }
+  li { font-size: 11px; color: #ccc; line-height: 1.6; }
+  p  { font-size: 11px; color: #ccc; line-height: 1.6; margin: 0; }
+
+  .agents-box {
+    background: #0d0d1a; border-radius: 8px; padding: 8px 12px; margin-top: 10px;
+  }
+  .agents-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin-bottom: 6px; }
+  .agent-pill {
+    display: inline-block; background: #1e1e35; border: 1px solid #333;
+    border-radius: 6px; font-size: 10px; font-family: monospace;
+    color: #bbb; padding: 2px 7px; margin: 2px 3px 2px 0;
+  }
+
+  .vs-box { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+  .vs-side { background: #0d0d1a; border-radius: 8px; padding: 8px 10px; }
+  .vs-side .vs-label { font-size: 10px; color: #555; text-transform: uppercase; margin-bottom: 4px; }
+
+  .qa-cat {
+    background: #0d0d1a; border-radius: 8px; padding: 10px 12px; margin-top: 10px;
+  }
+  .qa-row {
+    display: flex; align-items: flex-start; gap: 8px; padding: 5px 0;
+    border-bottom: 1px solid #1e1e2e; font-size: 11px; color: #ccc;
+  }
+  .qa-row:last-child { border-bottom: none; }
+  .qa-num {
+    background: #e9c46a; color: #000; border-radius: 50%;
+    width: 18px; height: 18px; display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .qa-name { font-weight: 600; color: #e9c46a; min-width: 200px; }
+
+  .comms-example {
+    background: #0d0d1a; border-radius: 8px; padding: 10px 12px; margin-top: 10px;
+  }
+  .comms-row { display: grid; grid-template-columns: 1fr 20px 1fr; gap: 8px; align-items: center; margin-bottom: 8px; }
+  .comms-in  { background: #1a1a2e; border-radius: 6px; padding: 6px 10px; font-size: 10px; color: #888; }
+  .comms-out { background: #1a2e1a; border-radius: 6px; padding: 6px 10px; font-size: 10px; color: #74c69d; }
+  .comms-arrow { text-align: center; color: #555; font-size: 14px; }
+
+  .divider { border: none; border-top: 1px solid #222; margin: 14px 0; }
+
+  .change-box { background: #1a150a; border-radius: 8px; padding: 10px 12px; margin-top: 10px; border: 1px solid #3a2800; }
+  .change-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #c87137; margin-bottom: 6px; }
+</style>
+
+<!-- Competitive Specialist -->
+<div class="role-card comp">
+  <div class="role-header">
+    <div class="role-title">Competitive Specialist</div>
+    <div class="role-skill">/competitive</div>
+    <div class="badge badge-refactor">REFACTOR</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h4>Purpose</h4>
+      <p>Single source of competitive intelligence across both channels. Answers: what are competitors running, how are they positioned, where are the gaps you can exploit. Feeds both the Director and the Creative Strategist.</p>
+
+      <div class="change-box" style="margin-top:10px;">
+        <div class="change-label">What changes from current</div>
+        <p>Currently two separate skills: /competitor-serp-scan (live SERP scraping) and /competitor-messaging-analysis (website positioning). After refactor: consolidated into one /competitive skill that does both in a single pass and delivers a unified report.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="vs-box" style="margin-top:0;">
+        <div class="vs-side">
+          <div class="vs-label">Inputs</div>
+          <ul>
+            <li>Client URL + 2-3 competitor URLs</li>
+            <li>Target keywords / search terms</li>
+            <li>Client's current ad copy</li>
+            <li>Meta Ad Library (optional)</li>
+          </ul>
+        </div>
+        <div class="vs-side">
+          <div class="vs-label">Outputs</div>
+          <ul>
+            <li>Live SERP ad copy analysis</li>
+            <li>Competitor messaging audit</li>
+            <li>Positioning gap map</li>
+            <li>Angles you're missing</li>
+            <li>Saved to clients/[name]/analysis/</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="agents-box">
+        <div class="agents-label">Wraps these existing agents</div>
+        <span class="agent-pill">cross-competitive-intelligence</span>
+        <span class="agent-pill">meta-ad-library-intelligence</span>
+      </div>
+      <p style="margin-top:6px; font-size:10px; color:#555;">Absorbs + replaces: /competitor-serp-scan + /competitor-messaging-analysis</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- QA Manager -->
+<div class="role-card qa">
+  <div class="role-header">
+    <div class="role-title">QA Manager</div>
+    <div class="role-skill">/qa</div>
+    <div class="badge badge-refactor">REFACTOR</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h4>Purpose</h4>
+      <p>Adversarial review gate. Runs before any output reaches the client. Currently embedded inside the Marketing Director workflow — after refactor, also callable as a standalone skill so you can QA any output independently.</p>
+
+      <div class="change-box" style="margin-top:10px;">
+        <div class="change-label">What changes from current</div>
+        <p>Currently only invoked through /marketing-director. After refactor: standalone /qa skill. You can point it at any document, analysis, or plan and get the 6-category review independently — without running the full Director workflow.</p>
+      </div>
+    </div>
+
+    <div>
+      <h4>The 6 categories (unchanged)</h4>
+      <div class="qa-cat">
+        <div class="qa-row">
+          <div class="qa-num">1</div>
+          <div><span class="qa-name">Data Hallucinations</span> — numbers cited not in the session data</div>
+        </div>
+        <div class="qa-row">
+          <div class="qa-num">2</div>
+          <div><span class="qa-name">Logical Gaps</span> — recommendations that contradict their own stated thresholds</div>
+        </div>
+        <div class="qa-row">
+          <div class="qa-num">3</div>
+          <div><span class="qa-name">Cross-Specialist Contradictions</span> — conflicts between two specialists' outputs</div>
+        </div>
+        <div class="qa-row">
+          <div class="qa-num">4</div>
+          <div><span class="qa-name">Strategy-Context Mismatch</span> — correct advice that's wrong for this specific client</div>
+        </div>
+        <div class="qa-row">
+          <div class="qa-num">5</div>
+          <div><span class="qa-name">PPC Risk Flags</span> — hidden efficiency cliffs, tracking gaps, data below thresholds</div>
+        </div>
+        <div class="qa-row">
+          <div class="qa-num">6</div>
+          <div><span class="qa-name">Completeness Failures</span> — missing context, incomplete coverage, symptom vs. root cause</div>
+        </div>
+      </div>
+      <p style="margin-top:8px; font-size:10px; color:#555;">Output: PASS / CONDITIONAL PASS / FAIL with specific items to fix before delivery</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Client Communication Manager -->
+<div class="role-card comms">
+  <div class="role-header">
+    <div class="role-title">Client Communication Manager</div>
+    <div class="role-skill">/client-comms</div>
+    <div class="badge badge-new">NEW</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <h4>Purpose</h4>
+      <p>Owns the full client-facing voice. Two jobs: (1) translate technical team output into polished client language, and (2) manage the ongoing relationship thread — drafting emails, status updates, responses to client questions, check-in notes.</p>
+
+      <h4 style="margin-top:12px;">Always references</h4>
+      <ul>
+        <li>client-info.md — for tone, goals, relationship history, what this client cares about</li>
+        <li>Most recent report or analysis — for facts and numbers</li>
+        <li>PPC rule: zero jargon in client-facing output (no QS, IS, eCPC unless client is technical)</li>
+      </ul>
+
+      <h4 style="margin-top:12px;">Relationship modes</h4>
+      <ul>
+        <li><strong style="color:#74c69d;">Proactive:</strong> Monthly narrative, weekly status note, campaign launch announcement</li>
+        <li><strong style="color:#74c69d;">Reactive:</strong> Response to client question, concern, or escalation</li>
+        <li><strong style="color:#74c69d;">Milestone:</strong> New campaign live, budget change, strategic pivot explanation</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Translation examples</h4>
+      <div class="comms-example">
+        <div class="comms-row">
+          <div class="comms-in">Internal: "IS lost to rank dropped from 28% to 41% — bid floor likely below competitive threshold"</div>
+          <div class="comms-arrow">→</div>
+          <div class="comms-out">Client: "Your ads are showing up less often in top positions. We're adjusting bids to get you back in front of more high-intent searches."</div>
+        </div>
+        <div class="comms-row">
+          <div class="comms-in">Internal: "tROAS bid strategy in learning period after +15% target adjustment — expect 7-10 day performance variance"</div>
+          <div class="comms-arrow">→</div>
+          <div class="comms-out">Client: "We made a strategic adjustment to your bidding last week. Performance may look slightly different for a few days while the system recalibrates — this is normal and expected."</div>
+        </div>
+        <div class="comms-row">
+          <div class="comms-in">Internal: "/weekly-check output — P1: conversion tag firing 0 events on thank-you page since 3/28"</div>
+          <div class="comms-arrow">→</div>
+          <div class="comms-out">Client: "We caught a tracking issue that we're fixing today. No leads were missed — the form still worked — but our reporting wasn't recording them correctly."</div>
+        </div>
+      </div>
+
+      <div class="agents-box" style="margin-top:10px;">
+        <div class="agents-label">References (does not wrap agents)</div>
+        <span class="agent-pill">client-info.md</span>
+        <span class="agent-pill">reports/ history</span>
+        <span class="agent-pill">weekly-check output</span>
+        <span class="agent-pill">monthly-report output</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:16px; font-size:11px;">Does the support layer look right? Reply to continue to Section 4: How it all connects — invocation patterns, skill commands, file structure changes.</p>

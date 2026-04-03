@@ -1,6 +1,7 @@
 {
   "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "OPENROUTER_BASE_URL": "https://openrouter.ai/api/v1"
   },
   "permissions": {
     "allow": [
@@ -104,6 +105,7 @@
       "WebFetch(domain:www.muskokachaircompany.com)",
       "WebFetch(domain:www.woodhousefurniture.ca)",
       "WebFetch(domain:www.muskokastyle.ca)",
+      "Bash(python3 scripts/drive_sync.py*)",
       "Bash(python3 scripts/daily_pacing_monitor.py --customer-id 9304117954 --client-name FaBesthetics)",
       "Bash(python3 scripts/daily_pacing_monitor.py)",
       "Bash(python3 scripts/daily_pacing_monitor.py --customer-id 7087867966 --client-name \"GDM Google Ads\")",
@@ -226,7 +228,25 @@
       "Bash(find \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/FaBesthetics \\(9304117954\\)/data\" -type f)",
       "Bash(find '/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager' -maxdepth 2 -type f \\\\\\(-name *.json -o -name config* -o -name clients* \\\\\\))",
       "Bash(python scripts/google_campaign_performance_snapshot.py --customer_id 9304117954 --days 7)",
-      "Bash(find \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Anand Desai Law Firm \\(5865660247\\)\" -type f \\\\\\( -name \"*.md\" -o -name \"*.json\" -o -name \"*.txt\" \\\\\\))"
+      "Bash(find \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Anand Desai Law Firm \\(5865660247\\)\" -type f \\\\\\( -name \"*.md\" -o -name \"*.json\" -o -name \"*.txt\" \\\\\\))",
+      "Bash(find \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/New Norseman \\(3720173680\\)\" -type f)",
+      "Bash(find \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/New Norseman \\(3720173680\\)/notes\" -type f)",
+      "Bash(grep -l \"ice Ad Account\\\\|Dentiste\" /Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/*/*.md)",
+      "Bash(grep -l \"Meta Ads\\\\|Facebook\\\\|lead.*gen\" /Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/*/*-info.md)",
+      "Bash(grep -n \"Custom Furniture London Ontario\\\\|750 Off Your First Custom Order\\\\|Built to Order in London Ontario\\\\|Solid Canadian Hardwood\\\\|Custom Furniture Built to Your\\\\|Free In-Home Design Consultation\\\\|Hand-Finished in London Ontario\\\\|Week Delivery\\\\|Dining Tables Beds Sofas Built\\\\|Real Solid Wood.*Big-Box\\\\|Custom Size Custom Finish\\\\|Claim $750 Off Orders of $5000\\\\|Canadian-Made Furniture That Lasts\\\\|Perfect Fit Guarantee\\\\|Every piece is made to order\\\\|Stop settling for furniture that almost fits\\\\|From dining tables to bedroom sets, sofas\\\\|In-home design consultations available\" \"/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/clients/Park Road Custom Furniture and Decor \\(7228467515\\)/notes/campaign-setup-sheet.md\")",
+      "Bash(grep -v \"^\\\\.$\")",
+      "Bash(grep -v \"^\\\\.\\\\.$\")",
+      "Edit(/.claude/skills/google-drive-sync/**)",
+      "Bash(python scripts/google_search_terms_report.py --account 3857223862 --days 14)",
+      "Bash(python scripts/google_campaign_performance_snapshot.py --account 3857223862)",
+      "WebFetch(domain:hoski.ca)",
+      "WebFetch(domain:parachutedesign.ca)",
+      "WebFetch(domain:thrillxdesign.com)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "WebFetch(domain:openrouter.ai)",
+      "mcp__claude_ai_Gmail__gmail_get_profile",
+      "mcp__claude_ai_Gmail__gmail_create_draft"
     ],
     "additionalDirectories": [
       "/Users/bishalbarua",

@@ -1,0 +1,216 @@
+<h2>Your Paid Media Agent Team</h2>
+<p class="subtitle">Proposed hierarchy — Approach C (Hybrid Layer Architecture)</p>
+
+<style>
+  .org-tree { display: flex; flex-direction: column; align-items: center; gap: 0; font-family: inherit; margin-top: 24px; }
+  .org-level { display: flex; justify-content: center; gap: 12px; width: 100%; position: relative; }
+  .org-node {
+    border-radius: 10px;
+    padding: 10px 16px;
+    text-align: center;
+    min-width: 140px;
+    max-width: 160px;
+    position: relative;
+  }
+  .org-node .role { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .org-node .skill { font-size: 11px; opacity: 0.7; margin-top: 2px; font-family: monospace; }
+  .org-node .desc { font-size: 11px; opacity: 0.8; margin-top: 4px; line-height: 1.4; }
+
+  /* Tier colors */
+  .tier-cmo    { background: #1a1a2e; border: 2px solid #e94560; color: #fff; }
+  .tier-dir    { background: #16213e; border: 2px solid #0f3460; color: #fff; }
+  .tier-pm     { background: #0f3460; border: 2px solid #533483; color: #fff; }
+  .tier-strat  { background: #533483; border: 2px solid #7b2d8b; color: #fff; }
+  .tier-mgr    { background: #2d6a4f; border: 2px solid #40916c; color: #fff; }
+  .tier-spec   { background: #1b4332; border: 2px solid #2d6a4f; color: #fff; }
+  .tier-cross  { background: #7b3f00; border: 2px solid #c87137; color: #fff; }
+
+  /* Connector lines */
+  .connector-down {
+    width: 2px; background: #444; height: 20px; margin: 0 auto;
+  }
+  .connector-row {
+    display: flex; justify-content: center; align-items: flex-start; gap: 12px; width: 100%;
+  }
+  .connector-branch {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .connector-h-line {
+    height: 2px; background: #444; width: 100%;
+  }
+  .connector-group {
+    display: flex; justify-content: center; gap: 12px; position: relative;
+  }
+  .connector-group::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(160px / 2 + 12px);
+    right: calc(160px / 2 + 12px);
+    height: 2px;
+    background: #444;
+  }
+  .branch-wrap {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .branch-line { width: 2px; height: 20px; background: #444; }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  .badge-new { background: #e94560; color: #fff; }
+  .badge-refactor { background: #f4a261; color: #000; }
+  .badge-keep { background: #2d6a4f; color: #fff; }
+
+  .legend {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; }
+
+  .section-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+    opacity: 0.5; margin-top: 8px; text-align: center;
+  }
+</style>
+
+<div class="org-tree">
+
+  <!-- TIER 1: CMO -->
+  <div class="org-level">
+    <div class="org-node tier-cmo">
+      <div class="role">Chief Marketing Officer</div>
+      <div class="skill">/cmo</div>
+      <div class="desc">Agency-level strategy, cross-client health, growth decisions</div>
+      <span class="badge badge-new">NEW</span>
+    </div>
+  </div>
+
+  <div class="connector-down"></div>
+
+  <!-- TIER 2: Marketing Director -->
+  <div class="org-level">
+    <div class="org-node tier-dir">
+      <div class="role">Marketing Director</div>
+      <div class="skill">/marketing-director</div>
+      <div class="desc">Per-client orchestration, dependency enforcement, synthesis</div>
+      <span class="badge badge-refactor">REFACTOR</span>
+    </div>
+  </div>
+
+  <div class="connector-down"></div>
+
+  <!-- TIER 3: Project Manager -->
+  <div class="org-level">
+    <div class="org-node tier-pm">
+      <div class="role">Project Manager</div>
+      <div class="skill">/pm</div>
+      <div class="desc">Task sequencing + cross-client scheduling</div>
+      <span class="badge badge-new">NEW</span>
+    </div>
+  </div>
+
+  <div class="connector-down"></div>
+
+  <!-- TIER 4: Channel Strategists + Cross-channel -->
+  <div style="display:flex; justify-content:center; gap:12px; position:relative;">
+    <!-- horizontal connector bar -->
+    <div style="position:absolute; top:0; left:50%; transform:translateX(-50%); width:660px; height:2px; background:#444;"></div>
+
+    <div class="branch-wrap">
+      <div class="branch-line"></div>
+      <div class="org-node tier-strat">
+        <div class="role">Google Ads Strategist</div>
+        <div class="skill">/google-strategist</div>
+        <div class="desc">Campaign structure, keyword strategy, bid strategy</div>
+        <span class="badge badge-new">NEW</span>
+      </div>
+    </div>
+
+    <div class="branch-wrap">
+      <div class="branch-line"></div>
+      <div class="org-node tier-cross" style="border-color:#c87137;">
+        <div class="role">Competitive Specialist</div>
+        <div class="skill">/competitive</div>
+        <div class="desc">SERP scanning, messaging analysis, gap identification</div>
+        <span class="badge badge-refactor">REFACTOR</span>
+      </div>
+    </div>
+
+    <div class="branch-wrap">
+      <div class="branch-line"></div>
+      <div class="org-node tier-strat">
+        <div class="role">Meta Ads Strategist</div>
+        <div class="skill">/meta-strategist</div>
+        <div class="desc">Funnel architecture, audiences, creative direction</div>
+        <span class="badge badge-new">NEW</span>
+      </div>
+    </div>
+
+    <div class="branch-wrap">
+      <div class="branch-line"></div>
+      <div class="org-node tier-cross" style="border-color:#e9c46a; background:#5c4a1e;">
+        <div class="role">QA Manager</div>
+        <div class="skill">/qa</div>
+        <div class="desc">6-category adversarial review gate before delivery</div>
+        <span class="badge badge-refactor">REFACTOR</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; justify-content:center; gap:12px; margin-top:0;">
+    <!-- Connectors down to managers -->
+    <div style="width:160px; display:flex; justify-content:center;"><div class="branch-line"></div></div>
+    <div style="width:160px;"></div>
+    <div style="width:160px; display:flex; justify-content:center;"><div class="branch-line"></div></div>
+    <div style="width:160px;"></div>
+  </div>
+
+  <!-- TIER 5: Channel Managers -->
+  <div style="display:flex; justify-content:center; gap:12px;">
+    <div class="org-node tier-mgr">
+      <div class="role">Google Ads Manager</div>
+      <div class="skill">/google-manager</div>
+      <div class="desc">Weekly checks, pacing, search terms, copy, negatives</div>
+      <span class="badge badge-new">NEW</span>
+    </div>
+
+    <div style="width:160px;"></div>
+
+    <div class="org-node tier-mgr">
+      <div class="role">Meta Ads Manager</div>
+      <div class="skill">/meta-manager</div>
+      <div class="desc">Monitoring, creative performance, pacing, scaling signals</div>
+      <span class="badge badge-new">NEW</span>
+    </div>
+
+    <div style="width:160px;"></div>
+  </div>
+
+  <div class="connector-down" style="margin-top:8px;"></div>
+
+  <!-- TIER 6: Client Comms -->
+  <div class="org-level">
+    <div class="org-node tier-cross" style="background:#1a3a4a; border-color:#48cae4; max-width:200px;">
+      <div class="role">Client Communication Manager</div>
+      <div class="skill">/client-comms</div>
+      <div class="desc">Translates team output into polished client language. Owns full relationship voice.</div>
+      <span class="badge badge-new">NEW</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Legend -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#e94560;"></div> New agent</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f4a261;"></div> Refactor existing</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#2d6a4f;"></div> Keep specialists (31 agents, unchanged)</div>
+</div>
+
+<div class="section-label" style="margin-top:12px;">The 31 existing Google/Meta specialist agents sit beneath their respective Strategist and Manager layers as the knowledge engine — they are not invoked directly.</div>

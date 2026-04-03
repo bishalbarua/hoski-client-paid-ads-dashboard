@@ -315,3 +315,25 @@ For future reference, please do not schedule Medicare patients. Especially if th
 - [ ] Review and tighten conversion action definitions (filter informational query conversions)
 - [ ] Get GA4 / GTM access transferred from Inception Online Marketing (bishal@hoski.ca)
 - [ ] Run FORGE full intel gather (baseline.json and competitors.json are empty)
+
+---
+
+## March 2026 Performance
+
+**Period:** March 1 - March 31, 2026
+
+| Metric | Value |
+|---|---|
+| Calls | 182 |
+| Meetings Set | 10 (7 setter / 1 self-booking / 2 front office) |
+| March Appointments | 9 (8 attended / 1 cancelled) |
+| Show Rate | 89% |
+| Revenue | $3,389 ($574 immediate / $2,815 future) |
+| Previous Month (Feb) Revenue | $1,677 |
+| Revenue Growth MoM | +102.09% |
+
+**Key Notes:**
+- 89% show rate demonstrating strong patient intent and scheduling reliability
+- 102.09% revenue jump MoM showing strong pipeline potential
+- Diversified booking channels across setter, self-booking, and front office
+- Results held through disruptions to ad strategy, highlighting underlying account strength

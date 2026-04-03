@@ -83,4 +83,24 @@
 
 ---
 
+## March 2026 Performance
+
+**Period:** March 1 - March 31, 2026
+
+| Metric | Value |
+|---|---|
+| Calls | 433 |
+| Meetings Set | 15 (15 unique: 7 setter / 8 self-booking) |
+| March Appointments | 12 attended |
+| Show Rate | 100% |
+| Revenue | $5,420 |
+| Previous Month (Feb) Revenue | $11,196 |
+
+**Key Notes:**
+- Strong call volume: 433 calls generated 15 unique meetings
+- Perfect attendance: all 12 scheduled appointments attended (100% show rate)
+- Revenue decline from Feb ($11,196) to March ($5,420) — review booking patterns and patient value opportunity
+
+---
+
 *Last updated: 2026-03-17*

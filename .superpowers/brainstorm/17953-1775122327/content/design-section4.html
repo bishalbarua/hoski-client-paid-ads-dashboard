@@ -1,0 +1,223 @@
+<h2>Section 4 of 4: How It All Connects</h2>
+<p class="subtitle">Invocation patterns, skill command map, file structure changes, what gets retired</p>
+
+<style>
+  h3 { font-size: 13px; font-weight: 700; color: #fff; margin: 0 0 8px 0; }
+  h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.09em; color: #666; margin: 0 0 6px 0; }
+  p, li { font-size: 11px; color: #ccc; line-height: 1.6; margin: 0; }
+  ul { padding-left: 14px; margin: 0; }
+
+  .section-block { background: #1a1a2e; border-radius: 12px; padding: 16px 18px; margin-bottom: 14px; }
+
+  .flow-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #555; margin-bottom: 8px; }
+
+  /* Flow diagram */
+  .flow { display: flex; flex-direction: column; gap: 0; }
+  .flow-row { display: flex; align-items: stretch; gap: 8px; }
+  .flow-node {
+    border-radius: 8px; padding: 7px 12px; font-size: 11px; font-weight: 600;
+    display: flex; align-items: center; gap: 6px; white-space: nowrap;
+  }
+  .flow-node code { font-size: 10px; font-family: monospace; opacity: 0.7; font-weight: 400; }
+  .flow-arrow-down { width: 2px; background: #333; height: 14px; margin-left: 20px; }
+  .flow-arrow-right { color: #444; font-size: 14px; align-self: center; }
+  .flow-parallel { display: flex; gap: 8px; align-items: flex-start; position: relative; padding-top: 14px; }
+  .flow-parallel::before {
+    content:''; position:absolute; top:0; left:12px; right:12px; height:2px; background:#333;
+  }
+  .flow-branch { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .flow-branch-top { width: 2px; height: 14px; background: #333; }
+
+  .n-cmo      { background:#2a0a14; border:1px solid #e94560; color:#fff; }
+  .n-dir      { background:#0d1a35; border:1px solid #4361ee; color:#fff; }
+  .n-pm       { background:#0a1a35; border:1px solid #7b8cde; color:#fff; }
+  .n-gstrat   { background:#2a1a3e; border:1px solid #9b72cf; color:#fff; }
+  .n-gmgr     { background:#0a2e1a; border:1px solid #52b788; color:#fff; }
+  .n-mstrat   { background:#221a3e; border:1px solid #7b72cf; color:#fff; }
+  .n-mmgr     { background:#0a2a1a; border:1px solid #40916c; color:#fff; }
+  .n-creative { background:#2e1020; border:1px solid #e07a8f; color:#fff; }
+  .n-cro      { background:#0a1e2e; border:1px solid #48cae4; color:#fff; }
+  .n-comp     { background:#2e1a00; border:1px solid #c87137; color:#fff; }
+  .n-qa       { background:#2a2500; border:1px solid #e9c46a; color:#fff; }
+  .n-comms    { background:#0a2e1a; border:1px solid #74c69d; color:#fff; }
+
+  /* Skill command table */
+  .cmd-table { width: 100%; border-collapse: collapse; }
+  .cmd-table th { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #555; padding: 6px 10px; text-align: left; border-bottom: 1px solid #222; }
+  .cmd-table td { font-size: 11px; color: #ccc; padding: 6px 10px; border-bottom: 1px solid #1a1a2e; vertical-align: top; }
+  .cmd-table tr:last-child td { border-bottom: none; }
+  .cmd { font-family: monospace; font-size: 11px; color: #aaa; background: #0f0f1a; padding: 2px 6px; border-radius: 4px; white-space: nowrap; }
+  .tag-new      { background: #e94560; color: #fff; font-size: 9px; padding: 1px 5px; border-radius: 6px; font-weight: 700; }
+  .tag-refactor { background: #f4a261; color: #000; font-size: 9px; padding: 1px 5px; border-radius: 6px; font-weight: 700; }
+  .tag-retire   { background: #444; color: #aaa; font-size: 9px; padding: 1px 5px; border-radius: 6px; font-weight: 700; text-decoration: line-through; }
+  .tag-keep     { background: #2d6a4f; color: #fff; font-size: 9px; padding: 1px 5px; border-radius: 6px; font-weight: 700; }
+
+  /* File structure */
+  .file-tree { font-family: monospace; font-size: 11px; color: #aaa; background: #0d0d1a; border-radius: 8px; padding: 12px 16px; line-height: 1.8; }
+  .file-new   { color: #e94560; }
+  .file-mod   { color: #f4a261; }
+  .file-keep  { color: #74c69d; }
+  .file-gone  { color: #555; text-decoration: line-through; }
+
+  .divider { border: none; border-top: 1px solid #1e1e2e; margin: 14px 0; }
+
+  .pattern-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pattern-card { background: #0d0d1a; border-radius: 8px; padding: 10px 12px; }
+  .pattern-title { font-size: 11px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .pattern-step { display: flex; gap: 6px; font-size: 11px; color: #ccc; margin-bottom: 3px; align-items: flex-start; }
+  .step-num { background: #1e1e35; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: #aaa; flex-shrink: 0; margin-top: 1px; }
+  .step-cmd { font-family: monospace; font-size: 10px; color: #9b72cf; }
+</style>
+
+<!-- 1. Skill Command Map -->
+<div class="section-block">
+  <h3>Skill Command Map</h3>
+  <table class="cmd-table">
+    <thead>
+      <tr><th>Command</th><th>Role</th><th>Status</th><th>Replaces / Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="cmd">/cmo</span></td><td>Chief Marketing Officer</td><td><span class="tag-new">NEW</span></td><td>No predecessor</td></tr>
+      <tr><td><span class="cmd">/marketing-director</span></td><td>Marketing Director</td><td><span class="tag-refactor">REFACTOR</span></td><td>Delegates to layer below, not raw specialists</td></tr>
+      <tr><td><span class="cmd">/pm</span></td><td>Project Manager</td><td><span class="tag-new">NEW</span></td><td>No predecessor</td></tr>
+      <tr><td><span class="cmd">/google-strategist</span></td><td>Google Ads Strategist</td><td><span class="tag-new">NEW</span></td><td>Partial: /ads-strategy-architect (Google half)</td></tr>
+      <tr><td><span class="cmd">/google-manager</span></td><td>Google Ads Manager</td><td><span class="tag-new">NEW</span></td><td>Absorbs: /weekly-check + /search-terms + /ad-copy-testing-analyzer</td></tr>
+      <tr><td><span class="cmd">/meta-strategist</span></td><td>Meta Ads Strategist</td><td><span class="tag-new">NEW</span></td><td>Partial: /ads-strategy-architect (Meta half)</td></tr>
+      <tr><td><span class="cmd">/meta-manager</span></td><td>Meta Ads Manager</td><td><span class="tag-new">NEW</span></td><td>Absorbs: /facebook-ads-performance-analyzer</td></tr>
+      <tr><td><span class="cmd">/creative-strategist</span></td><td>Creative Strategist</td><td><span class="tag-new">NEW</span></td><td>Absorbs: /rsa-headline-generator + /ad-copy-testing-analyzer + /creative-director</td></tr>
+      <tr><td><span class="cmd">/cro-strategist</span></td><td>CRO Strategist</td><td><span class="tag-new">NEW</span></td><td>Absorbs: /landing-page-quick-audit (expanded scope)</td></tr>
+      <tr><td><span class="cmd">/competitive</span></td><td>Competitive Specialist</td><td><span class="tag-refactor">REFACTOR</span></td><td>Consolidates: /competitor-serp-scan + /competitor-messaging-analysis</td></tr>
+      <tr><td><span class="cmd">/qa</span></td><td>QA Manager</td><td><span class="tag-refactor">REFACTOR</span></td><td>Was embedded in Director only — now also standalone</td></tr>
+      <tr><td><span class="cmd">/client-comms</span></td><td>Client Communication Manager</td><td><span class="tag-new">NEW</span></td><td>No predecessor</td></tr>
+      <tr><td><span class="cmd">/new-client</span></td><td>New Client Onboarding</td><td><span class="tag-keep">KEEP</span></td><td>Unchanged — entry point before team is deployed</td></tr>
+      <tr><td><span class="cmd">/ads-strategy-architect</span></td><td>Strategy Architect</td><td><span class="tag-keep">KEEP</span></td><td>Keep as full-stack strategy shortcut for new builds</td></tr>
+      <tr><td><span class="cmd">/ppc-account-health-check</span></td><td>Account Health</td><td><span class="tag-keep">KEEP</span></td><td>One-time audit, distinct from ongoing Manager work</td></tr>
+      <tr><td><span class="cmd">/campaign-scaling-expert</span></td><td>Scaling Expert</td><td><span class="tag-keep">KEEP</span></td><td>Deep scaling analysis — keep as specialist deep-dive</td></tr>
+      <tr><td><span class="cmd">/conversion-tracking-audit</span></td><td>Tracking Audit</td><td><span class="tag-keep">KEEP</span></td><td>Critical blocker check — keep standalone</td></tr>
+      <tr><td><span class="cmd">/keyword-research</span></td><td>Keyword Research</td><td><span class="tag-keep">KEEP</span></td><td>New campaign keyword build — keep standalone</td></tr>
+      <tr><td><span class="cmd">/pmax-shopping-analyzer</span></td><td>PMax Analyzer</td><td><span class="tag-keep">KEEP</span></td><td>Deep PMax/Shopping dive — keep standalone</td></tr>
+      <tr><td><span class="cmd">/weekly-check</span></td><td>Weekly Check</td><td><span class="tag-retire">RETIRE</span></td><td>Absorbed into /google-manager</td></tr>
+      <tr><td><span class="cmd">/search-terms</span></td><td>Search Terms</td><td><span class="tag-retire">RETIRE</span></td><td>Absorbed into /google-manager</td></tr>
+      <tr><td><span class="cmd">/rsa-headline-generator</span></td><td>RSA Generator</td><td><span class="tag-retire">RETIRE</span></td><td>Absorbed into /creative-strategist</td></tr>
+      <tr><td><span class="cmd">/ad-copy-testing-analyzer</span></td><td>Copy Tester</td><td><span class="tag-retire">RETIRE</span></td><td>Absorbed into /creative-strategist</td></tr>
+      <tr><td><span class="cmd">/creative-director</span></td><td>Creative Director</td><td><span class="tag-retire">RETIRE</span></td><td>Absorbed into /creative-strategist</td></tr>
+      <tr><td><span class="cmd">/landing-page-quick-audit</span></td><td>LP Audit</td><td><span class="tag-retire">RETIRE</span></td><td>Absorbed into /cro-strategist</td></tr>
+      <tr><td><span class="cmd">/competitor-serp-scan</span></td><td>SERP Scan</td><td><span class="tag-retire">RETIRE</span></td><td>Absorbed into /competitive</td></tr>
+      <tr><td><span class="cmd">/competitor-messaging-analysis</span></td><td>Messaging Analysis</td><td><span class="tag-retire">RETIRE</span></td><td>Absorbed into /competitive</td></tr>
+      <tr><td><span class="cmd">/facebook-ads-performance-analyzer</span></td><td>Meta Analyzer</td><td><span class="tag-retire">RETIRE</span></td><td>Absorbed into /meta-manager</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 2. Common Invocation Patterns -->
+<div class="section-block">
+  <h3>Common Invocation Patterns</h3>
+  <div class="pattern-grid">
+    <div class="pattern-card">
+      <div class="pattern-title">New client setup</div>
+      <div class="pattern-step"><div class="step-num">1</div><div><span class="step-cmd">/new-client</span> — intake + workspace</div></div>
+      <div class="pattern-step"><div class="step-num">2</div><div><span class="step-cmd">/ads-strategy-architect</span> — full strategy</div></div>
+      <div class="pattern-step"><div class="step-num">3</div><div><span class="step-cmd">/pm</span> — sequence the build tasks</div></div>
+      <div class="pattern-step"><div class="step-num">4</div><div><span class="step-cmd">/google-strategist</span> + <span class="step-cmd">/meta-strategist</span></div></div>
+      <div class="pattern-step"><div class="step-num">5</div><div><span class="step-cmd">/qa</span> — before anything goes live</div></div>
+      <div class="pattern-step"><div class="step-num">6</div><div><span class="step-cmd">/client-comms</span> — kickoff note</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-title">Weekly operations (per client)</div>
+      <div class="pattern-step"><div class="step-num">1</div><div><span class="step-cmd">/google-manager</span> — weekly check + search terms</div></div>
+      <div class="pattern-step"><div class="step-num">2</div><div><span class="step-cmd">/meta-manager</span> — creative + pacing check</div></div>
+      <div class="pattern-step"><div class="step-num">3</div><div><span class="step-cmd">/client-comms</span> — draft weekly status note</div></div>
+      <div class="pattern-step" style="opacity:0.4;"><div class="step-num">—</div><div>If issues flagged: escalate to Director</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-title">Monthly reporting</div>
+      <div class="pattern-step"><div class="step-num">1</div><div><span class="step-cmd">/monthly-report</span> — internal analysis</div></div>
+      <div class="pattern-step"><div class="step-num">2</div><div><span class="step-cmd">/qa</span> — review the report</div></div>
+      <div class="pattern-step"><div class="step-num">3</div><div><span class="step-cmd">/client-comms</span> — client-facing version</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-title">Creative refresh</div>
+      <div class="pattern-step"><div class="step-num">1</div><div><span class="step-cmd">/competitive</span> — what are competitors running</div></div>
+      <div class="pattern-step"><div class="step-num">2</div><div><span class="step-cmd">/creative-strategist</span> — audit + new concepts</div></div>
+      <div class="pattern-step"><div class="step-num">3</div><div><span class="step-cmd">/cro-strategist</span> — message match check</div></div>
+      <div class="pattern-step"><div class="step-num">4</div><div><span class="step-cmd">/qa</span> — before sending concepts to client</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-title">Performance investigation</div>
+      <div class="pattern-step"><div class="step-num">1</div><div><span class="step-cmd">/marketing-director</span> — scope + deploy team</div></div>
+      <div class="pattern-step"><div class="step-num">2</div><div>Director routes to relevant specialists</div></div>
+      <div class="pattern-step"><div class="step-num">3</div><div><span class="step-cmd">/qa</span> — adversarial review</div></div>
+      <div class="pattern-step"><div class="step-num">4</div><div><span class="step-cmd">/client-comms</span> — findings summary</div></div>
+    </div>
+    <div class="pattern-card">
+      <div class="pattern-title">Agency-level review (monthly)</div>
+      <div class="pattern-step"><div class="step-num">1</div><div><span class="step-cmd">/cmo</span> — cross-client health scorecard</div></div>
+      <div class="pattern-step"><div class="step-num">2</div><div>CMO flags priority clients to Director</div></div>
+      <div class="pattern-step"><div class="step-num">3</div><div><span class="step-cmd">/pm</span> — reprioritize workload</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. File Structure Changes -->
+<div class="section-block">
+  <h3>File Structure Changes</h3>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+    <div>
+      <h4>system-prompts/agents/ — changes</h4>
+      <div class="file-tree">
+<span class="file-new">cross-cmo.md                   ← NEW</span>
+<span class="file-mod">cross-marketing-director.md    ← UPDATE</span>
+<span class="file-new">cross-pm.md                    ← NEW</span>
+<span class="file-new">google-strategist.md           ← NEW</span>
+<span class="file-new">google-manager.md              ← NEW</span>
+<span class="file-new">meta-strategist.md             ← NEW</span>
+<span class="file-new">meta-manager.md                ← NEW</span>
+<span class="file-new">cross-creative-strategist.md   ← NEW</span>
+<span class="file-new">cross-cro-strategist.md        ← NEW</span>
+<span class="file-mod">cross-competitive-intelligence.md ← UPDATE</span>
+<span class="file-mod">cross-qa-specialist.md         ← UPDATE</span>
+<span class="file-new">cross-client-comms.md          ← NEW</span>
+<span class="file-keep">google-*.md (16 files)         ← UNCHANGED</span>
+<span class="file-keep">meta-*.md (10 files)           ← UNCHANGED</span>
+      </div>
+    </div>
+    <div>
+      <h4>.claude/skills/ — changes</h4>
+      <div class="file-tree">
+<span class="file-new">cmo/SKILL.md                   ← NEW</span>
+<span class="file-mod">marketing-director/SKILL.md    ← UPDATE</span>
+<span class="file-new">pm/SKILL.md                    ← NEW</span>
+<span class="file-new">google-strategist/SKILL.md     ← NEW</span>
+<span class="file-new">google-manager/SKILL.md        ← NEW</span>
+<span class="file-new">meta-strategist/SKILL.md       ← NEW</span>
+<span class="file-new">meta-manager/SKILL.md          ← NEW</span>
+<span class="file-new">creative-strategist/SKILL.md   ← NEW</span>
+<span class="file-new">cro-strategist/SKILL.md        ← NEW</span>
+<span class="file-mod">competitive/SKILL.md           ← NEW (consolidates 2)</span>
+<span class="file-mod">qa/SKILL.md                    ← NEW (standalone)</span>
+<span class="file-new">client-comms/SKILL.md          ← NEW</span>
+<span class="file-gone">weekly-check/SKILL.md          retired</span>
+<span class="file-gone">search-terms/SKILL.md          retired</span>
+<span class="file-gone">rsa-headline-generator/SKILL.md retired</span>
+<span class="file-gone">ad-copy-testing-analyzer/SKILL.md retired</span>
+<span class="file-gone">creative-director/SKILL.md     retired</span>
+<span class="file-gone">landing-page-quick-audit/SKILL.md retired</span>
+<span class="file-gone">competitor-serp-scan/SKILL.md  retired</span>
+<span class="file-gone">competitor-messaging-analysis/SKILL.md retired</span>
+<span class="file-gone">facebook-ads-performance-analyzer/SKILL.md retired</span>
+<span class="file-keep">new-client/SKILL.md            ← KEEP</span>
+<span class="file-keep">ads-strategy-architect/SKILL.md ← KEEP</span>
+<span class="file-keep">conversion-tracking-audit/SKILL.md ← KEEP</span>
+<span class="file-keep">keyword-research/SKILL.md      ← KEEP</span>
+<span class="file-keep">campaign-scaling-expert/SKILL.md ← KEEP</span>
+<span class="file-keep">ppc-account-health-check/SKILL.md ← KEEP</span>
+<span class="file-keep">pmax-shopping-analyzer/SKILL.md ← KEEP</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:8px; font-size:11px; text-align:center;">
+  Total: 12 new/updated skills + 7 kept skills + 9 retired skills. 31 specialist agent files unchanged.<br>
+  Does this full design look right? Reply to approve and move to the implementation plan.
+</p>

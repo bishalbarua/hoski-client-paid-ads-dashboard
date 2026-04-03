@@ -90,4 +90,27 @@
 
 ---
 
+## March 2026 Performance
+
+**Period:** March 1 - March 31, 2026
+
+| Metric | Value |
+|---|---|
+| Calls | 459 (setter calls only) |
+| Meetings Set | 33 (all setter) |
+| March Appointments | 29 (8 attended / 16 no-show / 5 cancelled) |
+| Show Rate | 24% |
+| Confirmed Procedures | 0 |
+| Awaiting Authorization | 3 |
+
+**Key Notes:**
+- 24% show rate despite confirmation points to a systemic commitment issue — internal reschedules further reduce visibility on actual attendance
+- Review of confirmation protocols and patient qualification standards required
+- Booking channel diversification recommended: single-channel (setter only) creates exposure risk
+- Downstream outcomes remain invisible without client-side data — monthly reporting on procedure approvals and revenue needed to evaluate true ROI
+- Reminder automation needs review and alignment with Synergy's workflow (48-hour pre-appointment, 24-hour confirmation, 2-hour reminder minimum)
+- Integrating restricted calendars recommended to boost booking rates and outcomes
+
+---
+
 *Last updated: 2026-03-21*

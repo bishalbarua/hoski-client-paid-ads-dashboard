@@ -1,0 +1,283 @@
+<h2>Section 2 of 4: Channel + Creative Layer</h2>
+<p class="subtitle">Google Strategist, Google Manager, Meta Strategist, Meta Manager, Creative Strategist, CRO Strategist</p>
+
+<style>
+  .role-card {
+    background: #1a1a2e;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .role-card.google-strat  { border-left: 4px solid #9b72cf; }
+  .role-card.google-mgr    { border-left: 4px solid #52b788; }
+  .role-card.meta-strat    { border-left: 4px solid #7b72cf; }
+  .role-card.meta-mgr      { border-left: 4px solid #40916c; }
+  .role-card.creative      { border-left: 4px solid #e07a8f; }
+  .role-card.cro           { border-left: 4px solid #48cae4; }
+
+  .role-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .role-title  { font-size: 14px; font-weight: 700; color: #fff; }
+  .role-skill  { font-family: monospace; font-size: 11px; background: #0f0f1a; padding: 2px 8px; border-radius: 4px; color: #aaa; }
+  .badge       { font-size: 9px; padding: 2px 6px; border-radius: 8px; font-weight: 700; }
+  .badge-new   { background: #e94560; color: #fff; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.09em; color: #777; margin-bottom: 5px; margin-top: 0; }
+  ul { padding-left: 14px; margin: 0; }
+  li { font-size: 11px; color: #ccc; line-height: 1.6; }
+  p  { font-size: 11px; color: #ccc; line-height: 1.6; margin: 0; }
+
+  .agents-box {
+    background: #0d0d1a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 10px;
+  }
+  .agents-box .agents-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin-bottom: 6px; }
+  .agent-pill {
+    display: inline-block;
+    background: #1e1e35;
+    border: 1px solid #333;
+    border-radius: 6px;
+    font-size: 10px;
+    font-family: monospace;
+    color: #bbb;
+    padding: 2px 7px;
+    margin: 2px 3px 2px 0;
+  }
+
+  .vs-box {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;
+  }
+  .vs-side { background: #0d0d1a; border-radius: 8px; padding: 8px 10px; }
+  .vs-side .vs-label { font-size: 10px; color: #555; text-transform: uppercase; margin-bottom: 4px; }
+
+  .divider { border: none; border-top: 1px solid #222; margin: 14px 0; }
+
+  .strat-mgr-pair {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;
+  }
+</style>
+
+<!-- ── GOOGLE PAIR ── -->
+<div style="font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:#9b72cf; margin-bottom:6px;">Google Ads Channel</div>
+
+<div class="strat-mgr-pair">
+
+  <!-- Google Strategist -->
+  <div class="role-card google-strat" style="margin-bottom:0;">
+    <div class="role-header">
+      <div class="role-title">Google Ads Strategist</div>
+      <div class="role-skill">/google-strategist</div>
+      <div class="badge badge-new">NEW</div>
+    </div>
+    <h4>Purpose</h4>
+    <p>Designs the plan. Owns all strategic decisions for Google: campaign architecture, keyword strategy, bid strategy, audience approach. Produces a brief that the Google Manager executes.</p>
+
+    <div class="vs-box" style="margin-top:10px;">
+      <div class="vs-side">
+        <div class="vs-label">Inputs</div>
+        <ul><li>client-info.md</li><li>Budget and CPA targets</li><li>Business context / URL</li><li>Historical performance data</li></ul>
+      </div>
+      <div class="vs-side">
+        <div class="vs-label">Outputs</div>
+        <ul><li>Campaign structure brief</li><li>Keyword strategy + intent map</li><li>Bid strategy recommendation</li><li>Audience segmentation plan</li></ul>
+      </div>
+    </div>
+
+    <div class="agents-box">
+      <div class="agents-label">Wraps these existing agents</div>
+      <span class="agent-pill">google-campaign-architect</span>
+      <span class="agent-pill">google-keyword-intelligence</span>
+      <span class="agent-pill">google-bid-budget-optimizer</span>
+      <span class="agent-pill">google-audience-architect</span>
+      <span class="agent-pill">google-pmax-intelligence</span>
+    </div>
+  </div>
+
+  <!-- Google Manager -->
+  <div class="role-card google-mgr" style="margin-bottom:0;">
+    <div class="role-header">
+      <div class="role-title">Google Ads Manager</div>
+      <div class="role-skill">/google-manager</div>
+      <div class="badge badge-new">NEW</div>
+    </div>
+    <h4>Purpose</h4>
+    <p>Executes and monitors. Implements what the Strategist designed. Runs all weekly operational tasks: pacing, search terms, copy performance, negatives, bid health. Reports anomalies upward.</p>
+
+    <div class="vs-box" style="margin-top:10px;">
+      <div class="vs-side">
+        <div class="vs-label">Inputs</div>
+        <ul><li>Strategy brief from Strategist</li><li>Live account data / API</li><li>Search term exports</li><li>Weekly performance snapshots</li></ul>
+      </div>
+      <div class="vs-side">
+        <div class="vs-label">Outputs</div>
+        <ul><li>Weekly action list</li><li>Search term report (4 sections)</li><li>Pacing alert if off-track</li><li>Copy swap recommendations</li></ul>
+      </div>
+    </div>
+
+    <div class="agents-box">
+      <div class="agents-label">Wraps these existing agents</div>
+      <span class="agent-pill">google-account-health-monitor</span>
+      <span class="agent-pill">google-search-terms-analyst</span>
+      <span class="agent-pill">google-budget-pacing</span>
+      <span class="agent-pill">google-negative-keyword</span>
+      <span class="agent-pill">google-ad-copy-strategist</span>
+      <span class="agent-pill">google-reporting-analyst</span>
+    </div>
+    <p style="margin-top:8px; font-size:10px; color:#555;">Consolidates: /weekly-check + /search-terms + /ad-copy-testing-analyzer into one role</p>
+  </div>
+
+</div>
+
+<hr class="divider">
+
+<!-- ── META PAIR ── -->
+<div style="font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:#7b72cf; margin-bottom:6px;">Meta Ads Channel</div>
+
+<div class="strat-mgr-pair">
+
+  <!-- Meta Strategist -->
+  <div class="role-card meta-strat" style="margin-bottom:0;">
+    <div class="role-header">
+      <div class="role-title">Meta Ads Strategist</div>
+      <div class="role-skill">/meta-strategist</div>
+      <div class="badge badge-new">NEW</div>
+    </div>
+    <h4>Purpose</h4>
+    <p>Designs the Meta plan. Owns campaign architecture, full-funnel structure (ToFu/MoFu/BoFu), audience strategy, and creative direction. Produces briefs for Meta Manager and Creative Strategist.</p>
+
+    <div class="vs-box" style="margin-top:10px;">
+      <div class="vs-side">
+        <div class="vs-label">Inputs</div>
+        <ul><li>client-info.md</li><li>Funnel goals and budget</li><li>Pixel / conversion event status</li><li>Existing audience data</li></ul>
+      </div>
+      <div class="vs-side">
+        <div class="vs-label">Outputs</div>
+        <div class="vs-side" style="background:none; padding:0;">
+        <ul><li>Campaign architecture</li><li>Audience strategy (cold/warm)</li><li>Creative brief for Strategist</li><li>Bid and budget allocation</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="agents-box">
+      <div class="agents-label">Wraps these existing agents</div>
+      <span class="agent-pill">meta-campaign-strategist</span>
+      <span class="agent-pill">meta-audience-architect</span>
+      <span class="agent-pill">meta-creative-strategist</span>
+      <span class="agent-pill">meta-bid-budget-optimizer</span>
+      <span class="agent-pill">meta-conversion-optimizer</span>
+    </div>
+  </div>
+
+  <!-- Meta Manager -->
+  <div class="role-card meta-mgr" style="margin-bottom:0;">
+    <div class="role-header">
+      <div class="role-title">Meta Ads Manager</div>
+      <div class="role-skill">/meta-manager</div>
+      <div class="badge badge-new">NEW</div>
+    </div>
+    <h4>Purpose</h4>
+    <p>Executes and monitors Meta campaigns. Tracks creative fatigue, pacing, pixel health, audience performance, and scaling signals. Flags when creative needs refresh or audiences are exhausted.</p>
+
+    <div class="vs-box" style="margin-top:10px;">
+      <div class="vs-side">
+        <div class="vs-label">Inputs</div>
+        <ul><li>Strategy brief from Strategist</li><li>Live Meta account data</li><li>Creative performance signals</li><li>Pixel / event data</li></ul>
+      </div>
+      <div class="vs-side">
+        <div class="vs-label">Outputs</div>
+        <ul><li>Weekly action list</li><li>Creative fatigue alerts</li><li>Scaling signals (up/down)</li><li>Pixel health report</li></ul>
+      </div>
+    </div>
+
+    <div class="agents-box">
+      <div class="agents-label">Wraps these existing agents</div>
+      <span class="agent-pill">meta-account-health-monitor</span>
+      <span class="agent-pill">meta-creative-performance-analyst</span>
+      <span class="agent-pill">meta-scaling-diagnosis</span>
+      <span class="agent-pill">meta-pixel-events-guardian</span>
+      <span class="agent-pill">meta-ad-library-intelligence</span>
+    </div>
+  </div>
+
+</div>
+
+<hr class="divider">
+
+<!-- ── CROSS-CHANNEL CREATIVE + CRO ── -->
+<div style="font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:#e07a8f; margin-bottom:6px;">Cross-Channel Specialists</div>
+
+<div class="strat-mgr-pair">
+
+  <!-- Creative Strategist -->
+  <div class="role-card creative" style="margin-bottom:0;">
+    <div class="role-header">
+      <div class="role-title">Creative Strategist</div>
+      <div class="role-skill">/creative-strategist</div>
+      <div class="badge badge-new">NEW</div>
+    </div>
+    <h4>Purpose</h4>
+    <p>Full creative ownership across both channels. Not just copywriting — owns the entire creative layer: audit what's running, analyze what's working, ideate new angles, brief concepts for image/video/copy, build the testing framework.</p>
+
+    <div class="three-col" style="margin-top:10px; grid-template-columns:1fr 1fr 1fr;">
+      <div>
+        <h4>Audit</h4>
+        <ul><li>RSA asset performance (BEST/GOOD/LOW)</li><li>Meta creative fatigue signals</li><li>Winning pattern extraction</li></ul>
+      </div>
+      <div>
+        <h4>Ideation</h4>
+        <ul><li>New copy angles and hooks</li><li>Image and video concepts</li><li>UGC direction</li></ul>
+      </div>
+      <div>
+        <h4>Strategy</h4>
+        <ul><li>Creative testing framework</li><li>Awareness continuum mapping</li><li>Competitive creative gap analysis</li></ul>
+      </div>
+    </div>
+
+    <div class="agents-box">
+      <div class="agents-label">Wraps these existing agents</div>
+      <span class="agent-pill">google-ad-copy-strategist</span>
+      <span class="agent-pill">meta-creative-strategist</span>
+      <span class="agent-pill">meta-creative-performance-analyst</span>
+      <span class="agent-pill">meta-ad-library-intelligence</span>
+    </div>
+    <p style="margin-top:6px; font-size:10px; color:#555;">Absorbs + replaces: /rsa-headline-generator + /ad-copy-testing-analyzer + /creative-director</p>
+  </div>
+
+  <!-- CRO Strategist -->
+  <div class="role-card cro" style="margin-bottom:0;">
+    <div class="role-header">
+      <div class="role-title">CRO Strategist</div>
+      <div class="role-skill">/cro-strategist</div>
+      <div class="badge badge-new">NEW</div>
+    </div>
+    <h4>Purpose</h4>
+    <p>Full landing page ownership. Audits current pages, identifies conversion leaks, ideates improvements, builds the CRO strategy. Ensures message match between ads and landing pages across all channels.</p>
+
+    <div class="three-col" style="margin-top:10px; grid-template-columns:1fr 1fr 1fr;">
+      <div>
+        <h4>Audit</h4>
+        <ul><li>Above-the-fold analysis</li><li>Message match vs. ad copy</li><li>Trust signal inventory</li><li>Mobile experience check</li></ul>
+      </div>
+      <div>
+        <h4>Ideation</h4>
+        <ul><li>Headline and CTA alternatives</li><li>Layout recommendations</li><li>Social proof placement</li><li>Form friction reduction</li></ul>
+      </div>
+      <div>
+        <h4>Strategy</h4>
+        <ul><li>Per-campaign LP prescriptions</li><li>A/B test prioritization</li><li>Funnel drop-off diagnosis</li><li>Post-click experience map</li></ul>
+      </div>
+    </div>
+
+    <div class="agents-box">
+      <div class="agents-label">Wraps these existing agents</div>
+      <span class="agent-pill">cross-landing-page-cro</span>
+    </div>
+    <p style="margin-top:6px; font-size:10px; color:#555;">Absorbs + replaces: /landing-page-quick-audit — significantly expanded scope</p>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px; font-size:11px;">Does the channel and creative layer look right? Reply to continue to Section 3: Cross-Channel Support (Competitive Specialist, QA Manager, Client Communication Manager).</p>

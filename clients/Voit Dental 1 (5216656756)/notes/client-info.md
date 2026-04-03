@@ -272,3 +272,24 @@ Headlines: "New Smile in 24 Hours" | "Full Arch Implants Expert" | "Full Implant
 - [ ] Get GHL pipeline updated by Dr. Voit's team for evaluation period
 - [ ] Finalize and launch affordability-angle creative (replacing celebratory angle)
 - [ ] Dr. Voit to film new video segments for updated ad creative
+
+---
+
+## March 2026 Performance
+
+**Period:** March 1 - March 31, 2026
+
+| Metric | Value |
+|---|---|
+| Calls | 346 (setter calls only) |
+| Meetings Set | 25 (3 setter / 22 front office) |
+| March Appointments | 21 (4 attended / 11 no-show / 4 cancelled / 2 unconfirmed) |
+| Procedures Confirmed | 0 |
+| Patients Qualified | 0 |
+
+**Key Notes:**
+- Front office handled 22 of 25 new lead bookings under a new process; setter shifted to lead reactivation
+- Conversion from reactivation limited — 2+ week period of inactivity disrupted pipeline momentum
+- High lead volume not translating to qualified conversions — client-side operational review needed to trace drop-off points
+- Booking-to-attendance gap persists across process changes and owners — root cause may be tied to lead profile, market behavior, or consultation model design; deeper qualification analysis recommended
+- Next steps: launch more aggressive 4-5 touch cadence campaign for Voit's older leads to recapture unresponsive leads

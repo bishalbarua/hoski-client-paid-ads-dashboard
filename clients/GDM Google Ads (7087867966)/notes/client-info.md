@@ -254,3 +254,22 @@ Trevor (concierge SDR) is surfacing qualified leads in Slack:
 - [ ] Follow up with Sabby on order confirmation email date fix
 - [ ] Confirm Affirm financing integration is live on site
 - [ ] Follow up with Anne-Sophie Malboeuf re: wedding band pricing (Doc to handle once back)
+
+---
+
+## March 2026 Performance
+
+**Period:** March 1 - March 31, 2026
+
+| Metric | Value |
+|---|---|
+| Calls | 26 |
+| Meetings Set | 14 (11 self-booked / 3 setter) |
+| March Appointments | 13 (4 attended / 7 unconfirmed / 2 cancelled) |
+| Confirmed Purchases | 2 (numbers logged, not total achieved) |
+
+**Key Notes:**
+- Only 15.38% of total outcomes tracked — 8 outcomes (61.53% of total appointments) remain unclear
+- Self-booking efficiency: 11 of 13 attended appointments came through self-booking with zero setter involvement
+- Pending purchase confirmations represent immediate revenue opportunity — post-appointment follow-up protocol needed
+- Outcome tracking gap is the primary issue: need appointment tracking sheet and client updates to capture all purchase confirmations
