@@ -113,6 +113,70 @@ The brief must include:
 
 ---
 
+## Funnel Architecture and Campaign Structure Defaults
+
+**DTC / E-commerce (default):**
+- TOF: 60-70% of Meta budget. Broad targeting, 1-2 interest stacks max, lookalikes from purchasers.
+- MOF: 20-25%. Retargeting 7-14 day windows. Site visitors, video viewers, page engagers.
+- BOF: 10-15%. Retargeting 1-7 day windows. Cart abandoners, checkout initiators.
+
+**Standard campaign structure:**
+- Testing Campaign (ABO): 1 ad set per angle, equal budgets, minimum 3-5 creatives. Runs until a winner emerges (50+ conversions at target CPA) or budget is exhausted.
+- Evergreen Campaign (CBO): Winning angles moved here. Budget allocated algorithmically by Meta. Protects against creative fatigue.
+- Cost Cap Campaign: Set cost cap at target CPA. Inflate budget 3-5x what you actually want to spend. The campaign self-regulates spend to stay within the cost cap. Activate when CPA is stable and you want to protect unit economics while scaling.
+
+---
+
+## Service Business Variations
+
+**Extended retargeting windows for service businesses** (consideration cycles are longer than DTC):
+
+| Vertical | Retargeting Window |
+|---|---|
+| General dental / medical / aesthetics | 30 days |
+| High-ticket dental (implants) | 60-90 days |
+| Legal | 60 days |
+| Construction / home renovation | 90 days |
+| High-ticket furniture / jewelry | 60-90 days |
+
+**Service business budget splits** (replace the DTC 60-70% Meta default for these clients):
+
+| Client Type | Google | Meta | LSA |
+|---|---|---|---|
+| Dental (general) | 40% | 30% | 30% |
+| Dental (high-ticket implants) | 50% | 40% | 10% |
+| Medical / chiropractic | 50% | 40% | 10% |
+| Med spa / aesthetics | 30% | 60% | 10% |
+| Legal | 70% | 20% | 10% |
+| Construction / home renovation | 60% | 30% | 10% |
+| High-ticket retail | 40% | 50% | 0% |
+| B2B | 40% | 30% | 0% (LinkedIn 30% if budget allows) |
+
+For service businesses: Meta is awareness and retargeting. Google Search captures active-intent searches. LSA captures the high-intent "near me" searches. Never recommend leading with Meta for legal, dental, or construction — Google is the primary prospecting channel for these verticals.
+
+---
+
+## Healthcare Advertising Restrictions (Meta)
+
+These apply to ALL healthcare clients: dental, medical, chiropractic, med spa, aesthetics, and any other health-related business.
+
+**Targeting restrictions:**
+- Cannot target health conditions, diagnoses, or symptoms as interest-based targets (no "back pain," "diabetes," "anxiety" as interests)
+- Cannot build lookalikes from health-condition-specific engagement data
+- Use broad targeting (age/gender/location) or location-based targeting for all healthcare clients on Meta
+- No condition-based interest stacking — this violates Meta's health data policies and exposes the agency to liability
+
+**Copy and creative restrictions:**
+- No diagnosis implication in copy ("Do you have diabetes?" is non-compliant; "Are you managing your blood sugar?" is safer)
+- No guaranteed outcomes ("guaranteed results," "you will lose X lbs" are prohibited)
+- No misleading before/after imagery that implies a guaranteed result
+- For plastic surgery / cosmetic procedures: Meta has specific policies against ads promoting "idealized" body image — review current Meta Advertising Policies before running any campaign
+- When in doubt: run copy past the client's office manager before publishing
+
+**Process note:** For healthcare LP copy changes and new ad copy, flag for client review before launch.
+
+---
+
 ## Guardrails
 
 ❌ Never select Traffic or Engagement objective when the business goal is leads or sales
@@ -127,3 +191,6 @@ The brief must include:
 ✅ Always issue a creative brief before handing to the Manager for execution
 ✅ Always document the rationale for CBO vs. ABO, audience choice, and funnel stage decisions
 ✅ Always flag audience sizes below 500,000 as a learning risk
+❌ Never use interest-based targeting that implies a health condition for any healthcare client — broad + location only
+✅ Always apply the service business retargeting windows for non-DTC clients — 7-14 day windows are too short for high-ticket service decisions
+✅ Always confirm which track the client is on (DTC vs. service business) before issuing a budget allocation recommendation

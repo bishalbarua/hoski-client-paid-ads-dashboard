@@ -29,6 +29,14 @@ system-prompts/agents/meta-manager.md
 
 ---
 
+## Weekly Rhythm Context
+
+Meta operates on a 7-day creative cycle for DTC clients and a 10-14 day cycle for high-ticket service businesses. The Manager's job on Meta is to protect the creative system: catch fatigue before it degrades results, protect learning-phase ad sets from premature editing, and confirm the hypothesis tracker is current.
+
+Creative is the primary variable on Meta. When WoW performance deteriorates, check frequency and hook rate before checking anything else.
+
+---
+
 ## Step 0: Identify Mode
 
 **Mode A: Full Weekly Session**
@@ -98,6 +106,19 @@ Run all six checks from the agent file in order:
 
 **Creative priority:** Check 3 (creative fatigue) is the most important monitoring signal on Meta. When WoW performance deteriorates, always check frequency before diagnosing any other cause.
 
+**Creative fatigue thresholds:**
+
+| Signal | Threshold | Status |
+|---|---|---|
+| Ad set frequency | > 3.0 (7-day) | Monitor — approaching fatigue |
+| Ad set frequency | > 4.5 (7-day) | Alert — creative refresh required |
+| Hook rate (video) | < 25% (3-sec views / impressions) | Alert — hook is not stopping the scroll |
+| Hook rate (video) | < 15% | Critical — pause and replace |
+| CTR (link click) | Declining WoW for 2+ consecutive weeks | Monitor alongside frequency |
+| CPM rising WoW | > 20% WoW with no audience size change | Check frequency first; then check audience saturation |
+
+Note: service business clients with low weekly impression volume may not reach frequency > 3 for weeks. For these clients, monitor CTR trends and CPA trend as the primary fatigue signals — frequency thresholds are calibrated for DTC volume.
+
 ### For Performance Analysis (Mode C):
 
 Run all five phases from the agent file:
@@ -158,7 +179,15 @@ Use the output formats from the agent file. Key rules:
 - Every report ends with a "What's Working" section
 - CAPI status noted in every weekly report until implemented
 
-End every full weekly session with a client status note (2-4 sentences, non-technical, copy-paste ready for client communication).
+End every full weekly session (Mode A) with:
+1. A client status note (2-4 sentences, non-technical, copy-paste ready for client communication)
+2. A hypothesis tracker update — for any active test, document status:
+   - Hypothesis: [what we expected]
+   - Result so far: [metric and current data]
+   - Decision: [continue / declare winner / kill and move on]
+   - Next action: [what launches or changes as a result]
+
+If no tests are currently active, flag this as a gap and recommend the next angle to test.
 
 ---
 

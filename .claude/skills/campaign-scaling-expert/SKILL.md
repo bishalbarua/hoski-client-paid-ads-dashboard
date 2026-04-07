@@ -96,7 +96,7 @@ Classify every campaign into one of four tiers based on CPA performance and conv
 
 | Tier | Label | Criteria | Strategic Action |
 |---|---|---|---|
-| **Tier 1** | Scale Now | CPA ≤ target AND conversions ≥ 20 | Increase budget 20–30%, test bid strategy upgrades |
+| **Tier 1** | Scale Now | CPA ≤ target AND conversions ≥ 20 | Increase budget 20-30% every 3-5 days (never more than 30% in a single day — this resets Smart Bidding learning). Confirm CPA stays within target before each increment. |
 | **Tier 2** | Optimize to Scale | CPA 1.0–1.3× target OR conversions 10–19 | Fix efficiency first, then scale |
 | **Tier 3** | Restructure or Pause | CPA > 1.3× target AND low volume | Audit structure, creative, landing page before more spend |
 | **Tier 4** | Monitor | < 10 conversions in period | Insufficient data — do not make structural changes |
@@ -123,6 +123,9 @@ Evaluate current bid strategy against conversion volume:
 | > 30 | Target CPA at goal OR Target ROAS | Full smart bidding leverage |
 
 Flag campaigns running Manual CPC with > 30 conversions — this is a clear missed scaling opportunity.
+
+**Cost Cap strategy for scaling with efficiency protection:**
+When a campaign has achieved stable CPA and you want to scale without CPA degradation: set a Cost Cap equal to the target CPA and inflate the budget 3-5x the actual expected daily spend. The campaign self-regulates — it will only spend when it can meet the cost cap. This is the preferred scaling mechanism for campaigns where CPA protection is the priority over volume maximization.
 
 #### Lever C — Impression Share Gap
 - Search Impression Share < 60% AND Lost IS (Rank) > 20%: Quality Score or bid issue. Fix before scaling budget.
@@ -226,6 +229,8 @@ Deliver in this exact structure:
 ❌ **NEVER** recommend switching bid strategies during a known peak season without flagging the learning period risk.
 
 ✅ **ALWAYS** rank actions by expected impact × confidence, not just impact alone.
+❌ **NEVER** recommend a budget increase of more than 30% in a single day for Smart Bidding campaigns — this resets learning and can spike CPA for 1-2 weeks. Scale in increments of 20-30% every 3-5 days.
+❌ **NEVER** recommend scaling budget when CPA has risen more than 20% week-over-week — diagnose the CPA spike before adding fuel. Scaling an inefficient campaign is not scaling, it is accelerating waste.
 
 ✅ **ALWAYS** protect brand campaigns from aggressive optimization recommendations — they operate differently.
 

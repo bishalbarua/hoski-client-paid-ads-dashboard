@@ -246,12 +246,26 @@
       "Skill(update-config:*)",
       "WebFetch(domain:openrouter.ai)",
       "mcp__claude_ai_Gmail__gmail_get_profile",
-      "mcp__claude_ai_Gmail__gmail_create_draft"
+      "mcp__claude_ai_Gmail__gmail_create_draft",
+      "WebFetch(domain:thesustainablewatchcompany.com)",
+      "WebFetch(domain:fabestheticsny.com)",
+      "Edit(/.claude/skills/new-client/**)",
+      "Edit(/.claude/skills/creative-strategist/**)",
+      "Edit(/.claude/skills/meta-strategist/**)",
+      "Edit(/.claude/skills/meta-manager/**)",
+      "Edit(/.claude/skills/weekly-check/**)",
+      "Edit(/.claude/skills/monthly-report/**)",
+      "Edit(/.claude/skills/cro-strategist/**)",
+      "Edit(/.claude/skills/campaign-scaling-expert/**)",
+      "Edit(/.claude/skills/google-strategist/**)",
+      "Edit(/.claude/skills/google-manager/**)",
+      "Edit(/.claude/skills/ads-strategy-architect/**)"
     ],
     "additionalDirectories": [
       "/Users/bishalbarua",
       "/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/.claude",
-      "/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/.claude/skills"
+      "/Users/bishalbarua/Bishal/AI/antigravity/Google Ads Manager/.claude/skills",
+      "/Users/bishalbarua/Bishal/AI/antigravity/Hoski Marketing Manager/docs/superpowers/specs"
     ]
   }
 }

@@ -67,6 +67,30 @@ Note any competitors mentioned or implied on-site. Flag whether the business:
 - [ ] Competes on speed/convenience → urgency and ease should lead
 - [ ] Competes on expertise/trust → credentials and social proof must lead
 
+### 1.4 Vertical Classification
+
+Classify the client into one of three tracks. This determines all downstream defaults.
+
+**Track A — DTC / E-commerce:** Shopify or equivalent. Online purchase is the conversion event. MER applies. Creative is the primary Meta variable. Landing page is the primary Google variable. Use standard funnel architecture and budget tables.
+
+**Track B — Service Business:** Conversion is a call, form submission, appointment booking, or consultation request. MER does not apply. GHL/CRM pipeline is the bottom of the funnel. CPL, show rate, and cost per acquired client are the core metrics. Landing page quality is non-negotiable. Provider trust signals must appear above the fold.
+
+Track B includes: dental, medical, chiropractic, legal, med spa, aesthetics, construction, home services, high-ticket retail (GDM, Park Road), B2B lead gen.
+
+**Track C — High-Ticket Consultation-First Retail:** Physical products with in-store or consultation-gated closing. Hybrid of Track A and B. DPA and Google Shopping apply, but retargeting windows are 60-90 days and the primary conversion event is a consultation or showroom visit, not an online purchase.
+
+Document the track clearly at the top of Phase 2. All budget allocation, funnel architecture, and campaign structure recommendations use the correct defaults for that track.
+
+**Service Business Funnel Architecture (Track B):**
+
+```
+TOF (50-60%): Google Search (high-intent terms) + Meta awareness
+Middle (25-30%): Retargeting ads + GHL automated sequences (SMS/email follow-up)
+Bottom (10-15%): GHL reminders, re-engagement sequences, review requests post-service
+```
+
+The GHL pipeline is part of the funnel. What happens after form submission is as important as what happens before it. Campaign structure must hand off cleanly to the GHL follow-up sequence. Speed-to-lead is critical — design for a < 60-second response window from GHL.
+
 ---
 
 ## Phase 2: Campaign Strategy — Google Ads
@@ -300,12 +324,29 @@ Example (Bad):
 
 ### 5.1 Budget Framework
 
+**DTC / E-commerce (Track A) — budget-size allocation:**
+
 | Business Monthly Ad Budget | Google Allocation | Meta Allocation | Rationale |
 |---------------------------|------------------|----------------|-----------|
 | Under $2,000 | 70% | 30% | Capture existing demand first |
 | $2,000–$5,000 | 60% | 40% | Balance capture + creation |
 | $5,000–$15,000 | 50% | 50% | Full-funnel coverage |
 | $15,000+ | 40–50% | 50–60% | Scale with Meta; Google maxed out |
+
+**Service Business (Track B) — vertical-type allocation:**
+
+| Client Type | Google Search | Meta | LSA |
+|---|---|---|---|
+| Dental (general) | 40% | 30% | 30% |
+| Dental (high-ticket implants) | 50% | 40% | 10% |
+| Medical / chiropractic | 50% | 40% | 10% |
+| Med spa / aesthetics | 30% | 60% | 10% |
+| Legal | 70% | 20% | 10% |
+| Construction / home renovation | 60% | 30% | 10% |
+| High-ticket retail (Track C) | 40% | 50% | 0% |
+| B2B | 40% | 30% | 0% |
+
+For Track B clients: always check LSA eligibility (dental, medical, legal, home services) — LSA often has the lowest effective CPL in these verticals.
 
 ### 5.2 30-60-90 Day Launch Roadmap
 

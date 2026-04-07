@@ -65,14 +65,26 @@ What would make someone choose this business over competitors?
 If unclear from the website, ask: "What do your best customers say about you? What keeps them coming back?"
 
 **1d. What's the typical customer value?**
-- Lead gen: What's a lead worth? What % close? What's average transaction size?
 - eCommerce: Average order value? Repeat purchase rate? LTV?
+- Lead gen (DTC): What's a lead worth? What % close? What's average transaction size?
+- Service business (dental, medical, legal, aesthetics, construction, high-ticket retail): Ask all four of these:
+  1. What's the average revenue per new client? (not per visit — per client relationship)
+  2. What's your show rate? (what % of booked appointments actually show up?)
+  3. What's your lead-to-close rate? (what % of people who show up become paying clients?)
+  4. What's your gross margin on a new client?
 
-This unlocks the maximum viable CPA calculation:
+For service businesses, this unlocks the CPL target:
+```
+Max CPL = Avg Revenue per New Client × Lead-to-Close Rate × Show Rate × Gross Margin %
+Target CPL = Max CPL × 0.75
+```
+
+For DTC/eCommerce:
 ```
 Max CPA = Avg Transaction Value × Gross Margin × Lead-to-Close Rate
 ```
-Flag if the client doesn't know — they need to know their numbers.
+
+Flag if the client doesn't know their numbers — they need to know them. Even rough estimates unlock better targeting decisions than no target at all.
 
 **1e. Any seasonality?**
 Peak months? Slow months? Any events, promotions, or deadlines that affect demand?
@@ -426,6 +438,51 @@ If the client doesn't exist in the CLAUDE.md account table, note: "Add this clie
 
 ---
 
+## Service Business Onboarding Track
+
+For service business clients (dental, medical, chiropractic, legal, med spa, aesthetics, construction, high-ticket retail, B2B), run this track in addition to the standard onboarding above.
+
+### Week 1 Service Business Checklist
+
+**Tracking Setup**
+- [ ] CallRail confirmed active — call recording enabled
+- [ ] Tracking numbers assigned per source: Google Ads / Meta / organic (separate numbers per source)
+- [ ] CallRail whisper message configured ("This call came from Google Ads" or similar)
+- [ ] Google Ads call conversion actions verified: call extensions + landing page calls both tracked
+- [ ] Meta lead form or website conversion events verified and firing
+- [ ] GA4 goal events verified: form submissions, call clicks, appointment bookings
+- [ ] Booking tool tracking confirmed if applicable (Calendly, Jane, NexHealth, etc.)
+
+**CRM and Pipeline Setup**
+- [ ] GHL sub-account confirmed active — pipeline stages defined with client
+- [ ] GHL automated follow-up sequence reviewed or built (target: respond within 60 seconds of lead submission)
+- [ ] Lead source tracking in GHL aligned with CallRail and platform UTMs
+
+**Business Intelligence**
+- [ ] Unit economics conversation completed — CPL target calculated and documented in client-info.md
+- [ ] "What makes a lead qualified?" defined and documented (this is the quality anchor for all future diagnosis)
+- [ ] Show rate and lead-to-close rate asked of client — documented either way (even if unknown, note that)
+- [ ] Competitor audit completed: Google Ads Transparency, Meta Ad Library, local LSA listings
+- [ ] 12-month calendar started with vertical-specific peaks noted
+
+**Baseline Documentation**
+- [ ] LSA account checked or created if applicable (dental, medical, legal, home services)
+- [ ] Current volume of monthly leads / calls documented (baseline before ads)
+
+---
+
+### Week 2 Service Business Checklist
+
+- [ ] First campaign structure built (Google Search is priority for most service verticals — high-intent queries first)
+- [ ] Negative keyword list seeded with irrelevant service types, competitor names to block, and geographic exclusions
+- [ ] Landing page audit complete using service business requirements (credentials above fold, objection handling, compliance reviewed)
+- [ ] CallRail spot-check: pull 5 recent calls, review for lead quality, document findings
+- [ ] GHL pipeline populated with any existing leads for baseline comparison
+- [ ] Client expectations set clearly: month 1 is establishing CPL baseline and defining lead quality — not scaling
+- [ ] First test batch launched with hypothesis documented (angle, audience, expected CPL)
+
+---
+
 ## Pre-Launch Checklist
 
 This checklist must be completed before the first campaign goes live. Generate a copy and save it in the client's notes folder.
@@ -563,6 +620,7 @@ Any questions — just reply here.
 ❌ **NEVER** set a target CPA before understanding what a customer is worth to the business
 ❌ **NEVER** promise specific lead volume or CPA before the first 30 days of data
 ❌ **NEVER** create a client folder without populating client-info.md — empty templates are useless
+❌ **NEVER** run ads for a service business client without defining "what makes a lead qualified" with the client — this is the lead quality anchor for all future diagnosis. A cheap lead that never shows is worse than an expensive lead that converts.
 
 ✅ **ALWAYS** calculate max viable CPA from the client's business economics
 ✅ **ALWAYS** document brand terms immediately — they're needed by search-terms, negative-keyword-analyzer, and monthly-report

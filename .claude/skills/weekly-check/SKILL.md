@@ -210,6 +210,27 @@ Run all six checks in this order. Each generates pass/warn/alert signals that fe
 
 ---
 
+### Check 1B: Service Business Lead Quality (non-eCommerce clients only)
+
+Run this check for all service business clients immediately after Check 1.
+
+| Signal | Threshold | Status |
+|--------|-----------|--------|
+| CPL this week vs target CPL | > 30% above target | 🟡 WARN |
+| CPL this week vs target CPL | > 50% above target | 🔴 ALERT |
+| Show rate (from GHL pipeline) | < 60% | 🟡 WARN — lead quality issue, check follow-up speed first |
+| Show rate (from GHL pipeline) | < 45% | 🔴 ALERT — check targeting, ad copy, LP, and GHL follow-up speed |
+| Speed-to-lead (GHL average response time) | > 5 minutes | 🟡 WARN — qualification probability drops 80% after 5 min |
+| CallRail avg call duration this week | Below qualified threshold (typically < 2 min) | 🟡 WARN — low-quality calls coming in |
+
+**Diagnosis order:**
+1. If show rate is low: check GHL follow-up speed FIRST, before adjusting the campaign. Operational problem comes before media problem.
+2. If call duration is short: pull 5 calls in CallRail and review manually. Diagnose whether targeting, landing page, or ad copy is attracting unqualified prospects before making any campaign changes.
+3. If CPL is high but show rate is healthy: campaign problem. Proceed to campaign analysis.
+4. If CPL is on target but cost per acquired client is rising: show rate or close rate is degrading downstream. Pull GHL pipeline data.
+
+---
+
 ### Check 2: Budget Pacing 💰
 
 For each campaign (and account total):
@@ -343,9 +364,14 @@ Bid Strat:  🟢 / 🟡 / 🔴   [smart bidding health]
 | Campaign A | $X | X | $X | -8% | +5% | +12% | -6% | 🟢 |
 | Campaign B | $X | X | $X | +22% | -3% | -18% | +19% | 🟡 |
 
-**Footer line:**
+**Footer line (eCommerce/DTC clients):**
 ```
 TOTAL: $X spend | X conversions | $X blended CPA | Target: $X | Budget used: X% ($X of $X/mo)
+```
+
+**Footer line (service business clients):**
+```
+TOTAL: $X spend | X leads | $X CPL | Show rate: X% | Cost per acquired client: $X | Budget used: X% ($X of $X/mo)
 ```
 
 ---
@@ -413,6 +439,26 @@ NEXT WEEK:
 
 ---
 
+### Section 6.5: Hypothesis Tracker Update
+
+Between the Action List and the Client Status Note, include a brief hypothesis tracker update:
+
+```
+ACTIVE TESTS:
+Test: [What we're testing — angle, copy, bid strategy, etc.]
+Hypothesis: [What we expected to happen]
+Status: [Running X days | X conversions | CPA: $X vs control $X]
+Decision: [Continue / Declare winner / Kill — and why]
+Next: [What launches or changes as a result]
+
+If no tests are active:
+⚠️ No active hypothesis on this account. Recommend next test: [specific angle or change to test next week]
+```
+
+No test running = no learning. Flag it and propose the next one.
+
+---
+
 ### Section 7: Client Status Note (Optional)
 
 One paragraph, 2–4 sentences, non-technical. Copy-paste ready for client email or Slack:
@@ -447,6 +493,18 @@ Strong week — 14 leads at $48 average, 12% below your $55 target. The Emergenc
 ✅ **ALWAYS** rank actions by urgency (today vs. this week vs. next week)
 ✅ **ALWAYS** note known external factors (seasonality, promotions) that explain anomalies
 ✅ **ALWAYS** flag if /search-terms hasn't been run in more than 7 days
+
+## Red Flags: Escalate Immediately
+
+These signals require immediate escalation outside the standard action list:
+
+| Signal | What It Means | Escalation |
+|--------|--------------|------------|
+| Conversions drop to zero with normal click volume | Tracking broken | Stop all optimization — run /conversion-tracking-audit |
+| Show rate declining 2+ consecutive weeks (service clients) | Lead quality deteriorating upstream | Check follow-up speed in GHL, then check targeting and LP before touching campaigns |
+| Cost per acquired client rising even though CPL is stable | Show rate or close rate degrading in GHL pipeline | Pull GHL data — if show rate falling, it is operational not campaign |
+| CPA > 2x target for 2+ consecutive weeks | Structural account problem | Escalate to /ppc-account-health-check or /campaign-scaling-expert |
+| Budget exhausted by midday consistently | Budget-constrained impression share | Recommend budget increase or reallocation before any bid changes |
 
 ---
 

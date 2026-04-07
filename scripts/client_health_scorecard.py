@@ -20,15 +20,21 @@ Usage:
     python3 scripts/client_health_scorecard.py --sheets    # write to Google Sheets
 
 Scoring breakdown (100 points total):
-    Conversion tracking health   25 pts
+    Conversion tracking health   25 pts  (30 pts for service business accounts)
     Budget pacing                20 pts
     Search Impression Share WoW  20 pts
-    CTR trend WoW                15 pts
+    CTR trend WoW                15 pts  (10 pts for service business accounts)
     Avg Quality Score            15 pts
     Disapprovals                  5 pts
 
+    Service business accounts (dental, medical, legal, aesthetics, construction,
+    high-ticket retail): conversion tracking weight is raised to 30 pts because
+    call tracking is fragile, and CTR weight is reduced to 10 pts because CPL
+    is a more meaningful signal than CTR for these verticals.
+
 Changelog:
     2026-03-23  Initial version — composite score, ranked table, Sheets output.
+    2026-04-07  Added SERVICE_BUSINESS_IDS and vertical-aware scoring weights.
 """
 
 import argparse
@@ -62,6 +68,24 @@ ALL_CLIENTS = {
     "Voit Dental (2)":                      "5907367258",
 }
 
+# ─── SERVICE BUSINESS REGISTRY ───────────────────────────────────────────────
+# Accounts where CPL and call tracking are the primary health signals.
+# Conv tracking weight is raised (30 pts); CTR weight is reduced (10 pts).
+
+SERVICE_BUSINESS_IDS = {
+    "8159668041",  # Texas FHC
+    "7628667762",  # Synergy Spine & Nerve Center
+    "5216656756",  # Voit Dental (1)
+    "5907367258",  # Voit Dental (2)
+    "5865660247",  # Anand Desai Law Firm
+    "8134824884",  # Serenity Familycare
+    "9304117954",  # FaBesthetics
+    "3857223862",  # Dentiste
+    "5544702166",  # Hoski.ca
+    "7228467515",  # Park Road Custom Furniture and Decor
+    "3720173680",  # New Norseman
+}
+
 # ─── SCORING WEIGHTS ─────────────────────────────────────────────────────────
 
 WEIGHT_CONV_HEALTH = 25
@@ -70,6 +94,10 @@ WEIGHT_IS_TREND    = 20
 WEIGHT_CTR_TREND   = 15
 WEIGHT_QS          = 15
 WEIGHT_DISAPPROVAL  = 5
+
+# Service business overrides
+WEIGHT_CONV_HEALTH_SERVICE = 30
+WEIGHT_CTR_TREND_SERVICE   = 10
 
 # ─── CLIENT ──────────────────────────────────────────────────────────────────
 
@@ -314,6 +342,12 @@ def score_disapprovals(ga_service, customer_id):
 
 def score_account(ga_client, client_name, customer_id, d):
     """Compute all component scores and return a structured result."""
+    is_service = customer_id in SERVICE_BUSINESS_IDS
+    vertical   = "Service Business" if is_service else "DTC / E-commerce"
+
+    w_conv = WEIGHT_CONV_HEALTH_SERVICE if is_service else WEIGHT_CONV_HEALTH
+    w_ctr  = WEIGHT_CTR_TREND_SERVICE   if is_service else WEIGHT_CTR_TREND
+
     try:
         svc = ga_client.get_service("GoogleAdsService")
 
@@ -324,30 +358,38 @@ def score_account(ga_client, client_name, customer_id, d):
         qs_pts,    qs_note    = score_quality_scores(svc, customer_id)
         disap_pts, disap_note = score_disapprovals(svc, customer_id)
 
-        total = conv_pts + pacing_pts + is_pts + ctr_pts + qs_pts + disap_pts
-        max_total = (WEIGHT_CONV_HEALTH + WEIGHT_PACING + WEIGHT_IS_TREND +
-                     WEIGHT_CTR_TREND + WEIGHT_QS + WEIGHT_DISAPPROVAL)
+        # Rescale component scores proportionally to their vertical-aware weights
+        conv_pts_adj  = round(conv_pts  * w_conv / WEIGHT_CONV_HEALTH)
+        ctr_pts_adj   = round(ctr_pts   * w_ctr  / WEIGHT_CTR_TREND)
 
-        return {
+        total     = conv_pts_adj + pacing_pts + is_pts + ctr_pts_adj + qs_pts + disap_pts
+        max_total = w_conv + WEIGHT_PACING + WEIGHT_IS_TREND + w_ctr + WEIGHT_QS + WEIGHT_DISAPPROVAL
+
+        result = {
             "client_name":  client_name,
             "customer_id":  customer_id,
+            "vertical":     vertical,
             "score":        total,
             "max_score":    max_total,
             "grade":        score_to_grade(total, max_total),
             "components": {
-                "conversion":    (conv_pts,  WEIGHT_CONV_HEALTH, conv_note),
-                "pacing":        (pacing_pts, WEIGHT_PACING,     pace_note),
-                "is_trend":      (is_pts,     WEIGHT_IS_TREND,   is_note),
-                "ctr_trend":     (ctr_pts,    WEIGHT_CTR_TREND,  ctr_note),
-                "quality_score": (qs_pts,     WEIGHT_QS,         qs_note),
-                "disapprovals":  (disap_pts,  WEIGHT_DISAPPROVAL, disap_note),
+                "conversion":    (conv_pts_adj, w_conv,              conv_note),
+                "pacing":        (pacing_pts,   WEIGHT_PACING,       pace_note),
+                "is_trend":      (is_pts,        WEIGHT_IS_TREND,    is_note),
+                "ctr_trend":     (ctr_pts_adj,   w_ctr,              ctr_note),
+                "quality_score": (qs_pts,         WEIGHT_QS,         qs_note),
+                "disapprovals":  (disap_pts,      WEIGHT_DISAPPROVAL, disap_note),
             },
             "error": None,
         }
+        if is_service:
+            result["note"] = "Service business account — CPL and call tracking are primary health signals"
+        return result
     except Exception as e:
         return {
             "client_name": client_name,
             "customer_id": customer_id,
+            "vertical":    vertical,
             "score":       0,
             "max_score":   100,
             "grade":       "ERR",
@@ -375,35 +417,38 @@ def print_report(results, run_date):
     valid.sort(key=lambda x: x["score"])
 
     print(f"\nCLIENT HEALTH SCORECARD — {run_date}")
-    print("=" * 70)
-    print(f"{'Client':<38} {'Score':>7} {'Grade':>5}  Components")
-    print("-" * 70)
+    print("=" * 90)
+    print(f"{'Client':<38} {'Vertical':<18} {'Score':>7} {'Grade':>5}  Components")
+    print("-" * 90)
 
     for r in valid:
-        comp = r["components"]
-        bar  = "|".join(
+        comp     = r["components"]
+        vertical = r.get("vertical", "")
+        bar      = "|".join(
             f"{v[0]:>2}/{v[1]}"
             for k, v in comp.items()
         )
-        print(f"  {r['client_name']:<36} {r['score']:>4}/{r['max_score']}  [{r['grade']}]  {bar}")
+        note_flag = "  *" if r.get("note") else ""
+        print(f"  {r['client_name']:<36} {vertical:<18} {r['score']:>4}/{r['max_score']}  [{r['grade']}]  {bar}{note_flag}")
 
     if errored:
         print("")
         for r in errored:
             print(f"  ERROR: {r['client_name']} — {r['error']}")
 
-    print("-" * 70)
+    print("-" * 90)
 
     if valid:
         avg = sum(r["score"] for r in valid) / len(valid)
         best = max(valid, key=lambda x: x["score"])
         worst = min(valid, key=lambda x: x["score"])
-        print(f"  Portfolio avg score: {avg:.0f}/{valid[0]['max_score']}")
+        print(f"  Portfolio avg score: {avg:.0f}")
         print(f"  Best:  {best['client_name']} ({best['score']})")
         print(f"  Worst: {worst['client_name']} ({worst['score']})")
 
-    print("=" * 70)
+    print("=" * 90)
     print("  Component key: conv | pacing | IS | CTR | QS | disapprovals")
+    print("  * Service business account — CPL and call tracking are primary health signals")
 
 
 # ─── MAIN ─────────────────────────────────────────────────────────────────────

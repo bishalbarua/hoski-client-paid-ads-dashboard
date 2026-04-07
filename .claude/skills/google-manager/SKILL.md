@@ -88,6 +88,11 @@ Before running any job, confirm:
 3. Are there any changes made in the past 7 days (bid strategy changes, new campaigns, budget adjustments, landing page updates)?
 4. Any known external factors this week (seasonality, promos, holidays)?
 
+**For service business clients (non-eCommerce), also confirm:**
+5. Target CPL (from unit economics in client-info.md) — not just CPA/ROAS
+6. Current show rate and lead-to-close rate from GHL, if available
+7. CallRail: confirmed active? Date of last call spot-check?
+
 If this is the first session for a client, note "Week 1 — no WoW comparison available."
 
 ---
@@ -105,6 +110,20 @@ Run all six checks from the agent file in order:
 6. Impression share signals
 
 **Hard stop rule:** If Check 1 reveals a tracking anomaly, stop the monitoring session, flag the issue prominently, and recommend `/conversion-tracking-audit`. Do not proceed to checks 2-6 until tracking is verified.
+
+**For service business clients, run Check 6B after the standard six checks:**
+
+**Check 6B: Service Business Lead Quality (non-eCommerce clients only)**
+
+- CPL this week vs target CPL from client-info.md
+- CallRail call volume this week vs last week
+- Average call duration this week (flag if average drops below qualified threshold — typically < 2 minutes)
+- Any calls flagged as "not interested" or wrong-target in CallRail?
+- GHL pipeline: did booked leads from this week's ads show up to their appointments?
+
+If CPL is on target but call quality is degrading: adjust negative keywords or landing page messaging before adjusting bids.
+
+If show rate is flagged by the client: pull GHL pipeline data and check whether it is an ads problem (wrong audience attracting unqualified people) or an operational problem (slow follow-up speed). Do not recommend campaign changes if follow-up speed is the root cause.
 
 ### For Search Terms (Mode A or C):
 
@@ -135,6 +154,7 @@ After completing all jobs, scan for situations that require the Google Ads Strat
 - PMax cannibalizing brand Search
 - Client wants to add a new service or campaign
 - Budget is consistently exhausted but account is already at target CPA
+- Show rate below 60% for 2+ consecutive weeks with CPL on target (service clients) — route to /cro-strategist for LP audit and notify client to review GHL follow-up speed
 
 If any escalation trigger is present, add an escalation block at the end of the report:
 
@@ -178,3 +198,5 @@ End every full weekly session with the client status note (2-4 sentences, non-te
 ✅ Always rank actions by urgency
 ✅ Always flag if search terms or copy review is overdue
 ✅ Always provide character counts for replacement RSA copy
+✅ Always check CallRail call volume and average duration for service business clients as part of the weekly monitoring sweep
+✅ Always distinguish between a media problem (high CPL, low CTR, wrong keywords) and an operational problem (slow follow-up, poor call handling) when diagnosing service business performance

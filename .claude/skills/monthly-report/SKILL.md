@@ -212,6 +212,33 @@ Calculate and note:
 - For eCommerce: total revenue, ROAS this month vs prior month vs target
 - Overall MoM direction: improving / declining / stable
 
+**For service business clients (dental, medical, legal, aesthetics, construction, high-ticket retail, B2B):**
+
+MER does not apply — most cannot produce a clean total revenue figure from a unified source.
+
+Use the service business dashboard instead:
+
+| Metric | This Month | Prior Month | Change | Target |
+|---|---|---|---|---|
+| Total Leads | X | X | +/-X% | — |
+| Cost Per Lead (blended) | $X | $X | +/-X% | $X (from client-info.md) |
+| Show Rate | X% | X% | +/-X pts | 65%+ |
+| Lead-to-Close Rate | X% | X% | +/-X pts | [from client data] |
+| Cost Per Acquired Client | $X | $X | +/-X% | $X |
+| Total Ad Spend | $X | $X | +/-X% | $X (budget) |
+
+**Service dashboard notes:**
+- Target CPL comes from the unit economics calculation in client-info.md
+- Show Rate comes from GHL pipeline: booked leads who attended / total booked
+- Lead-to-Close Rate comes from GHL pipeline: closed clients / leads who showed
+- Cost Per Acquired Client = CPL / (show rate × lead-to-close rate)
+- Call Duration Distribution from CallRail: what % of calls are above the qualified-call threshold?
+- Channel split: which platform is driving qualified outcomes, not just leads?
+
+If show rate is below 60%: lead quality problem. Check targeting, ad copy, landing page, and follow-up speed. Report this clearly to the client — do not bury it.
+
+If show rate is healthy but close rate is low: sales or offer problem, not an ads problem. Communicate this clearly and sensitively. The ads are doing their job.
+
 ### Section B: Campaign-Level Breakdown
 
 For each campaign with spend > $0:
@@ -474,6 +501,8 @@ Separate the two sections with a clear divider:
 ✅ **ALWAYS** save the report to the client's folder
 ✅ **ALWAYS** read client-info.md before writing — tone, targets, and preferences live there
 ✅ **ALWAYS** note if data confidence is low (< 20 conversions makes CPA conclusions fragile)
+✅ **ALWAYS** use the service business dashboard (CPL, show rate, lead-to-close, cost per acquired client) for non-eCommerce clients — MER and ROAS are not applicable
+✅ **ALWAYS** distinguish between a media problem (high CPL) and an operational problem (low show rate) in service business reports — clients need to know which lever to pull
 
 ---
 

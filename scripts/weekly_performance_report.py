@@ -6,7 +6,9 @@ Purpose: Pulls the Sun-Sat weekly performance snapshot for every client
 
 Metrics per row:
     Week Start/End, Client, Platform, Status, Amount Spend,
-    Form Leads, Call Leads, Blended Leads, Blended CPL, Closed Leads (manual),
+    Form Leads, Call Leads, Blended Leads, Blended CPL,
+    Show Rate (manual — GHL, service clients), Lead to Close Rate (manual), Cost Per Acquired Client (manual),
+    Closed Leads (manual),
     Online Purchase, Offline Purchase, Total Purchase, Purchase Value,
     Add to Carts, Checkouts, Total Revenue, ROAS,
     Top Performing Facebook Creative, Notes
@@ -48,7 +50,7 @@ GOOGLE_CLIENTS = {
     "Estate Jewelry Priced Right":          "7709532223",
     "FaBesthetics":                         "9304117954",
     "GDM":                                  "7087867966",
-    # Hoski.ca (5544702166) excluded — internal agency account, not a client
+    "Hoski.ca":                             "5544702166",
     "New Norseman":                         "3720173680",
     "Park Road Custom Furniture and Decor": "7228467515",
     "Serenity Familycare":                  "8134824884",
@@ -66,7 +68,6 @@ META_CLIENTS = {
     "Park Road Custom Furniture and Decor": "1302601091367185",
     "Serenity Familycare":                  "853944849499524",
     "Som K. Plastic Surgery":               "1401504290137519",
-    "Sunstone Health":                      "4292269397710725",
     "Synergy Spine & Nerve Center":         "2121931534696543",
     "Texas FHC":                            "331716185722452",
     "Voit Dental 1":                        "1092673602882817",
@@ -463,9 +464,9 @@ CLIENT_META = {
         "cpl_target":  None,
         "known_issues": {"all": ""},
     },
-    "Sunstone Health": {
-        "vertical":    "lead_gen",
-        "cpl_target":  None,
+    "Hoski.ca": {
+        "vertical":    "ecom",
+        "roas_target": None,
         "known_issues": {"all": ""},
     },
 }
@@ -561,6 +562,7 @@ REPORT_HEADERS = [
     "Client Account", "Platform", "Account ID", "Status",
     "Amount Spend",
     "Form Leads", "Call Leads", "Blended Leads", "Blended CPL",
+    "Show Rate", "Lead to Close Rate", "Cost Per Acquired Client",
     "Closed Leads",
     "Online Purchase", "Offline Purchase", "Total Purchase", "Purchase Value",
     "Add to Carts", "Checkouts",
@@ -588,9 +590,12 @@ def build_row(client_name, platform, account_id, data, week_start, week_end):
     add_to_carts    = data.get("add_to_carts", 0) or 0
     checkouts       = data.get("checkouts", 0) or 0
 
-    # Columns J, K, O, S, T are left blank here — formulas are written by
+    # Columns J, K, R, V, W are left blank here — formulas are written by
     # apply_sheet_formulas() after the rows land in the sheet so they can
     # reference their own row numbers.
+    # Columns L, M, N (Show Rate, Lead to Close Rate, Cost Per Acquired Client)
+    # are left blank — populated manually from GHL data for service business clients.
+    # DTC/eCommerce clients leave these blank.
     return [
         week_start,
         week_end,
@@ -603,15 +608,18 @@ def build_row(client_name, platform, account_id, data, week_start, week_end):
         _r(call_leads, 0),
         "",                              # J: Blended Leads — formula
         "",                              # K: Blended CPL   — formula
-        "",                              # L: Closed Leads  — manual / CRM
+        "",                              # L: Show Rate — manual (GHL, service clients only)
+        "",                              # M: Lead to Close Rate — manual (GHL, service clients only)
+        "",                              # N: Cost Per Acquired Client — manual or calculated
+        "",                              # O: Closed Leads  — manual / CRM
         _r(online_purch, 0),
         _r(offline_purch, 0),
-        "",                              # O: Total Purchase — formula
+        "",                              # R: Total Purchase — formula
         _r(purchase_value),
         _r(add_to_carts, 0),
         _r(checkouts, 0),
-        "",                              # S: Total Revenue  — formula
-        "",                              # T: ROAS           — formula
+        "",                              # V: Total Revenue  — formula
+        "",                              # W: ROAS           — formula
         data.get("top_creative", ""),
         generate_notes(client_name, platform, data),
         date.today().isoformat(),
@@ -776,8 +784,9 @@ def create_dashboard():
     try:
         ws = spreadsheet.worksheet(DASHBOARD_TAB)
         ws.clear()
+        ws.resize(rows=200, cols=40)
     except gspread.WorksheetNotFound:
-        ws = spreadsheet.add_worksheet(title=DASHBOARD_TAB, rows=200, cols=20)
+        ws = spreadsheet.add_worksheet(title=DASHBOARD_TAB, rows=200, cols=40)
 
     # B2 holds the latest week-start as text (yyyy-mm-dd).
     # Every QUERY references B2 so the whole dashboard self-updates each week.
@@ -789,19 +798,12 @@ def create_dashboard():
         "=IFERROR(TEXT(MAX(FILTER('Weekly Report'!B2:B,"
         "'Weekly Report'!A2:A=DATEVALUE(B2))),\"yyyy-mm-dd\"),\"\")"
     )
-
-    # Detail QUERY: one row per client x platform for the latest week.
-    # Weekly Report column reference:
-    #   C=Client  D=Platform  F=Status  G=Spend
-    #   H=Form Leads  I=Call Leads  J=Blended Leads  K=CPL
-    #   O=Total Purchase  P=Purchase Value  T=ROAS  V=Notes
-    # Note: column A in Weekly Report is stored as a DATE value (Sheets auto-converts
-    # ISO strings on write). QUERY requires "date '...'" literal syntax for date comparisons.
-    f_detail = (
-        "=QUERY('Weekly Report'!A:W,"
-        "\"SELECT C,D,F,G,H,I,J,K,O,P,T,V"
-        " WHERE A=date '\"&B2&\"'"
-        " ORDER BY C,D\",1)"
+    # B3: prior week start — largest week-start strictly before B2.
+    # All WoW % formulas reference $B$3 so they self-update each week.
+    f_prior_week_start = (
+        "=IFERROR(TEXT(LARGE(FILTER('Weekly Report'!A2:A,"
+        "'Weekly Report'!A2:A<>\"\","
+        "'Weekly Report'!A2:A<DATEVALUE(B2)),1),\"yyyy-mm-dd\"),\"\")"
     )
 
     # Platform totals: one row per platform (Google / Meta) with summed KPIs.
@@ -816,33 +818,122 @@ def create_dashboard():
         "SUM(O) 'Total Purchases',SUM(P) 'Purchase Value'\",0)"
     )
 
-    # Write header area (rows 1-4)
+    # Write header area (rows 1-4). Row 3 / B3 anchors the prior-week date
+    # that all WoW % formulas reference via $B$3.
     ws.update(
         values=[
             ["GDM Weekly Performance Dashboard", "", "", ""],
             ["Showing week:", f_week_start, "to", f_week_end],
-            ["", "", "", ""],
+            ["Prior week:", f_prior_week_start, "", ""],
             ["CLIENT DETAIL - LATEST WEEK", "", "", ""],
         ],
         range_name="A1:D4",
         value_input_option="USER_ENTERED",
     )
 
-    # Detail table at row 5 — auto-expands downward as clients are added
-    ws.update(values=[[f_detail]], range_name="A5", value_input_option="USER_ENTERED")
+    # ── Interleaved client detail table (A5:T30) ──────────────────────────────
+    # Strategy: a hidden QUERY at AB6 (no header row, sorted) provides the
+    # current-week data. The display table in A5:T30 interleaves data columns
+    # with WoW % columns, referencing AB6:AM~26 for data values and using
+    # SUMIFS against the Weekly Report for prior-week lookups.
+    #
+    # Helper QUERY output columns (AB=col1 … AM=col12):
+    #   AB=Client  AC=Platform  AD=Status  AE=Spend  AF=Form Leads
+    #   AG=Call Leads  AH=Blended Leads  AI=Blended CPL
+    #   AJ=Total Purchase  AK=Purchase Value  AL=ROAS  AM=Notes
+    f_helper = (
+        "=QUERY('Weekly Report'!A:W,"
+        "\"SELECT C,D,F,G,H,I,J,K,O,P,T,V"
+        " WHERE A=date '\"&B2&\"'"
+        " ORDER BY C,D\",0)"
+    )
+    ws.update(values=[[f_helper]], range_name="AB6", value_input_option="USER_ENTERED")
 
-    # Platform totals at row 35 (buffer: 21 max clients + 1 QUERY header + 8 rows spare)
+    # Display headers row 5 — interleaved: metric | WoW % | metric | WoW % …
+    ws.update(
+        values=[[
+            "Client Account", "Platform", "Status",
+            "Amount Spend",       "Spend WoW %",
+            "Form Leads",         "Form Leads WoW %",
+            "Call Leads",         "Call Leads WoW %",
+            "Blended Leads",      "Blended Leads WoW %",
+            "Blended CPL",        "Blended CPL WoW %",
+            "Total Purchase",     "Total Purchase WoW %",
+            "Purchase Value",     "Purchase Value WoW %",
+            "ROAS",               "ROAS WoW %",
+            "Notes",
+        ]],
+        range_name="A5:T5",
+        value_input_option="USER_ENTERED",
+    )
+
+    # display col → helper col (for data reference formulas)
+    DATA_REFS = [
+        ("A", "AB"),  # Client Account
+        ("B", "AC"),  # Platform
+        ("C", "AD"),  # Status
+        ("D", "AE"),  # Amount Spend    (WR col G)
+        ("F", "AF"),  # Form Leads      (WR col H)
+        ("H", "AG"),  # Call Leads      (WR col I)
+        ("J", "AH"),  # Blended Leads   (WR col J)
+        ("L", "AI"),  # Blended CPL     (WR col K)
+        ("N", "AJ"),  # Total Purchase  (WR col O)
+        ("P", "AK"),  # Purchase Value  (WR col P)
+        ("R", "AL"),  # ROAS            (WR col T)
+        ("T", "AM"),  # Notes           (WR col V)
+    ]
+
+    # display WoW col → current-value display col → Weekly Report source col
+    WOW_REFS = [
+        ("E", "D", "G"),  # Spend WoW %
+        ("G", "F", "H"),  # Form Leads WoW %
+        ("I", "H", "I"),  # Call Leads WoW %
+        ("K", "J", "J"),  # Blended Leads WoW %
+        ("M", "L", "K"),  # Blended CPL WoW %
+        ("O", "N", "O"),  # Total Purchase WoW %
+        ("Q", "P", "P"),  # Purchase Value WoW %
+        ("S", "R", "T"),  # ROAS WoW %
+    ]
+
+    def _data_ref(helper_col, row):
+        return f"=IFERROR({helper_col}{row},\"\")"
+
+    def _wow_sumifs(curr_col, wr_col, row):
+        sumifs = (
+            f"SUMIFS('Weekly Report'!{wr_col}:{wr_col},"
+            f"'Weekly Report'!C:C,A{row},"
+            f"'Weekly Report'!D:D,B{row},"
+            f"'Weekly Report'!A:A,DATEVALUE($B$3))"
+        )
+        return (
+            f'=IFERROR(IF({curr_col}{row}="",'
+            f'"",({curr_col}{row}-{sumifs})/ABS({sumifs})),"")'
+        )
+
+    all_updates = []
+    for row in range(6, 31):
+        for disp_col, helper_col in DATA_REFS:
+            all_updates.append({"range": f"{disp_col}{row}", "values": [[_data_ref(helper_col, row)]]})
+        for wow_col, curr_col, wr_col in WOW_REFS:
+            all_updates.append({"range": f"{wow_col}{row}", "values": [[_wow_sumifs(curr_col, wr_col, row)]]})
+    ws.batch_update(all_updates, value_input_option="USER_ENTERED")
+    print(f"[Sheets] Interleaved client detail table written (A5:T30, helper at AB6).")
+
+    # Platform totals at row 35 (buffer: 21 max clients + 8 rows spare above row 35)
     ws.update(values=[["PLATFORM TOTALS - LATEST WEEK"]], range_name="A35", value_input_option="USER_ENTERED")
     ws.update(values=[[f_totals]], range_name="A36", value_input_option="USER_ENTERED")
 
-    # ── Currency formatting ────────────────────────────────────────────────────
-    # QUERY detail (A5 = header, A6:L30 = data rows, up to 25 clients):
-    #   Col D = Amount Spend, Col H = Blended CPL, Col J = Purchase Value
-    # Platform totals (A36 = header, A37:G40 = data):
-    #   Col B = Total Spend, Col G = Purchase Value
+    # ── Formatting ────────────────────────────────────────────────────────────
+    # Interleaved display layout column positions:
+    #   D=Amount Spend  L=Blended CPL  P=Purchase Value  (currency)
+    #   E,G,I,K,M,O,Q,S = WoW % columns  (percent)
+    # Platform totals: B=Total Spend  G=Purchase Value  (currency)
     currency = {"numberFormat": {"type": "CURRENCY", "pattern": "$#,##0.00"}}
-    for rng in ("D6:D30", "H6:H30", "J6:J30", "B37:B40", "G37:G40"):
+    for rng in ("D6:D30", "L6:L30", "P6:P30", "B37:B40", "G37:G40"):
         ws.format(rng, currency)
+    pct_fmt = {"numberFormat": {"type": "PERCENT", "pattern": '+0.0%;-0.0%;"—"'}}
+    for rng in ("E5:E30", "G5:G30", "I5:I30", "K5:K30", "M5:M30", "O5:O30", "Q5:Q30", "S5:S30"):
+        ws.format(rng, pct_fmt)
 
     print(f"[Sheets] Dashboard '{DASHBOARD_TAB}' created/refreshed.")
 
