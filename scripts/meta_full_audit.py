@@ -48,9 +48,9 @@ from facebook_business.exceptions import FacebookRequestError
 # ─── SETUP ────────────────────────────────────────────────────────────────────
 
 def init_api():
-    app_id  = os.environ.get("META_APP_ID")
-    secret  = os.environ.get("META_APP_SECRET")
-    token   = os.environ.get("META_ACCESS_TOKEN")
+    app_id  = os.environ.get("HOSKI_META_APP_ID") or os.environ.get("META_APP_ID")
+    secret  = os.environ.get("HOSKI_META_APP_SECRET") or os.environ.get("META_APP_SECRET")
+    token   = os.environ.get("HOSKI_META_ACCESS_TOKEN") or os.environ.get("META_ACCESS_TOKEN")
     missing = [k for k, v in {
         "META_APP_ID": app_id,
         "META_APP_SECRET": secret,

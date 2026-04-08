@@ -46,7 +46,7 @@ load_dotenv()
 DUAL_CHANNEL_CLIENTS = {
     # Google ID: Meta account ID
     "5544702166":  "act_215505746566668",   # Hoski.ca + Bloomer Health (example pair)
-    "9304117954":  "act_215505746566668",   # FaBesthetics
+    "9304117954":  "act_373162790093046",    # FaBesthetics
 }
 
 # ─── GOOGLE ADS CLIENT ───────────────────────────────────────────────────────
@@ -102,7 +102,7 @@ def pull_google_daily(ga_service, google_id, start_date, end_date):
 
 def pull_meta_daily(meta_account_id, start_date, end_date):
     """Pull daily conversions and spend from Meta Ads API."""
-    access_token = os.environ.get("META_ACCESS_TOKEN", "")
+    access_token = os.environ.get("HOSKI_META_ACCESS_TOKEN") or os.environ.get("META_ACCESS_TOKEN", "")
     if not access_token:
         print("  WARNING: META_ACCESS_TOKEN not set. Skipping Meta data.")
         return {}

@@ -1,6 +1,7 @@
 # FaBesthetics Face & Body Med Spa — Client Intelligence Brief
 
 **Google Ads Account ID:** 9304117954
+**Meta Ad Account ID:** act_373162790093046
 **CallRail Account ID:** ACC019d018845c77a7c9ea68e941a010e31 (numeric: 746137944)
 **MCC:** 4781259815
 **GTM Container:** GTM-54KM6DRV
@@ -192,10 +193,10 @@ General LHR, Price & Cost Intent, Technology & Quality, Men's LHR, Facial Laser,
 
 ## Meta Ads
 
-- No active Meta campaigns confirmed as of March 2026
+- **Ad Account ID:** act_373162790093046
+- Access confirmed April 2026
 - Previous Meta campaigns ran at $100/day (funded by Dan) but were paused during strategy reset (Feb 25)
-- Current status: unknown — confirm if truly paused or being relaunched
-- No ad library data found for this client
+- Current status: access granted, campaigns to be launched
 
 ---
 

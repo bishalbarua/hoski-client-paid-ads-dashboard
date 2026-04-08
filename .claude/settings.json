@@ -259,7 +259,11 @@
       "Edit(/.claude/skills/campaign-scaling-expert/**)",
       "Edit(/.claude/skills/google-strategist/**)",
       "Edit(/.claude/skills/google-manager/**)",
-      "Edit(/.claude/skills/ads-strategy-architect/**)"
+      "Edit(/.claude/skills/ads-strategy-architect/**)",
+      "Bash(open \"/Users/bishalbarua/Bishal/AI/antigravity/Hoski Marketing Manager/assets/email-signature-bishal.html\")",
+      "Bash(sips -z 176 176 \"/Users/bishalbarua/Downloads/Personal/Bishal-Linkedin.png\" --out /tmp/bishal-headshot-small.png)",
+      "Read(//tmp/**)",
+      "Bash(sips -Z 80 \"/Users/bishalbarua/Bishal/AI/antigravity/Hoski Marketing Manager/assets/hoski-logo.png\" --out /tmp/hoski-logo-small.png)"
     ],
     "additionalDirectories": [
       "/Users/bishalbarua",

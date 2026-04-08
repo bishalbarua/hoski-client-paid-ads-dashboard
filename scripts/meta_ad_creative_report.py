@@ -54,8 +54,17 @@ from facebook_business.exceptions import FacebookRequestError
 # ─── CLIENT REGISTRY ─────────────────────────────────────────────────────────
 
 ALL_CLIENTS = {
-    "Demo (ice Ad Account)": "act_1509969187799563",
-    # "Client Name": "act_XXXXXXXXXXXXXXXXX",
+    "Bloomer Health":                       "act_215505746566668",
+    "Estate Jewelry Priced Right":          "act_422065096974825",
+    "FaBesthetics":                         "act_373162790093046",
+    "GDM":                                  "act_1229672268157520",
+    "New Norseman":                         "act_1066181008711486",
+    "Park Road Custom Furniture and Decor": "act_1302601091367185",
+    "Serenity Familycare":                  "act_853944849499524",
+    "Som K. Plastic Surgery":               "act_1401504290137519",
+    "Synergy Spine & Nerve Center":         "act_2121931534696543",
+    "Texas FHC":                            "act_331716185722452",
+    "Voit Dental 1":                        "act_1092673602882817",
 }
 
 # ─── THRESHOLDS ───────────────────────────────────────────────────────────────
@@ -73,9 +82,9 @@ CTR_DEAD_FLOOR   =  0.5     # CTR% below this = dead creative (image/video ads)
 # ─── SETUP ────────────────────────────────────────────────────────────────────
 
 def init_api():
-    app_id  = os.environ.get("META_APP_ID")
-    secret  = os.environ.get("META_APP_SECRET")
-    token   = os.environ.get("META_ACCESS_TOKEN")
+    app_id  = os.environ.get("HOSKI_META_APP_ID") or os.environ.get("META_APP_ID")
+    secret  = os.environ.get("HOSKI_META_APP_SECRET") or os.environ.get("META_APP_SECRET")
+    token   = os.environ.get("HOSKI_META_ACCESS_TOKEN") or os.environ.get("META_ACCESS_TOKEN")
     missing = [k for k, v in {"META_APP_ID": app_id, "META_APP_SECRET": secret, "META_ACCESS_TOKEN": token}.items() if not v]
     if missing:
         print(f"Missing environment variables: {', '.join(missing)}")

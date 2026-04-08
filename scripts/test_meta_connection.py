@@ -15,9 +15,9 @@ from facebook_business.api import FacebookAdsApi
 from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.user import User
 
-APP_ID = os.environ.get("META_APP_ID")
-APP_SECRET = os.environ.get("META_APP_SECRET")
-ACCESS_TOKEN = os.environ.get("META_ACCESS_TOKEN")
+APP_ID = os.environ.get("HOSKI_META_APP_ID") or os.environ.get("META_APP_ID")
+APP_SECRET = os.environ.get("HOSKI_META_APP_SECRET") or os.environ.get("META_APP_SECRET")
+ACCESS_TOKEN = os.environ.get("HOSKI_META_ACCESS_TOKEN") or os.environ.get("META_ACCESS_TOKEN")
 
 missing = [k for k, v in {
     "META_APP_ID": APP_ID,

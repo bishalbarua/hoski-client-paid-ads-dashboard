@@ -88,7 +88,7 @@ def fetch_ads(keyword=None, page_id=None, country="US", limit=25, active_only=Tr
     Fetch ads from Meta Ad Library API.
     Returns list of ad dicts.
     """
-    token = os.environ.get("META_ACCESS_TOKEN")
+    token = os.environ.get("HOSKI_META_ACCESS_TOKEN") or os.environ.get("META_ACCESS_TOKEN")
     if not token:
         print("Warning: META_ACCESS_TOKEN not set. Rate limits will be lower.")
         print("         Set the token in your .env file for better results.\n")

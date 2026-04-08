@@ -62,6 +62,7 @@ GOOGLE_CLIENTS = {
 META_CLIENTS = {
     "Bloomer Health":                       "215505746566668",
     "Estate Jewelry Priced Right":          "422065096974825",
+    "FaBesthetics":                         "373162790093046",
     "GDM":                                  "1229672268157520",   # confirmed Mar 22 — ClickUp had wrong ID
     # ice Ad Account (1509969187799563) excluded — personal demo account, no ads_management permission
     "New Norseman":                         "1066181008711486",

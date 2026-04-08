@@ -55,6 +55,7 @@ from facebook_business.exceptions import FacebookRequestError
 
 ALL_CLIENTS = {
     "Demo (ice Ad Account)": "act_1509969187799563",
+    "FaBesthetics":          "act_373162790093046",
     # Add client Meta ad account IDs here as they are onboarded:
     # "Client Name": "act_XXXXXXXXXXXXXXXXX",
 }
@@ -76,9 +77,9 @@ FREQ_CRIT        =  6.0   # audience saturation threshold
 # ─── SETUP ────────────────────────────────────────────────────────────────────
 
 def init_api():
-    app_id  = os.environ.get("META_APP_ID")
-    secret  = os.environ.get("META_APP_SECRET")
-    token   = os.environ.get("META_ACCESS_TOKEN")
+    app_id  = os.environ.get("HOSKI_META_APP_ID") or os.environ.get("META_APP_ID")
+    secret  = os.environ.get("HOSKI_META_APP_SECRET") or os.environ.get("META_APP_SECRET")
+    token   = os.environ.get("HOSKI_META_ACCESS_TOKEN") or os.environ.get("META_ACCESS_TOKEN")
     missing = [k for k, v in {"META_APP_ID": app_id, "META_APP_SECRET": secret, "META_ACCESS_TOKEN": token}.items() if not v]
     if missing:
         print(f"Missing environment variables: {', '.join(missing)}")
