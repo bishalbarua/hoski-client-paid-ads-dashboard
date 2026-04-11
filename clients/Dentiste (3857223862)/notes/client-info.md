@@ -10,8 +10,9 @@
 
 | Metric | Target |
 |---|---|
+| Primary KPI | 20-30 new patients per month with $3k adspend |
 | CPA (Cost per Lead) | |
-| Monthly Budget | |
+| Monthly Budget | $3,000/month |
 | ROAS (if applicable) | |
 | Target CPL by Campaign | |
 

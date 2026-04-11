@@ -11,6 +11,7 @@
 
 | Metric | Target |
 |---|---|
+| Primary KPI | 5-10 qualified leads per month |
 | CPA (Cost per New Patient) | |
 | Monthly Budget | |
 | ROAS (if applicable) | |

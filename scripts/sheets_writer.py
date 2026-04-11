@@ -31,6 +31,8 @@ from dotenv import load_dotenv
 import gspread
 from google.oauth2.service_account import Credentials
 
+from scripts.client_registry import get_google_ads_targets, resolve_google_sheet_target
+
 load_dotenv()
 
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
@@ -55,8 +57,15 @@ def get_sheets_client():
     return gspread.authorize(creds)
 
 
-def get_sheet_id():
-    sheet_id = os.environ.get("GOOGLE_SHEETS_ID")
+def get_sheet_id(client_name: str = None):
+    fallback_sheet_id = os.environ.get("GOOGLE_SHEETS_ID")
+    if client_name:
+        try:
+            sheet_id, _ = resolve_google_sheet_target(client_name, fallback_sheet_id=fallback_sheet_id)
+        except KeyError:
+            sheet_id = fallback_sheet_id
+    else:
+        sheet_id = fallback_sheet_id
     if not sheet_id:
         print("[Sheets] GOOGLE_SHEETS_ID not set in .env")
         sys.exit(1)
@@ -146,8 +155,12 @@ def write_google_snapshot(
     tab_name: str = None,
 ):
     """Write a Google Ads campaign snapshot to Sheets."""
-    sheet_id = get_sheet_id()
-    tab = tab_name or f"Google - {client_name}"
+    sheet_id = get_sheet_id(client_name)
+    try:
+        _, default_tab = resolve_google_sheet_target(client_name, fallback_sheet_id=sheet_id, fallback_tab=tab_name)
+    except KeyError:
+        default_tab = tab_name or f"Google - {client_name}"
+    tab = tab_name or default_tab
     rows = google_campaigns_to_rows(client_name, customer_id, campaigns, period_start, period_end)
     write_to_sheet(sheet_id, tab, GOOGLE_HEADERS, rows)
 
@@ -249,7 +262,7 @@ def main():
         # Import here to avoid requiring Google Ads creds when running Meta-only
         sys.path.insert(0, str(PROJECT_ROOT))
         from scripts.google_campaign_performance_snapshot import (
-            build_client, ALL_CLIENTS, pull_campaign_metrics
+            build_client, pull_campaign_metrics
         )
         ga_client  = build_client()
         ga_service = ga_client.get_service("GoogleAdsService")
@@ -257,7 +270,7 @@ def main():
         if args.customer_id:
             targets = {args.customer_id: args.customer_id.replace("-", "")}
         else:
-            targets = {name: cid for name, cid in ALL_CLIENTS.items()}
+            targets = get_google_ads_targets()
 
         for name, cid in targets.items():
             print(f"Pulling Google Ads: {name} ({cid}) ...")

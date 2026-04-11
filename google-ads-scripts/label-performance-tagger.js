@@ -133,13 +133,12 @@ function main() {
     var row  = isRows.next();
     var name = row.campaign.name;
     var lost = parseFloat(row.metrics.search_budget_lost_impression_share) || 0;
-    budgetLimited[name] = (budgetLimited[name] || 0) + lost;
+    if (!budgetLimited[name]) {
+      budgetLimited[name] = { total: 0, rows: 0 };
+    }
+    budgetLimited[name].total += lost;
+    budgetLimited[name].rows += 1;
   }
-
-  // Normalise lost IS to an average
-  var isCount = {};
-  var isTotal = {};
-  // (already summed above — would need row count for proper averaging; use >0.05 as threshold)
 
   // Apply labels
   var campaigns = AdsApp.campaigns().withCondition('Status = ENABLED').get();
@@ -159,7 +158,10 @@ function main() {
     }
 
     // Budget-limited label (can stack with performance labels)
-    var lostIS = budgetLimited[name] || 0;
+    var lostIS = 0;
+    if (budgetLimited[name] && budgetLimited[name].rows > 0) {
+      lostIS = budgetLimited[name].total / budgetLimited[name].rows;
+    }
     if (lostIS > 0.10) {   // lost >10% IS due to budget on average
       campaign.applyLabel(LABEL_BUDGET);
       stats.budget++;

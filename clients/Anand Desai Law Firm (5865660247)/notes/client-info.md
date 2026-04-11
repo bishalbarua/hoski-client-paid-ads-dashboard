@@ -11,6 +11,7 @@
 
 | Metric | Target |
 |---|---|
+| Primary KPI | 3-10 closed cases per month to start (each case worth ~$2k) |
 | CPA (Cost per Lead) | |
 | Monthly Budget | |
 | ROAS (if applicable) | |

@@ -19,9 +19,15 @@ Operations:
     pause-campaign       --campaign-id ID
     enable-campaign      --campaign-id ID
     update-budget        --campaign-id ID --budget AMOUNT_IN_DOLLARS
+    pause-ad-group       --ad-group-id ID
+    enable-ad-group      --ad-group-id ID
     pause-keyword        --criterion-id ID --ad-group-id ID
     enable-keyword       --criterion-id ID --ad-group-id ID
+    create-keyword       --ad-group-id ID --keyword TEXT --match-type [EXACT|PHRASE|BROAD] [--bid AMOUNT_IN_DOLLARS]
     add-negative-keyword --campaign-id ID --keyword TEXT --match-type [EXACT|PHRASE|BROAD]
+    add-shared-negative-keyword --shared-set-name NAME --keyword TEXT --match-type [EXACT|PHRASE|BROAD]
+    pause-rsa            --ad-group-id ID --ad-id ID
+    enable-rsa           --ad-group-id ID --ad-id ID
     update-keyword-bid   --criterion-id ID --ad-group-id ID --bid AMOUNT_IN_DOLLARS
 
 Safety Rules:
@@ -80,6 +86,10 @@ def request_approval(dry_run):
 
 # ─── HELPERS ─────────────────────────────────────────────────────────────────
 
+def gaql_escape(value):
+    """Escape a string for safe use inside a GAQL single-quoted literal."""
+    return value.replace("\\", "\\\\").replace("'", "\\'")
+
 def get_campaign(client, customer_id, campaign_id):
     """Fetch campaign name and current status for preview."""
     ga_service = client.get_service("GoogleAdsService")
@@ -102,6 +112,31 @@ def get_campaign(client, customer_id, campaign_id):
             }
     except GoogleAdsException as ex:
         print(f"Error fetching campaign: {ex}")
+    return None
+
+
+def get_ad_group(client, customer_id, ad_group_id):
+    """Fetch ad group context for preview and status updates."""
+    ga_service = client.get_service("GoogleAdsService")
+    query = f"""
+        SELECT campaign.name, ad_group.id, ad_group.name, ad_group.status, ad_group.type
+        FROM ad_group
+        WHERE ad_group.id = {ad_group_id}
+        LIMIT 1
+    """
+    try:
+        rows = list(ga_service.search(customer_id=customer_id, query=query))
+        if rows:
+            ag = rows[0].ad_group
+            return {
+                "campaign": rows[0].campaign.name,
+                "id": ag.id,
+                "name": ag.name,
+                "status": ag.status.name,
+                "type": ag.type_.name,
+            }
+    except GoogleAdsException as ex:
+        print(f"Error fetching ad group: {ex}")
     return None
 
 
@@ -137,6 +172,63 @@ def get_keyword(client, customer_id, ad_group_id, criterion_id):
             }
     except GoogleAdsException as ex:
         print(f"Error fetching keyword: {ex}")
+    return None
+
+
+def get_rsa(client, customer_id, ad_group_id, ad_id):
+    """Fetch RSA context for preview and status updates."""
+    ga_service = client.get_service("GoogleAdsService")
+    query = f"""
+        SELECT
+            campaign.name,
+            ad_group.name,
+            ad_group_ad.resource_name,
+            ad_group_ad.ad.id,
+            ad_group_ad.status,
+            ad_group_ad.ad.type
+        FROM ad_group_ad
+        WHERE ad_group.id = {ad_group_id}
+          AND ad_group_ad.ad.id = {ad_id}
+          AND ad_group_ad.ad.type = RESPONSIVE_SEARCH_AD
+        LIMIT 1
+    """
+    try:
+        rows = list(ga_service.search(customer_id=customer_id, query=query))
+        if rows:
+            ad = rows[0].ad_group_ad
+            return {
+                "campaign": rows[0].campaign.name,
+                "ad_group": rows[0].ad_group.name,
+                "ad_id": ad.ad.id,
+                "status": ad.status.name,
+                "resource_name": ad.resource_name,
+            }
+    except GoogleAdsException as ex:
+        print(f"Error fetching RSA: {ex}")
+    return None
+
+
+def get_shared_set(client, customer_id, shared_set_name):
+    """Fetch a shared set by name if it exists."""
+    ga_service = client.get_service("GoogleAdsService")
+    safe_name = gaql_escape(shared_set_name)
+    query = f"""
+        SELECT shared_set.resource_name, shared_set.name, shared_set.type
+        FROM shared_set
+        WHERE shared_set.name = '{safe_name}'
+        LIMIT 1
+    """
+    try:
+        rows = list(ga_service.search(customer_id=customer_id, query=query))
+        if rows:
+            shared_set = rows[0].shared_set
+            return {
+                "resource_name": shared_set.resource_name,
+                "name": shared_set.name,
+                "type": shared_set.type_.name,
+            }
+    except GoogleAdsException as ex:
+        print(f"Error fetching shared set: {ex}")
     return None
 
 
@@ -215,6 +307,9 @@ def update_budget(client, customer_id, campaign_id, new_budget_dollars, dry_run)
     if not info:
         print(f"Campaign {campaign_id} not found.")
         return
+    if new_budget_dollars < 0:
+        print("Budget must be non-negative.")
+        return
 
     print_preview("Update Daily Budget", [
         f"Campaign:       {info['name']} (ID: {campaign_id})",
@@ -241,6 +336,76 @@ def update_budget(client, customer_id, campaign_id, new_budget_dollars, dry_run)
     try:
         budget_service.mutate_campaign_budgets(customer_id=customer_id, operations=[op])
         print(f"Budget updated to ${new_budget_dollars:.2f}/day.")
+    except GoogleAdsException as ex:
+        print(f"Failed: {ex}")
+
+
+def pause_ad_group(client, customer_id, ad_group_id, dry_run):
+    info = get_ad_group(client, customer_id, ad_group_id)
+    if not info:
+        print(f"Ad group {ad_group_id} not found.")
+        return
+
+    print_preview("Pause Ad Group", [
+        f"Campaign:       {info['campaign']}",
+        f"Ad Group:       {info['name']} (ID: {ad_group_id})",
+        f"Current status: {info['status']}",
+        f"New status:     PAUSED",
+    ])
+
+    if not request_approval(dry_run):
+        return
+
+    ad_group_service = client.get_service("AdGroupService")
+    ad_group = client.get_type("AdGroup")
+    ad_group.resource_name = ad_group_service.ad_group_path(customer_id, ad_group_id)
+    ad_group.status = client.enums.AdGroupStatusEnum.PAUSED
+
+    field_mask = client.get_type("FieldMask")
+    field_mask.paths.append("status")
+
+    op = client.get_type("AdGroupOperation")
+    op.update.CopyFrom(ad_group)
+    op.update_mask.CopyFrom(field_mask)
+
+    try:
+        ad_group_service.mutate_ad_groups(customer_id=customer_id, operations=[op])
+        print(f"Ad group '{info['name']}' paused successfully.")
+    except GoogleAdsException as ex:
+        print(f"Failed: {ex}")
+
+
+def enable_ad_group(client, customer_id, ad_group_id, dry_run):
+    info = get_ad_group(client, customer_id, ad_group_id)
+    if not info:
+        print(f"Ad group {ad_group_id} not found.")
+        return
+
+    print_preview("Enable Ad Group", [
+        f"Campaign:       {info['campaign']}",
+        f"Ad Group:       {info['name']} (ID: {ad_group_id})",
+        f"Current status: {info['status']}",
+        f"New status:     ENABLED",
+    ])
+
+    if not request_approval(dry_run):
+        return
+
+    ad_group_service = client.get_service("AdGroupService")
+    ad_group = client.get_type("AdGroup")
+    ad_group.resource_name = ad_group_service.ad_group_path(customer_id, ad_group_id)
+    ad_group.status = client.enums.AdGroupStatusEnum.ENABLED
+
+    field_mask = client.get_type("FieldMask")
+    field_mask.paths.append("status")
+
+    op = client.get_type("AdGroupOperation")
+    op.update.CopyFrom(ad_group)
+    op.update_mask.CopyFrom(field_mask)
+
+    try:
+        ad_group_service.mutate_ad_groups(customer_id=customer_id, operations=[op])
+        print(f"Ad group '{info['name']}' enabled successfully.")
     except GoogleAdsException as ex:
         print(f"Failed: {ex}")
 
@@ -281,6 +446,58 @@ def pause_keyword(client, customer_id, ad_group_id, criterion_id, dry_run):
         print(f"Failed: {ex}")
 
 
+def create_keyword(client, customer_id, ad_group_id, keyword_text, match_type_str, bid_dollars, dry_run):
+    info = get_ad_group(client, customer_id, ad_group_id)
+    if not info:
+        print(f"Ad group {ad_group_id} not found.")
+        return
+    if bid_dollars is not None and bid_dollars < 0:
+        print("Keyword bid must be non-negative.")
+        return
+
+    match_type_map = {
+        "EXACT": client.enums.KeywordMatchTypeEnum.EXACT,
+        "PHRASE": client.enums.KeywordMatchTypeEnum.PHRASE,
+        "BROAD": client.enums.KeywordMatchTypeEnum.BROAD,
+    }
+    match_type = match_type_map.get(match_type_str.upper())
+    if not match_type:
+        print(f"Invalid match type '{match_type_str}'. Use EXACT, PHRASE, or BROAD.")
+        return
+
+    bid_text = f"${bid_dollars:.2f}" if bid_dollars is not None else "ad group default"
+    print_preview("Create Keyword", [
+        f"Campaign:       {info['campaign']}",
+        f"Ad Group:       {info['name']} (ID: {ad_group_id})",
+        f"Keyword:        \"{keyword_text}\" [{match_type_str.upper()}]",
+        f"Default status:  PAUSED",
+        f"CPC bid:        {bid_text}",
+    ])
+
+    if not request_approval(dry_run):
+        return
+
+    ad_group_service = client.get_service("AdGroupService")
+    criterion_service = client.get_service("AdGroupCriterionService")
+
+    criterion = client.get_type("AdGroupCriterion")
+    criterion.ad_group = ad_group_service.ad_group_path(customer_id, ad_group_id)
+    criterion.status = client.enums.AdGroupCriterionStatusEnum.PAUSED
+    criterion.keyword.text = keyword_text
+    criterion.keyword.match_type = match_type
+    if bid_dollars is not None:
+        criterion.cpc_bid_micros = int(bid_dollars * 1_000_000)
+
+    op = client.get_type("AdGroupCriterionOperation")
+    op.create.CopyFrom(criterion)
+
+    try:
+        criterion_service.mutate_ad_group_criteria(customer_id=customer_id, operations=[op])
+        print(f"Keyword '{keyword_text}' created in paused state.")
+    except GoogleAdsException as ex:
+        print(f"Failed: {ex}")
+
+
 def enable_keyword(client, customer_id, ad_group_id, criterion_id, dry_run):
     info = get_keyword(client, customer_id, ad_group_id, criterion_id)
     if not info:
@@ -317,10 +534,85 @@ def enable_keyword(client, customer_id, ad_group_id, criterion_id, dry_run):
         print(f"Failed: {ex}")
 
 
+def pause_rsa(client, customer_id, ad_group_id, ad_id, dry_run):
+    info = get_rsa(client, customer_id, ad_group_id, ad_id)
+    if not info:
+        print(f"RSA {ad_id} not found in ad group {ad_group_id}.")
+        return
+
+    print_preview("Pause RSA", [
+        f"Campaign:       {info['campaign']}",
+        f"Ad Group:       {info['ad_group']}",
+        f"RSA ID:         {ad_id}",
+        f"Current status: {info['status']}",
+        f"New status:     PAUSED",
+    ])
+
+    if not request_approval(dry_run):
+        return
+
+    ad_group_ad_service = client.get_service("AdGroupAdService")
+    ad_group_ad = client.get_type("AdGroupAd")
+    ad_group_ad.resource_name = info["resource_name"]
+    ad_group_ad.status = client.enums.AdGroupAdStatusEnum.PAUSED
+
+    field_mask = client.get_type("FieldMask")
+    field_mask.paths.append("status")
+
+    op = client.get_type("AdGroupAdOperation")
+    op.update.CopyFrom(ad_group_ad)
+    op.update_mask.CopyFrom(field_mask)
+
+    try:
+        ad_group_ad_service.mutate_ad_group_ads(customer_id=customer_id, operations=[op])
+        print(f"RSA '{ad_id}' paused successfully.")
+    except GoogleAdsException as ex:
+        print(f"Failed: {ex}")
+
+
+def enable_rsa(client, customer_id, ad_group_id, ad_id, dry_run):
+    info = get_rsa(client, customer_id, ad_group_id, ad_id)
+    if not info:
+        print(f"RSA {ad_id} not found in ad group {ad_group_id}.")
+        return
+
+    print_preview("Enable RSA", [
+        f"Campaign:       {info['campaign']}",
+        f"Ad Group:       {info['ad_group']}",
+        f"RSA ID:         {ad_id}",
+        f"Current status: {info['status']}",
+        f"New status:     ENABLED",
+    ])
+
+    if not request_approval(dry_run):
+        return
+
+    ad_group_ad_service = client.get_service("AdGroupAdService")
+    ad_group_ad = client.get_type("AdGroupAd")
+    ad_group_ad.resource_name = info["resource_name"]
+    ad_group_ad.status = client.enums.AdGroupAdStatusEnum.ENABLED
+
+    field_mask = client.get_type("FieldMask")
+    field_mask.paths.append("status")
+
+    op = client.get_type("AdGroupAdOperation")
+    op.update.CopyFrom(ad_group_ad)
+    op.update_mask.CopyFrom(field_mask)
+
+    try:
+        ad_group_ad_service.mutate_ad_group_ads(customer_id=customer_id, operations=[op])
+        print(f"RSA '{ad_id}' enabled successfully.")
+    except GoogleAdsException as ex:
+        print(f"Failed: {ex}")
+
+
 def update_keyword_bid(client, customer_id, ad_group_id, criterion_id, bid_dollars, dry_run):
     info = get_keyword(client, customer_id, ad_group_id, criterion_id)
     if not info:
         print(f"Keyword {criterion_id} not found.")
+        return
+    if bid_dollars < 0:
+        print("Keyword bid must be non-negative.")
         return
 
     current_bid = f"${info['cpc_bid']:.2f}" if info["cpc_bid"] else "ad group default"
@@ -398,6 +690,66 @@ def add_negative_keyword(client, customer_id, campaign_id, keyword_text, match_t
         print(f"Failed: {ex}")
 
 
+def add_shared_negative_keyword(client, customer_id, shared_set_name, keyword_text, match_type_str, dry_run):
+    match_type_map = {
+        "EXACT": client.enums.KeywordMatchTypeEnum.EXACT,
+        "PHRASE": client.enums.KeywordMatchTypeEnum.PHRASE,
+        "BROAD": client.enums.KeywordMatchTypeEnum.BROAD,
+    }
+    match_type = match_type_map.get(match_type_str.upper())
+    if not match_type:
+        print(f"Invalid match type '{match_type_str}'. Use EXACT, PHRASE, or BROAD.")
+        return
+
+    existing = get_shared_set(client, customer_id, shared_set_name)
+    if existing and existing["type"] != "NEGATIVE_KEYWORDS":
+        print(f"Shared set '{shared_set_name}' exists but is type {existing['type']}, not NEGATIVE_KEYWORDS.")
+        return
+    action = "reuse existing shared set" if existing else "create shared set"
+    print_preview("Add Shared Negative Keyword", [
+        f"Shared set:     {shared_set_name}",
+        f"Action:         {action}",
+        f"Negative:       -{keyword_text} [{match_type_str.upper()}]",
+        f"Status:         Shared negative keyword",
+    ])
+
+    if not request_approval(dry_run):
+        return
+
+    shared_set_service = client.get_service("SharedSetService")
+    shared_criterion_service = client.get_service("SharedCriterionService")
+
+    shared_set_resource_name = existing["resource_name"] if existing else None
+    if not shared_set_resource_name:
+        shared_set = client.get_type("SharedSet")
+        shared_set.name = shared_set_name
+        shared_set.type_ = client.enums.SharedSetTypeEnum.NEGATIVE_KEYWORDS
+
+        shared_set_op = client.get_type("SharedSetOperation")
+        shared_set_op.create.CopyFrom(shared_set)
+
+        try:
+          response = shared_set_service.mutate_shared_sets(customer_id=customer_id, operations=[shared_set_op])
+          shared_set_resource_name = response.results[0].resource_name
+        except GoogleAdsException as ex:
+            print(f"Failed to create shared set: {ex}")
+            return
+
+    shared_criterion = client.get_type("SharedCriterion")
+    shared_criterion.shared_set = shared_set_resource_name
+    shared_criterion.keyword.text = keyword_text
+    shared_criterion.keyword.match_type = match_type
+
+    shared_criterion_op = client.get_type("SharedCriterionOperation")
+    shared_criterion_op.create.CopyFrom(shared_criterion)
+
+    try:
+        shared_criterion_service.mutate_shared_criteria(customer_id=customer_id, operations=[shared_criterion_op])
+        print(f"Negative keyword '-{keyword_text} [{match_type_str.upper()}]' added to shared set '{shared_set_name}'.")
+    except GoogleAdsException as ex:
+        print(f"Failed: {ex}")
+
+
 # ─── ARGS ────────────────────────────────────────────────────────────────────
 
 def main():
@@ -416,12 +768,18 @@ Examples:
     parser.add_argument("--customer-id", required=True, help="Google Ads account ID (no dashes)")
     parser.add_argument("--operation", required=True, choices=[
         "pause-campaign", "enable-campaign", "update-budget",
+        "pause-ad-group", "enable-ad-group",
         "pause-keyword", "enable-keyword", "update-keyword-bid",
+        "create-keyword",
         "add-negative-keyword",
+        "add-shared-negative-keyword",
+        "pause-rsa", "enable-rsa",
     ])
     parser.add_argument("--campaign-id", help="Campaign ID")
     parser.add_argument("--ad-group-id", help="Ad Group ID")
     parser.add_argument("--criterion-id", help="Keyword criterion ID")
+    parser.add_argument("--ad-id", help="Responsive Search Ad ID")
+    parser.add_argument("--shared-set-name", help="Shared negative keyword list name")
     parser.add_argument("--budget", type=float, help="New daily budget in dollars")
     parser.add_argument("--bid", type=float, help="New keyword bid in dollars")
     parser.add_argument("--keyword", help="Keyword text (for adding negatives)")
@@ -449,6 +807,16 @@ Examples:
             sys.exit("--campaign-id and --budget required for update-budget")
         update_budget(client, customer_id, args.campaign_id, args.budget, args.dry_run)
 
+    elif op == "pause-ad-group":
+        if not args.ad_group_id:
+            sys.exit("--ad-group-id required for pause-ad-group")
+        pause_ad_group(client, customer_id, args.ad_group_id, args.dry_run)
+
+    elif op == "enable-ad-group":
+        if not args.ad_group_id:
+            sys.exit("--ad-group-id required for enable-ad-group")
+        enable_ad_group(client, customer_id, args.ad_group_id, args.dry_run)
+
     elif op == "pause-keyword":
         if not args.ad_group_id or not args.criterion_id:
             sys.exit("--ad-group-id and --criterion-id required for pause-keyword")
@@ -464,10 +832,30 @@ Examples:
             sys.exit("--ad-group-id, --criterion-id, and --bid required for update-keyword-bid")
         update_keyword_bid(client, customer_id, args.ad_group_id, args.criterion_id, args.bid, args.dry_run)
 
+    elif op == "create-keyword":
+        if not args.ad_group_id or not args.keyword:
+            sys.exit("--ad-group-id and --keyword required for create-keyword")
+        create_keyword(client, customer_id, args.ad_group_id, args.keyword, args.match_type, args.bid, args.dry_run)
+
     elif op == "add-negative-keyword":
         if not args.campaign_id or not args.keyword:
             sys.exit("--campaign-id and --keyword required for add-negative-keyword")
         add_negative_keyword(client, customer_id, args.campaign_id, args.keyword, args.match_type, args.dry_run)
+
+    elif op == "add-shared-negative-keyword":
+        if not args.shared_set_name or not args.keyword:
+            sys.exit("--shared-set-name and --keyword required for add-shared-negative-keyword")
+        add_shared_negative_keyword(client, customer_id, args.shared_set_name, args.keyword, args.match_type, args.dry_run)
+
+    elif op == "pause-rsa":
+        if not args.ad_group_id or not args.ad_id:
+            sys.exit("--ad-group-id and --ad-id required for pause-rsa")
+        pause_rsa(client, customer_id, args.ad_group_id, args.ad_id, args.dry_run)
+
+    elif op == "enable-rsa":
+        if not args.ad_group_id or not args.ad_id:
+            sys.exit("--ad-group-id and --ad-id required for enable-rsa")
+        enable_rsa(client, customer_id, args.ad_group_id, args.ad_id, args.dry_run)
 
 
 if __name__ == "__main__":

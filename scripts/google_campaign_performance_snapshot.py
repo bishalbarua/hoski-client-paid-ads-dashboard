@@ -58,26 +58,15 @@ import argparse
 import os
 from datetime import date, timedelta
 from collections import defaultdict
+from pathlib import Path
 from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
 
-# ─── CLIENT REGISTRY ─────────────────────────────────────────────────────────
-
-ALL_CLIENTS = {
-    "Anand Desai Law Firm":                 "5865660247",
-    "Dentiste":                             "3857223862",
-    "Estate Jewelry Priced Right":          "7709532223",
-    "FaBesthetics":                         "9304117954",
-    "GDM Google Ads":                       "7087867966",
-    "Hoski.ca":                             "5544702166",
-    "New Norseman":                         "3720173680",
-    "Park Road Custom Furniture and Decor": "7228467515",
-    "Serenity Familycare":                  "8134824884",
-    "Synergy Spine & Nerve Center":         "7628667762",
-    "Texas FHC":                            "8159668041",
-    "Voit Dental (1)":                      "5216656756",
-    "Voit Dental (2)":                      "5907367258",
-}
+from scripts.client_registry import (
+    get_client_config,
+    get_google_ads_targets,
+)
+from scripts.report_io import write_markdown_report
 
 # ─── CONVERSION CATEGORY BUCKETS ─────────────────────────────────────────────
 
@@ -148,6 +137,132 @@ def run_query(ga_service, customer_id, query):
         for error in ex.failure.errors:
             print(f"    [API Error] {error.message}")
         return []
+
+
+def _fmt_currency(value):
+    if value is None:
+        return "—"
+    return f"${value:.2f}"
+
+
+def _fmt_pct(value, digits=1):
+    if value is None:
+        return "—"
+    return f"{value * 100:.{digits}f}%"
+
+
+def _md_escape(value):
+    return str(value).replace("|", "\\|")
+
+
+def _campaign_rows(curr_camps, prior_camps, flags_only):
+    rows = []
+    for cid, curr in sorted(curr_camps.items(), key=lambda x: x[1]["cost"], reverse=True):
+        prior = prior_camps.get(cid)
+        status, flags = classify_campaign(curr, prior)
+        if flags_only and status not in ("critical", "warning", "win"):
+            continue
+        rows.append({
+            "campaign": curr,
+            "prior": prior,
+            "status": status,
+            "flags": flags,
+        })
+    return rows
+
+
+def render_account_markdown(client_name, customer_id, mode, dates, curr_camps, prior_camps, flags_only):
+    all_rows = _campaign_rows(curr_camps, prior_camps, False)
+    rows = _campaign_rows(curr_camps, prior_camps, flags_only)
+    total_curr_cost = sum(c["cost"] for c in curr_camps.values())
+    total_curr_conv = sum(c["total_real_conv"] for c in curr_camps.values())
+    total_curr_rev = sum(c["purchase_value"] for c in curr_camps.values())
+    total_prior_cost = sum(c["cost"] for c in prior_camps.values()) if prior_camps else 0
+    total_prior_conv = sum(c["total_real_conv"] for c in prior_camps.values()) if prior_camps else 0
+    total_prior_rev = sum(c["purchase_value"] for c in prior_camps.values()) if prior_camps else 0
+
+    counts = {"critical": 0, "warning": 0, "win": 0, "stable": 0, "new": 0}
+    for row in all_rows:
+        counts[row["status"]] = counts.get(row["status"], 0) + 1
+
+    lines = [
+        f"# Google Ads Snapshot - {client_name}",
+        "",
+        f"- Account ID: `{customer_id}`",
+        f"- Report Mode: `{mode}`",
+        f"- Current window: `{dates['curr_start']} -> {dates['curr_end']}`",
+        f"- Prior window: `{dates['prior_start']} -> {dates['prior_end']}`",
+        f"- Conversions counted: purchases, phone calls, lead forms",
+        "",
+        "## Summary",
+        "",
+        "| Metric | Current | Prior |",
+        "| --- | ---: | ---: |",
+        f"| Spend | {_fmt_currency(total_curr_cost)} | {_fmt_currency(total_prior_cost)} |",
+        f"| Real conversions | {total_curr_conv:.1f} | {total_prior_conv:.1f} |",
+        f"| Purchase revenue | {_fmt_currency(total_curr_rev)} | {_fmt_currency(total_prior_rev)} |",
+        f"| Campaigns | {len(curr_camps)} | {len(prior_camps) if prior_camps else 0} |",
+        "",
+        "## Status Counts",
+        "",
+        f"- Critical: {counts['critical']}",
+        f"- Warning: {counts['warning']}",
+        f"- Win: {counts['win']}",
+        f"- Stable: {counts['stable']}",
+        f"- New: {counts['new']}",
+        "",
+        "## Campaigns",
+        "",
+        "| Campaign | Status | Spend | Conv | CPA | CTR | Prior Spend | Flags |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: | --- |",
+    ]
+
+    if not rows:
+        lines.append("| No campaigns | - | - | - | - | - | - | - |")
+    else:
+        for row in rows:
+            curr = row["campaign"]
+            prior = row["prior"] or {}
+            flags = "; ".join(msg for _, msg in row["flags"]) if row["flags"] else ""
+            lines.append(
+                "| "
+                + " | ".join([
+                    _md_escape(curr["name"]),
+                    row["status"],
+                    _fmt_currency(curr["cost"]),
+                    f"{curr['total_real_conv']:.1f}",
+                    _fmt_currency(curr["cpa"]) if curr["cpa"] else "—",
+                    _fmt_pct(curr["ctr"]),
+                    _fmt_currency(prior.get("cost")) if prior else "—",
+                    _md_escape(flags or "—"),
+                ])
+                + " |"
+            )
+
+    lines.extend([
+        "",
+        "## Notes",
+        "",
+        "- This report is generated from the Google Ads campaign snapshot pull.",
+        "- Campaign status flags are derived from period-over-period spend, conversion, CTR, and CPA deltas.",
+    ])
+
+    return "\n".join(lines)
+
+
+def write_account_markdown(client_name, customer_id, mode, dates, curr_camps, prior_camps, flags_only):
+    try:
+        cfg = get_client_config(client_name)
+        analysis_dir = cfg.analysis_dir
+        file_stem = f"google-campaign-snapshot-{dates['curr_end']}-{mode}.md"
+        report_path = analysis_dir / file_stem
+    except KeyError:
+        analysis_dir = Path(__file__).resolve().parent.parent / "clients" / client_name / "analysis"
+        file_stem = f"google-campaign-snapshot-{dates['curr_end']}-{mode}.md"
+        report_path = analysis_dir / file_stem
+
+    content = render_account_markdown(client_name, customer_id, mode, dates, curr_camps, prior_camps, flags_only)
+    return write_markdown_report(report_path, content)
 
 
 # ─── DATE RANGES ─────────────────────────────────────────────────────────────
@@ -551,6 +666,8 @@ def main():
                         help="weekly (rolling 7d), calendar-week (last Sun–Sat vs prior Sun–Sat), monthly (30d). Default: weekly")
     parser.add_argument("--flags-only",   action="store_true",
                         help="Only show campaigns with significant changes")
+    parser.add_argument("--no-md", action="store_true",
+                        help="Skip writing local Markdown reports")
     args = parser.parse_args()
 
     client     = build_client()
@@ -558,9 +675,10 @@ def main():
     dates      = get_date_ranges(args.mode)
 
     if args.customer_id:
-        targets = {(args.client_name or args.customer_id): args.customer_id.replace("-", "")}
+        display_name = args.client_name or args.customer_id.replace("-", "")
+        targets = {display_name: args.customer_id.replace("-", "")}
     else:
-        targets = ALL_CLIENTS
+        targets = get_google_ads_targets()
 
     print("\n" + "="*60)
     print(f"CAMPAIGN PERFORMANCE SNAPSHOT — {args.mode.upper()}")
@@ -580,6 +698,9 @@ def main():
             curr_camps  = pull_campaign_metrics(ga_service, cid, dates["curr_start"],  dates["curr_end"])
             prior_camps = pull_campaign_metrics(ga_service, cid, dates["prior_start"], dates["prior_end"])
             counts = print_account(name, cid, curr_camps, prior_camps, args.flags_only)
+            if not args.no_md and curr_camps:
+                report_path = write_account_markdown(name, cid, args.mode, dates, curr_camps, prior_camps, args.flags_only)
+                print(f"    Markdown written: {report_path}")
             for k in ("critical", "warning", "win", "stable", "new"):
                 total_counts[k] += counts.get(k, 0)
         except Exception as e:

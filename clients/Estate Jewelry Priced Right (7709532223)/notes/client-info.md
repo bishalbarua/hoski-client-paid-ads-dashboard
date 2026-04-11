@@ -39,7 +39,8 @@
 
 | Metric | Target |
 |---|---|
-| ROAS | TBD (currently 0.22x blended — deeply underwater) |
+| Primary KPI | 3-4x ROAS, $30-40k/month in revenue |
+| ROAS | 3-4x (currently 0.22x blended — deeply underwater) |
 | CPA (Cost per Purchase) | TBD |
 | Monthly Budget | ~$6,000/mo ($200/day across active budgets) |
 | AOV Signal | $100+ free shipping threshold; gift promos at $200+ and $375+ |

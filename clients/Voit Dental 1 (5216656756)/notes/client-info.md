@@ -71,6 +71,7 @@ Luke's email: luke.jones@voitdental.com
 
 | Metric | Target |
 |---|---|
+| Primary KPI | 3-5 closed patients per month on $7k spend (~$80-125k in revenue) |
 | CPA (Cost per New Patient) | TBD |
 | Monthly Budget (Meta) | ~$4,500/mo |
 | Monthly Budget (Google) | ~$900/mo (Luke's campaign) |

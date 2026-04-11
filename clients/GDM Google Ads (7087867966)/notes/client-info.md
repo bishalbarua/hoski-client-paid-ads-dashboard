@@ -6,7 +6,7 @@
 **MCC:** 4781259815
 **Industry / Vertical:** Fine Jewelry / Diamonds / Custom Rings
 **Account Status:** Active (all campaigns paused for client closure Mar 18-26)
-**Last updated:** 2026-03-22
+**Last updated:** 2026-04-11
 
 ---
 
@@ -65,6 +65,74 @@
 | ROAS | 3.5x on total revenue |
 | Monthly Revenue (minimum) | $100k/month |
 | Monthly Revenue (north star) | $250k/month |
+| Monthly Revenue (confirmed March 2026) | $54K total ($23K Shopify + $31K in-store) |
+| Monthly Revenue (current goal, April 2026) | $200k/month (3.7x growth required) |
+| Monthly Ad Budget (approved, April 2026) | $25K/month (step-up from $10.8K) |
+| March MER | 5x ($54K revenue / $10.8K spend) |
+
+---
+
+## Unit Economics (Confirmed April 2026)
+
+**General Appointment Funnel:**
+- Average purchase value (30 GHL transactions): $2,135
+- Target show rate: 65% (current: 31% — critical gap)
+- Target close rate: 50% (current: 50% — healthy)
+- Max CPL: $487
+- **Target CPL: $365**
+
+**Engagement Ring Funnel (separate):**
+- Estimated average ring sale: $4,000-6,000 (from pipeline data)
+- Target show rate: 60%
+- Target close rate: 40%
+- Max CPL: $780
+- **Target CPL: $585**
+
+**Show rate is the #1 operational problem.** At 31% (vs. 65% target), cost per acquired client exceeds average sale value. Do not scale appointment spend until show rate reaches 50%+. Fix GHL automation first.
+
+---
+
+## Competitive Intelligence (April 2026)
+
+### Primary Competitor: Ecksand
+Montreal manufacturer, similar price point, similar consultation model. Appears on same keywords. Differentiator: Ecksand positions on Canadian/recycled-only sourcing. GDM beats them on: heritage (1982 vs. newer), global sourcing (12 countries vs. local only), and scale.
+
+### Competitive Map
+
+| Competitor | Threat Level | Their Angle | GDM's Edge |
+|---|---|---|---|
+| Ecksand (Montreal) | High | "Fully vertical Montreal atelier," ethical/recycled | Older heritage + global sourcing — they cannot say both |
+| St-Onge Jeweller (Montreal, since 1977) | Medium | "100% made in Quebec workshop" | Global sourcing network + wider diamond selection |
+| Flamme en Rose (Montreal) | Medium | Women-owned, eco-friendly, handmade | Price transparency + manufacturer pricing beats ethics story |
+| Birks | Medium | 145 years Canadian heritage, luxury | "Same quality, no retail markup" — Birks cannot say this |
+| Peoples Jewellers | Low | 150+ locations, volume, mid-market | Expertise and personalization — GDM is a manufacturer, Peoples is a chain |
+| Brilliant Earth | Low (different market) | Owns lab-grown ethical narrative | Do NOT compete on lab-grown ethics — offer it as a choice, not a primary story |
+| Proud Diamond (Montreal) | Low | Lab-grown specialist | Global sourcing + custom design — Proud Diamond is narrow |
+
+### What "Made in Montreal" Is Worth
+Six competitors claim manufacturing status in Montreal. It is table stakes, not a differentiator. GDM's unique combination: **manufacturer + global sourcing (12 countries) + heritage (oldest in the competitive set)**. No competitor can replicate all three simultaneously.
+
+### Keywords to Watch for Competitor Activity
+- "custom engagement ring montreal" — contested by Ecksand, St-Onge, Ex Aurum
+- "engagement rings montreal" — Ecksand, St-Onge, Flamme en Rose, Ruby Mardi all active
+- "lab grown engagement rings montreal" — Proud Diamond, Flamme en Rose, POLAR
+
+### Positioning Statement
+GDM sits between mass-market chains (impersonal) and ultra-premium boutiques (expensive). The manufacturer that gives buyers premium diamonds at manufacturer pricing, with a global sourcing network local boutiques don't have and 40+ years of experience.
+
+---
+
+## Province Tier Structure (GA4, Jan–Apr 2026)
+
+E-commerce budget allocation for Lever 1 (Canada-wide campaigns):
+
+| Province | Tier | Allocation | Rationale |
+|---|---|---|---|
+| Ontario | 1 | 35% | Highest absolute e-commerce revenue — Toronto $7,875, Ottawa $6,630, Richmond Hill $4,883 |
+| Quebec | 1 | 25% | Montreal high engagement (much is in-store intent) + strong e-commerce |
+| BC | 2 | 20% | Best revenue-to-user ratio — Vancouver $6,910 with 3K users = highest CVR |
+| Alberta | 2 | 12% | Consistent performer — Calgary $3,620 |
+| Atlantic (NS + NB) | 3 | 8% | Halifax $3,402 + Fredericton $2,340 — outperforming relative to size |
 
 ---
 

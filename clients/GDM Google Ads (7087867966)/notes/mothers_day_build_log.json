@@ -1,0 +1,65 @@
+{
+  "created_at": "2026-04-10T01:59:42.029741",
+  "customer_id": "7087867966",
+  "dry_run": false,
+  "campaigns": [
+    {
+      "name": "GDM | Search | Mother's Day EN (2026)",
+      "ad_groups": [
+        {
+          "name": "AG1: Mother's Day Bracelet Core",
+          "resource_name": "customers/7087867966/adGroups/199066416430",
+          "ad_group_id": "199066416430",
+          "keywords_added": 6,
+          "rsa_resource_name": "customers/7087867966/adGroupAds/199066416430~804638395370"
+        },
+        {
+          "name": "AG2: Mother's Day Jewelry Gift",
+          "resource_name": "customers/7087867966/adGroups/199066434470",
+          "ad_group_id": "199066434470",
+          "keywords_added": 7,
+          "rsa_resource_name": "customers/7087867966/adGroupAds/199066434470~804638419169"
+        },
+        {
+          "name": "AG3: Personalized + Custom",
+          "resource_name": "customers/7087867966/adGroups/195993428340",
+          "ad_group_id": "195993428340",
+          "keywords_added": 10,
+          "rsa_resource_name": "customers/7087867966/adGroupAds/195993428340~804560441260"
+        },
+        {
+          "name": "AG4: Tennis + Diamond Bracelet",
+          "resource_name": "customers/7087867966/adGroups/194569457225",
+          "ad_group_id": "194569457225",
+          "keywords_added": 7,
+          "rsa_resource_name": "customers/7087867966/adGroupAds/194569457225~804524527593"
+        }
+      ],
+      "budget_resource_name": "customers/7087867966/campaignBudgets/15499256575",
+      "resource_name": "customers/7087867966/campaigns/23744477260",
+      "campaign_id": "23744477260"
+    },
+    {
+      "name": "GDM | Search | Mother's Day FR (2026)",
+      "ad_groups": [
+        {
+          "name": "AG5: F\u00eate des m\u00e8res",
+          "resource_name": "customers/7087867966/adGroups/193943491183",
+          "ad_group_id": "193943491183",
+          "keywords_added": 10,
+          "rsa_resource_name": "customers/7087867966/adGroupAds/193943491183~804560568652"
+        },
+        {
+          "name": "AG6: Bracelet Diamant + Or FR",
+          "resource_name": "customers/7087867966/adGroups/193943507903",
+          "ad_group_id": "193943507903",
+          "keywords_added": 8,
+          "rsa_resource_name": "customers/7087867966/adGroupAds/193943507903~804560480338"
+        }
+      ],
+      "budget_resource_name": "customers/7087867966/campaignBudgets/15499258495",
+      "resource_name": "customers/7087867966/campaigns/23739830552",
+      "campaign_id": "23739830552"
+    }
+  ]
+}

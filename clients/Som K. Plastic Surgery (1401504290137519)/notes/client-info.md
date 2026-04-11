@@ -10,6 +10,7 @@
 
 | Metric | Target |
 |---|---|
+| Primary KPI | 1-2 closed cases per month at $3k/month spend |
 | CPA (Cost per Lead) | |
 | Monthly Budget | |
 | ROAS (if applicable) | |

@@ -11,6 +11,7 @@
 
 | Metric | Target |
 |---|---|
+| Primary KPI | $10-15k/month in revenue with $1-2k in adspend |
 | CPA (Cost per New Patient) | |
 | Monthly Budget | |
 | ROAS (if applicable) | |

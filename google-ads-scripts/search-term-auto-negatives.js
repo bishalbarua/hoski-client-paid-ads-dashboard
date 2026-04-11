@@ -49,13 +49,17 @@ function getExistingNegatives() {
   // Collect all campaign-level and account-level negative keyword texts
   var negatives = new Set();
 
+  function normalizeNegative(text) {
+    return text.toLowerCase().replace(/[+"\[\]]/g, '');
+  }
+
   // Account-level negative lists
   var sharedSets = AdsApp.negativeKeywordLists().get();
   while (sharedSets.hasNext()) {
     var list = sharedSets.next();
     var kws  = list.negativeKeywords().get();
     while (kws.hasNext()) {
-      negatives.add(kws.next().getText().toLowerCase().replace(/[+"\[\]]/g, ''));
+      negatives.add(normalizeNegative(kws.next().getText()));
     }
   }
 
@@ -65,7 +69,21 @@ function getExistingNegatives() {
     var campaign = campaigns.next();
     var negKws   = campaign.negativeKeywords().get();
     while (negKws.hasNext()) {
-      negatives.add(negKws.next().getText().toLowerCase().replace(/[+"\[\]]/g, ''));
+      negatives.add(normalizeNegative(negKws.next().getText()));
+    }
+  }
+
+  // Ad group-level negatives
+  campaigns = AdsApp.campaigns().withCondition('Status = ENABLED').get();
+  while (campaigns.hasNext()) {
+    var campaign = campaigns.next();
+    var adGroups = campaign.adGroups().withCondition('Status = ENABLED').get();
+    while (adGroups.hasNext()) {
+      var adGroup = adGroups.next();
+      var adGroupNegKws = adGroup.negativeKeywords().get();
+      while (adGroupNegKws.hasNext()) {
+        negatives.add(normalizeNegative(adGroupNegKws.next().getText()));
+      }
     }
   }
 
