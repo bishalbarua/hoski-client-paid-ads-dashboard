@@ -558,14 +558,35 @@ def generate_notes(client_name, platform, data):
 
 # ─── ROW BUILDER ──────────────────────────────────────────────────────────────
 
+# 23-column layout — must match the sheet's actual header row exactly (A-W).
+#
+#  A  Week Start          B  Week End            C  Client Account
+#  D  Platform            E  Account ID           F  Status
+#  G  Amount Spend
+#  H  Form Leads          I  Call Leads
+#  J  Blended Leads       (formula: H+I)
+#  K  Blended CPL         (formula: G/J)
+#  L  Appointment Booked  (manual — GHL, service clients only)
+#  M  Online Purchase
+#  N  Offline Purchase / Closed Leads  (ecom: offline conv; service: manual closed leads)
+#  O  Total Purchase      (formula: M+N)
+#  P  Purchase Value      (data from API — total purchase revenue)
+#  Q  Add to Carts
+#  R  Checkouts
+#  S  Total Revenue       (formula: =P)
+#  T  ROAS                (formula: S/G)
+#  U  Top Performing Facebook Creative
+#  V  Notes
+#  W  Pulled At
+
 REPORT_HEADERS = [
     "Week Start", "Week End",
     "Client Account", "Platform", "Account ID", "Status",
     "Amount Spend",
     "Form Leads", "Call Leads", "Blended Leads", "Blended CPL",
-    "Show Rate", "Lead to Close Rate", "Cost Per Acquired Client",
-    "Closed Leads",
-    "Online Purchase", "Offline Purchase", "Total Purchase", "Purchase Value",
+    "Appointment Booked",
+    "Online Purchase", "Offline Purchase / Closed Leads", "Total Purchase",
+    "Purchase Value",
     "Add to Carts", "Checkouts",
     "Total Revenue", "ROAS",
     "Top Performing Facebook Creative",
@@ -591,39 +612,35 @@ def build_row(client_name, platform, account_id, data, week_start, week_end):
     add_to_carts    = data.get("add_to_carts", 0) or 0
     checkouts       = data.get("checkouts", 0) or 0
 
-    # Columns J, K, R, V, W are left blank here — formulas are written by
-    # apply_sheet_formulas() after the rows land in the sheet so they can
-    # reference their own row numbers.
-    # Columns L, M, N (Show Rate, Lead to Close Rate, Cost Per Acquired Client)
-    # are left blank — populated manually from GHL data for service business clients.
-    # DTC/eCommerce clients leave these blank.
+    # Formula columns (J, K, O, S, T) are left blank — apply_sheet_formulas()
+    # writes the correct formula after append, referencing the actual row number.
+    # L (Appointment Booked) is left blank — manual input from GHL for service clients.
+    # N (Offline Purchase / Closed Leads) carries API offline conv data for ecom;
+    # for service clients it stays blank and is filled manually from GHL.
     return [
-        week_start,
-        week_end,
-        client_name,
-        platform,
-        account_id,
-        data.get("status", ""),
-        _r(spend),
-        _r(form_leads, 0),
-        _r(call_leads, 0),
-        "",                              # J: Blended Leads — formula
-        "",                              # K: Blended CPL   — formula
-        "",                              # L: Show Rate — manual (GHL, service clients only)
-        "",                              # M: Lead to Close Rate — manual (GHL, service clients only)
-        "",                              # N: Cost Per Acquired Client — manual or calculated
-        "",                              # O: Closed Leads  — manual / CRM
-        _r(online_purch, 0),
-        _r(offline_purch, 0),
-        "",                              # R: Total Purchase — formula
-        _r(purchase_value),
-        _r(add_to_carts, 0),
-        _r(checkouts, 0),
-        "",                              # V: Total Revenue  — formula
-        "",                              # W: ROAS           — formula
-        data.get("top_creative", ""),
-        generate_notes(client_name, platform, data),
-        date.today().isoformat(),
+        week_start,                         # A
+        week_end,                           # B
+        client_name,                        # C
+        platform,                           # D
+        account_id,                         # E
+        data.get("status", ""),             # F
+        _r(spend),                          # G: Amount Spend
+        _r(form_leads, 0),                  # H: Form Leads
+        _r(call_leads, 0),                  # I: Call Leads
+        "",                                 # J: Blended Leads — formula
+        "",                                 # K: Blended CPL   — formula
+        "",                                 # L: Appointment Booked — manual (GHL)
+        _r(online_purch, 0),                # M: Online Purchase
+        _r(offline_purch, 0),               # N: Offline Purchase / Closed Leads
+        "",                                 # O: Total Purchase — formula (M+N)
+        _r(purchase_value),                 # P: Purchase Value
+        _r(add_to_carts, 0),                # Q: Add to Carts
+        _r(checkouts, 0),                   # R: Checkouts
+        "",                                 # S: Total Revenue — formula (=P)
+        "",                                 # T: ROAS — formula (S/G)
+        data.get("top_creative", ""),       # U: Top Performing Facebook Creative
+        generate_notes(client_name, platform, data),  # V: Notes
+        date.today().isoformat(),           # W: Pulled At
     ]
 
 
@@ -702,16 +719,29 @@ def write_to_sheet(rows, week_start, replace=False, platform_filter=None, client
 
 def apply_sheet_formulas(ws):
     """
-    Write formulas into the computed columns for every data row:
-      J = Blended Leads  (H + I)
-      K = Blended CPL    (G / J)
-      O = Total Purchase (M + N)
-      S = Total Revenue  (= P, Purchase Value)
-      T = ROAS           (S / G)
-    Safe to call repeatedly — rewrites formulas in place without touching
-    any other columns.
+    Write formulas into the computed columns for every data row.
+
+    Column map (23 cols, A-W — matches sheet and REPORT_HEADERS exactly):
+      A  Week Start   B  Week End    C  Client Account  D  Platform
+      E  Account ID   F  Status      G  Amount Spend
+      H  Form Leads   I  Call Leads
+      J  Blended Leads     (formula: H + I)
+      K  Blended CPL       (formula: G / J)
+      L  Appointment Booked  (manual — never touched by formulas)
+      M  Online Purchase
+      N  Offline Purchase / Closed Leads  (ecom: API data; service: manual)
+      O  Total Purchase     (formula: M + N)
+      P  Purchase Value     (data from API)
+      Q  Add to Carts       R  Checkouts
+      S  Total Revenue      (formula: = P)
+      T  ROAS               (formula: S / G)
+      U  Top Performing Facebook Creative
+      V  Notes    W  Pulled At
+
+    Safe to call repeatedly — rewrites formula cells only, leaves all other
+    columns untouched.
     """
-    num_rows = len(ws.get_all_values())  # includes header
+    num_rows = len(ws.get_all_values())  # includes header row
     if num_rows < 2:
         return
 
@@ -726,11 +756,11 @@ def apply_sheet_formulas(ws):
             {"range": f"K{r}", "values": [[
                 f'=IFERROR(IF(J{r}>0,ROUND(G{r}/J{r},2),""),"")'
             ]]},
-            # O: Total Purchase = Online + Offline
+            # O: Total Purchase = Online Purchase (M) + Offline Purchase / Closed Leads (N)
             {"range": f"O{r}", "values": [[
                 f'=IF(OR(M{r}<>"",N{r}<>""),IFERROR(VALUE(M{r}),0)+IFERROR(VALUE(N{r}),0),"")'
             ]]},
-            # S: Total Revenue = Purchase Value
+            # S: Total Revenue = Purchase Value (P)
             {"range": f"S{r}", "values": [[
                 f'=IF(P{r}<>"",P{r},"")'
             ]]},
@@ -809,6 +839,8 @@ def create_dashboard():
 
     # Platform totals: one row per platform (Google / Meta) with summed KPIs.
     # Placed at a fixed row below the detail section (max ~21 client rows + buffer).
+    # Column map (23-col layout): G=Spend, H=Form Leads, I=Call Leads,
+    #   J=Blended Leads, O=Total Purchase, P=Purchase Value, S=Total Revenue
     f_totals = (
         "=QUERY('Weekly Report'!A:W,"
         "\"SELECT D,SUM(G),SUM(H),SUM(I),SUM(J),SUM(O),SUM(P)"
@@ -842,6 +874,11 @@ def create_dashboard():
     #   AB=Client  AC=Platform  AD=Status  AE=Spend  AF=Form Leads
     #   AG=Call Leads  AH=Blended Leads  AI=Blended CPL
     #   AJ=Total Purchase  AK=Purchase Value  AL=ROAS  AM=Notes
+    #
+    # Weekly Report column map used here (23-col layout A-W):
+    #   C=Client  D=Platform  F=Status  G=Spend
+    #   H=Form Leads  I=Call Leads  J=Blended Leads  K=Blended CPL
+    #   O=Total Purchase  P=Purchase Value  T=ROAS  V=Notes
     f_helper = (
         "=QUERY('Weekly Report'!A:W,"
         "\"SELECT C,D,F,G,H,I,J,K,O,P,T,V"
@@ -869,6 +906,9 @@ def create_dashboard():
     )
 
     # display col → helper col (for data reference formulas)
+    # Helper QUERY output (AB-AM, 12 cols): AB=Client AC=Platform AD=Status
+    #   AE=Spend AF=Form Leads AG=Call Leads AH=Blended Leads AI=Blended CPL
+    #   AJ=Total Purchase AK=Purchase Value AL=ROAS AM=Notes
     DATA_REFS = [
         ("A", "AB"),  # Client Account
         ("B", "AC"),  # Platform
@@ -885,6 +925,8 @@ def create_dashboard():
     ]
 
     # display WoW col → current-value display col → Weekly Report source col
+    # WR source cols (23-col layout): G=Spend H=Form Leads I=Call Leads
+    #   J=Blended Leads K=Blended CPL O=Total Purchase P=Purchase Value T=ROAS
     WOW_REFS = [
         ("E", "D", "G"),  # Spend WoW %
         ("G", "F", "H"),  # Form Leads WoW %
@@ -949,9 +991,9 @@ def print_summary(all_rows):
         client   = str(r[2])[:31]
         platform = str(r[3])
         spend    = f"${r[6]}" if r[6] else "—"
-        leads    = str(r[9]) if r[9] != "" else "—"     # blended leads col index 9
-        purch    = str(r[14]) if r[14] != "" else "—"   # total purchase
-        roas     = f"{r[19]}x" if r[19] != "" else "—"  # ROAS
+        leads    = str(r[9])  if r[9]  != "" else "—"   # J: Blended Leads (index 9)
+        purch    = str(r[12]) if r[12] != "" else "—"   # M: Online Purchase (index 12)
+        roas     = f"{r[19]}x" if r[19] != "" else "—"  # T: ROAS (index 19)
         print(f"  {client:<32} {platform:<8}  {spend:>8}  {leads:>6}  {purch:>5}  {roas:>6}")
     print(f"{'='*68}\n")
 

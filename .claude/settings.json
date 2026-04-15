@@ -309,7 +309,10 @@
       "WebFetch(domain:myeldesign.com)",
       "WebFetch(domain:joailleriestonge.com)",
       "WebFetch(domain:thenetjeweler.com)",
-      "WebFetch(domain:deuxlionsjewelry.com)"
+      "WebFetch(domain:deuxlionsjewelry.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:docs.firecrawl.dev)",
+      "Bash(open \"file:///Users/bishalbarua/Bishal/AI/antigravity/Hoski Marketing Manager/docs/index.html\")"
     ],
     "additionalDirectories": [
       "/Users/bishalbarua",
