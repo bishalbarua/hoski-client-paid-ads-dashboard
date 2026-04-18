@@ -5,7 +5,7 @@
 **MCC:** 4781259815
 **Industry / Vertical:** Retail — Jewelry / E-commerce (Estate / Vintage / Antique)
 **Account Status:** Active
-**Last updated:** 2026-03-22
+**Last updated:** 2026-04-15
 
 ---
 
@@ -144,7 +144,7 @@ Valentine's Day, Mother's Day, and Christmas are likely peak gifting periods.
 
 | Conversion Action | Status | Notes |
 |---|---|---|
-| Estate Jewelry - GA4 (web) purchase | HIDDEN | NOT feeding Smart Bidding optimization — critical issue |
+| Estate Jewelry - GA4 (web) purchase | ENABLED | Fixed 2026-04-15 — now set as primary, feeding Smart Bidding |
 | Google Shopping App Purchase | ENABLED | — |
 | add\_to\_cart | ENABLED | — |
 | GTM\_Appointment | ENABLED | — |
@@ -155,7 +155,7 @@ Valentine's Day, Mother's Day, and Christmas are likely peak gifting periods.
 | Offline Purchase (Zapier) | ENABLED | Upload clicks |
 | Store visits | ENABLED | — |
 
-**FLAG:** Primary purchase conversion action (GA4 web purchase) is HIDDEN and NOT feeding Smart Bidding. Campaigns are optimizing toward add-to-cart, calls, and appointments instead of purchases. This is a primary driver of the 0.22x blended ROAS.
+**RESOLVED (2026-04-15):** GA4 web purchase conversion action fixed and set as primary. Campaigns are now optimizing toward purchases. The 0.22x blended ROAS reflected a period where Smart Bidding was optimizing toward wrong signals — this should improve as the algorithm accumulates purchase data.
 
 ---
 
@@ -215,8 +215,8 @@ Valentine's Day, Mother's Day, and Christmas are likely peak gifting periods.
 
 ## Account Quirks & History
 
-- GA4 web purchase conversion is HIDDEN — campaigns have been optimizing toward wrong signals since launch
-- Appointment booking page exists (/pages/appointments) — unclear role in ecom model
+- GA4 web purchase conversion was HIDDEN for an extended period — campaigns optimized toward wrong signals (calls, appointments, add-to-cart) for much of the account history. Fixed 2026-04-15.
+- **No physical store.** Dan operates 100% online. There is no storefront, no walk-in, no in-person consultation. Appointment campaigns must be structured for Calls only (phone calls) — not in-store visit bookings. The /pages/appointments page should funnel to a phone call, not a location visit.
 - Media coverage (History Channel, Anderson Cooper, ABC The View, WSJ) is a strong trust signal not yet fully leveraged in ad copy
 - UGC and founder video assets available but sitting in Meta creative backlog
 - All keywords showing 0 conversions despite significant spend — likely a direct result of the HIDDEN purchase conversion action
@@ -233,11 +233,11 @@ Valentine's Day, Mother's Day, and Christmas are likely peak gifting periods.
 
 ## Ongoing To-Dos
 
-- [ ] Fix GA4 web purchase conversion action — set to ENABLED as primary (currently HIDDEN, not feeding Smart Bidding)
+- [x] Fix GA4 web purchase conversion action — DONE 2026-04-15
 - [ ] Add competitor brand negatives: Warwick Jewelers, Virani Jewelers, Walmart, Jewelry Exchange, Sevenesy
 - [ ] Audit all conversion actions — align optimization toward purchase signals only
 - [ ] Evaluate pausing Search campaigns and consolidating budget into Shopping (only channel with any purchase conversion)
 - [ ] Launch Meta TOF video creatives (5 in backlog — Bishal + Ayesha assigned)
 - [ ] Incorporate media credentials (History Channel, Anderson Cooper, WSJ) into ad copy and landing pages
-- [ ] Investigate appointment booking page — determine if it should be excluded from conversion tracking or leveraged
+- [ ] Update appointment booking page (/pages/appointments) and any related GTM_Appointment conversion action to confirm they route to a phone call — no in-person component exists (online-only business)
 - [ ] Full campaign structure audit — 0.22x blended ROAS requires intervention before any budget increase
