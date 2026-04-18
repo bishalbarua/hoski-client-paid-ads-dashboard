@@ -535,11 +535,11 @@
         "google_id": null,
         "meta_id": "215505746566668",
         "combined": {
-          "spend": 651.17,
+          "spend": 651.2,
           "form_leads": 64.0,
           "call_leads": 0,
           "blended": 64.0,
-          "blended_cpl": 10.17453125,
+          "blended_cpl": 10.175,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
@@ -549,7 +549,7 @@
         },
         "google": null,
         "meta": {
-          "spend": 651.17,
+          "spend": 651.2,
           "form_leads": 64.0,
           "call_leads": 0,
           "purchases": 0,
@@ -594,7 +594,7 @@
         "google_id": "7709532223",
         "meta_id": "422065096974825",
         "combined": {
-          "spend": 2404.0376530000003,
+          "spend": 2404.6376530000002,
           "form_leads": 0,
           "call_leads": 0,
           "blended": 0,
@@ -603,7 +603,7 @@
           "purchase_val": 5800.0,
           "add_to_carts": 118.0,
           "checkouts": 33.0,
-          "roas": 2.4126078028612303,
+          "roas": 2.41200581416663,
           "top_creative": "https://www.facebook.com/522481607619495/posts/122159166374733080"
         },
         "google": {
@@ -616,7 +616,7 @@
           "checkouts": 0
         },
         "meta": {
-          "spend": 1981.4,
+          "spend": 1982.0000000000002,
           "form_leads": 0,
           "call_leads": 0,
           "purchases": 4.0,
@@ -632,11 +632,11 @@
         "google_id": "9304117954",
         "meta_id": "373162790093046",
         "combined": {
-          "spend": 897.8612969999999,
+          "spend": 898.0912969999999,
           "form_leads": 25.0,
           "call_leads": 1.0,
           "blended": 26.0,
-          "blended_cpl": 34.533126807692305,
+          "blended_cpl": 34.54197296153846,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
@@ -654,7 +654,7 @@
           "checkouts": 0
         },
         "meta": {
-          "spend": 333.18,
+          "spend": 333.41,
           "form_leads": 24.0,
           "call_leads": 0,
           "purchases": 0,
@@ -670,20 +670,20 @@
         "google_id": "7087867966",
         "meta_id": "1229672268157520",
         "combined": {
-          "spend": 4016.588421,
+          "spend": 4018.1679670000003,
           "form_leads": 4.0,
           "call_leads": 2.0,
           "blended": 6.0,
-          "blended_cpl": 669.4314035,
+          "blended_cpl": 669.6946611666667,
           "purchases": 7.0,
           "purchase_val": 9327.76,
           "add_to_carts": 121.161684,
-          "checkouts": 65.344456,
-          "roas": 2.322309139575145,
+          "checkouts": 66.344456,
+          "roas": 2.3213962374410615,
           "top_creative": "https://www.facebook.com/1527131440663570/posts/1353535060127758"
         },
         "google": {
-          "spend": 1895.798421,
+          "spend": 1895.797967,
           "form_leads": 4.0,
           "call_leads": 2.0,
           "purchases": 1.0,
@@ -692,13 +692,13 @@
           "checkouts": 2.344456
         },
         "meta": {
-          "spend": 2120.79,
+          "spend": 2122.3700000000003,
           "form_leads": 0,
           "call_leads": 0,
           "purchases": 6.0,
           "purchase_val": 6287.76,
           "add_to_carts": 118.0,
-          "checkouts": 63.0,
+          "checkouts": 64.0,
           "top_creative": "https://www.facebook.com/1527131440663570/posts/1353535060127758"
         }
       },
@@ -737,11 +737,11 @@
         "google_id": "3720173680",
         "meta_id": "1066181008711486",
         "combined": {
-          "spend": 946.36272,
+          "spend": 947.10272,
           "form_leads": 11.0,
           "call_leads": 2.0,
           "blended": 13.0,
-          "blended_cpl": 72.79713230769231,
+          "blended_cpl": 72.85405538461538,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
@@ -759,7 +759,7 @@
           "checkouts": 0
         },
         "meta": {
-          "spend": 260.78,
+          "spend": 261.52,
           "form_leads": 5.0,
           "call_leads": 0,
           "purchases": 0,
@@ -775,11 +775,11 @@
         "google_id": "7228467515",
         "meta_id": "1302601091367185",
         "combined": {
-          "spend": 1532.2873650000001,
+          "spend": 1532.367365,
           "form_leads": 25.0,
           "call_leads": 3.0,
           "blended": 28.0,
-          "blended_cpl": 54.724548750000004,
+          "blended_cpl": 54.72740589285714,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
@@ -797,7 +797,7 @@
           "checkouts": 0
         },
         "meta": {
-          "spend": 895.14,
+          "spend": 895.2199999999999,
           "form_leads": 25.0,
           "call_leads": 0,
           "purchases": 0,
@@ -851,7 +851,7 @@
         "google_id": null,
         "meta_id": "1401504290137519",
         "combined": {
-          "spend": 258.02,
+          "spend": 258.15,
           "form_leads": 0,
           "call_leads": 0,
           "blended": 0,
@@ -865,7 +865,7 @@
         },
         "google": null,
         "meta": {
-          "spend": 258.02,
+          "spend": 258.15,
           "form_leads": 0,
           "call_leads": 0,
           "purchases": 0,
@@ -919,11 +919,11 @@
         "google_id": "8159668041",
         "meta_id": "331716185722452",
         "combined": {
-          "spend": 4930.257572,
+          "spend": 4935.917572,
           "form_leads": 12.0,
           "call_leads": 25.991078,
           "blended": 37.991078,
-          "blended_cpl": 129.77408990605636,
+          "blended_cpl": 129.92307225396448,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
@@ -932,7 +932,7 @@
           "top_creative": "https://www.facebook.com/104340624970393/posts/913350391700629"
         },
         "google": {
-          "spend": 2625.657572,
+          "spend": 2630.137572,
           "form_leads": 2.0,
           "call_leads": 25.991078,
           "purchases": 0,
@@ -941,7 +941,7 @@
           "checkouts": 0
         },
         "meta": {
-          "spend": 2304.6,
+          "spend": 2305.7800000000007,
           "form_leads": 10.0,
           "call_leads": 0,
           "purchases": 0,
@@ -957,11 +957,11 @@
         "google_id": "5216656756",
         "meta_id": "1092673602882817",
         "combined": {
-          "spend": 1449.64273,
+          "spend": 1449.7827300000001,
           "form_leads": 40.0,
           "call_leads": 0,
           "blended": 40.0,
-          "blended_cpl": 36.24106825,
+          "blended_cpl": 36.24456825,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
@@ -979,7 +979,7 @@
           "checkouts": 0
         },
         "meta": {
-          "spend": 949.05,
+          "spend": 949.19,
           "form_leads": 40.0,
           "call_leads": 0,
           "purchases": 0,
