@@ -1399,11 +1399,11 @@
         "google_id": "5865660247",
         "meta_id": null,
         "combined": {
-          "spend": 1228.384396,
-          "form_leads": 8.0,
+          "spend": 0,
+          "form_leads": 0,
           "call_leads": 0,
-          "blended": 8.0,
-          "blended_cpl": 153.5480495,
+          "blended": 0,
+          "blended_cpl": null,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
@@ -1412,8 +1412,8 @@
           "top_creative": ""
         },
         "google": {
-          "spend": 1228.384396,
-          "form_leads": 8.0,
+          "spend": 0,
+          "form_leads": 0,
           "call_leads": 0,
           "purchases": 0,
           "purchase_val": 0,
@@ -1428,29 +1428,20 @@
         "google_id": null,
         "meta_id": "215505746566668",
         "combined": {
-          "spend": 661.6,
-          "form_leads": 66.0,
+          "spend": 0,
+          "form_leads": 0,
           "call_leads": 0,
-          "blended": 66.0,
-          "blended_cpl": 10.024242424242425,
+          "blended": 0,
+          "blended_cpl": null,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
           "checkouts": 0,
           "roas": null,
-          "top_creative": "https://www.facebook.com/111122547891279/posts/992284809798888"
+          "top_creative": ""
         },
         "google": null,
-        "meta": {
-          "spend": 661.6,
-          "form_leads": 66.0,
-          "call_leads": 0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "top_creative": "https://www.facebook.com/111122547891279/posts/992284809798888"
-        }
+        "meta": null
       },
       {
         "name": "Dentiste",
@@ -1458,11 +1449,11 @@
         "google_id": "3857223862",
         "meta_id": null,
         "combined": {
-          "spend": 746.127276,
+          "spend": 0,
           "form_leads": 0,
-          "call_leads": 8.0,
-          "blended": 8.0,
-          "blended_cpl": 93.2659095,
+          "call_leads": 0,
+          "blended": 0,
+          "blended_cpl": null,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
@@ -1471,9 +1462,9 @@
           "top_creative": ""
         },
         "google": {
-          "spend": 746.127276,
+          "spend": 0,
           "form_leads": 0,
-          "call_leads": 8.0,
+          "call_leads": 0,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
@@ -1487,20 +1478,20 @@
         "google_id": "7709532223",
         "meta_id": "422065096974825",
         "combined": {
-          "spend": 2456.421809,
+          "spend": 0,
           "form_leads": 0,
           "call_leads": 0,
           "blended": 0,
           "blended_cpl": null,
-          "purchases": 4.0,
-          "purchase_val": 5800.0,
-          "add_to_carts": 120.0,
-          "checkouts": 33.0,
-          "roas": 2.3611579976816595,
-          "top_creative": "https://www.facebook.com/522481607619495/posts/122159166374733080"
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0,
+          "roas": null,
+          "top_creative": ""
         },
         "google": {
-          "spend": 430.111809,
+          "spend": 0,
           "form_leads": 0,
           "call_leads": 0,
           "purchases": 0,
@@ -1508,16 +1499,7 @@
           "add_to_carts": 0,
           "checkouts": 0
         },
-        "meta": {
-          "spend": 2026.31,
-          "form_leads": 0,
-          "call_leads": 0,
-          "purchases": 4.0,
-          "purchase_val": 5800.0,
-          "add_to_carts": 120.0,
-          "checkouts": 33.0,
-          "top_creative": "https://www.facebook.com/522481607619495/posts/122159166374733080"
-        }
+        "meta": null
       },
       {
         "name": "FaBesthetics",
@@ -1525,37 +1507,28 @@
         "google_id": "9304117954",
         "meta_id": "373162790093046",
         "combined": {
-          "spend": 924.3611799999999,
-          "form_leads": 26.0,
-          "call_leads": 1.0,
-          "blended": 27.0,
-          "blended_cpl": 34.23559925925925,
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "blended": 0,
+          "blended_cpl": null,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
           "checkouts": 0,
           "roas": null,
-          "top_creative": "https://www.facebook.com/104869999158733/posts/965512836421112"
+          "top_creative": ""
         },
         "google": {
-          "spend": 573.41118,
-          "form_leads": 1.0,
-          "call_leads": 1.0,
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
           "checkouts": 0
         },
-        "meta": {
-          "spend": 350.95,
-          "form_leads": 25.0,
-          "call_leads": 0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "top_creative": "https://www.facebook.com/104869999158733/posts/965512836421112"
-        }
+        "meta": null
       },
       {
         "name": "GDM",
@@ -1563,37 +1536,28 @@
         "google_id": "7087867966",
         "meta_id": "1229672268157520",
         "combined": {
-          "spend": 4143.048847,
-          "form_leads": 5.0,
-          "call_leads": 3.0,
-          "blended": 8.0,
-          "blended_cpl": 517.881105875,
-          "purchases": 7.0,
-          "purchase_val": 9327.76,
-          "add_to_carts": 133.161684,
-          "checkouts": 66.344456,
-          "roas": 2.2514240947833075,
-          "top_creative": "https://www.facebook.com/1527131440663570/posts/1353535060127758"
-        },
-        "google": {
-          "spend": 1985.4888469999999,
-          "form_leads": 5.0,
-          "call_leads": 3.0,
-          "purchases": 1.0,
-          "purchase_val": 3040.0,
-          "add_to_carts": 3.161684,
-          "checkouts": 2.344456
-        },
-        "meta": {
-          "spend": 2157.56,
+          "spend": 0,
           "form_leads": 0,
           "call_leads": 0,
-          "purchases": 6.0,
-          "purchase_val": 6287.76,
-          "add_to_carts": 130.0,
-          "checkouts": 64.0,
-          "top_creative": "https://www.facebook.com/1527131440663570/posts/1353535060127758"
-        }
+          "blended": 0,
+          "blended_cpl": null,
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0,
+          "roas": null,
+          "top_creative": ""
+        },
+        "google": {
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0
+        },
+        "meta": null
       },
       {
         "name": "Hoski.ca",
@@ -1630,121 +1594,7 @@
         "google_id": "3720173680",
         "meta_id": "1066181008711486",
         "combined": {
-          "spend": 964.7883870000001,
-          "form_leads": 11.0,
-          "call_leads": 2.0,
-          "blended": 13.0,
-          "blended_cpl": 74.21449130769231,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "roas": null,
-          "top_creative": "https://www.facebook.com/362386060515351/posts/1545204800940664"
-        },
-        "google": {
-          "spend": 699.008387,
-          "form_leads": 6.0,
-          "call_leads": 2.0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0
-        },
-        "meta": {
-          "spend": 265.78000000000003,
-          "form_leads": 5.0,
-          "call_leads": 0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "top_creative": "https://www.facebook.com/362386060515351/posts/1545204800940664"
-        }
-      },
-      {
-        "name": "Park Road Custom Furniture and Decor",
-        "vertical": "ecom",
-        "google_id": "7228467515",
-        "meta_id": "1302601091367185",
-        "combined": {
-          "spend": 1608.318944,
-          "form_leads": 25.0,
-          "call_leads": 3.0,
-          "blended": 28.0,
-          "blended_cpl": 57.43996228571429,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "roas": null,
-          "top_creative": "https://www.facebook.com/325227004236135/posts/1469667695174223"
-        },
-        "google": {
-          "spend": 681.688944,
-          "form_leads": 0,
-          "call_leads": 3.0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0
-        },
-        "meta": {
-          "spend": 926.63,
-          "form_leads": 25.0,
-          "call_leads": 0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "top_creative": "https://www.facebook.com/325227004236135/posts/1469667695174223"
-        }
-      },
-      {
-        "name": "Serenity Familycare",
-        "vertical": "lead_gen",
-        "google_id": "8134824884",
-        "meta_id": "853944849499524",
-        "combined": {
-          "spend": 513.13,
-          "form_leads": 27.0,
-          "call_leads": 0,
-          "blended": 27.0,
-          "blended_cpl": 19.004814814814814,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "roas": null,
-          "top_creative": "https://www.facebook.com/245601888644662/posts/122248920734263635"
-        },
-        "google": {
           "spend": 0,
-          "form_leads": 0,
-          "call_leads": 0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0
-        },
-        "meta": {
-          "spend": 513.13,
-          "form_leads": 27.0,
-          "call_leads": 0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "top_creative": "https://www.facebook.com/245601888644662/posts/122248920734263635"
-        }
-      },
-      {
-        "name": "Som K. Plastic Surgery",
-        "vertical": "lead_gen",
-        "google_id": null,
-        "meta_id": "1401504290137519",
-        "combined": {
-          "spend": 258.81,
           "form_leads": 0,
           "call_leads": 0,
           "blended": 0,
@@ -1754,37 +1604,7 @@
           "add_to_carts": 0,
           "checkouts": 0,
           "roas": null,
-          "top_creative": "https://www.facebook.com/1416912108587600/posts/1558561432940285"
-        },
-        "google": null,
-        "meta": {
-          "spend": 258.81,
-          "form_leads": 0,
-          "call_leads": 0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "top_creative": "https://www.facebook.com/1416912108587600/posts/1558561432940285"
-        }
-      },
-      {
-        "name": "Synergy Spine & Nerve Center",
-        "vertical": "lead_gen",
-        "google_id": "7628667762",
-        "meta_id": "2121931534696543",
-        "combined": {
-          "spend": 511.52,
-          "form_leads": 18.0,
-          "call_leads": 0,
-          "blended": 18.0,
-          "blended_cpl": 28.417777777777776,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "roas": null,
-          "top_creative": "https://www.facebook.com/123340564846/posts/1391680692962744"
+          "top_creative": ""
         },
         "google": {
           "spend": 0,
@@ -1795,75 +1615,28 @@
           "add_to_carts": 0,
           "checkouts": 0
         },
-        "meta": {
-          "spend": 511.52,
-          "form_leads": 18.0,
-          "call_leads": 0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "top_creative": "https://www.facebook.com/123340564846/posts/1391680692962744"
-        }
+        "meta": null
       },
       {
-        "name": "Texas FHC",
-        "vertical": "lead_gen",
-        "google_id": "8159668041",
-        "meta_id": "331716185722452",
+        "name": "Park Road Custom Furniture and Decor",
+        "vertical": "ecom",
+        "google_id": "7228467515",
+        "meta_id": "1302601091367185",
         "combined": {
-          "spend": 5043.819388,
-          "form_leads": 12.0,
-          "call_leads": 25.991078,
-          "blended": 37.991078,
-          "blended_cpl": 132.7632605739695,
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "blended": 0,
+          "blended_cpl": null,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
           "checkouts": 0,
           "roas": null,
-          "top_creative": "https://www.facebook.com/104340624970393/posts/913350391700629"
+          "top_creative": ""
         },
         "google": {
-          "spend": 2678.599388,
-          "form_leads": 2.0,
-          "call_leads": 25.991078,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0
-        },
-        "meta": {
-          "spend": 2365.22,
-          "form_leads": 10.0,
-          "call_leads": 0,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "top_creative": "https://www.facebook.com/104340624970393/posts/913350391700629"
-        }
-      },
-      {
-        "name": "Voit Dental 1",
-        "vertical": "lead_gen",
-        "google_id": "5216656756",
-        "meta_id": "1092673602882817",
-        "combined": {
-          "spend": 1464.26273,
-          "form_leads": 41.0,
-          "call_leads": 0,
-          "blended": 41.0,
-          "blended_cpl": 35.71372512195122,
-          "purchases": 0,
-          "purchase_val": 0,
-          "add_to_carts": 0,
-          "checkouts": 0,
-          "roas": null,
-          "top_creative": "https://www.facebook.com/201076679748298/posts/122271843482158834"
-        },
-        "google": {
-          "spend": 500.59273,
+          "spend": 0,
           "form_leads": 0,
           "call_leads": 0,
           "purchases": 0,
@@ -1871,16 +1644,144 @@
           "add_to_carts": 0,
           "checkouts": 0
         },
-        "meta": {
-          "spend": 963.67,
-          "form_leads": 41.0,
+        "meta": null
+      },
+      {
+        "name": "Serenity Familycare",
+        "vertical": "lead_gen",
+        "google_id": "8134824884",
+        "meta_id": "853944849499524",
+        "combined": {
+          "spend": 0,
+          "form_leads": 0,
           "call_leads": 0,
+          "blended": 0,
+          "blended_cpl": null,
           "purchases": 0,
           "purchase_val": 0,
           "add_to_carts": 0,
           "checkouts": 0,
-          "top_creative": "https://www.facebook.com/201076679748298/posts/122271843482158834"
-        }
+          "roas": null,
+          "top_creative": ""
+        },
+        "google": {
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0
+        },
+        "meta": null
+      },
+      {
+        "name": "Som K. Plastic Surgery",
+        "vertical": "lead_gen",
+        "google_id": null,
+        "meta_id": "1401504290137519",
+        "combined": {
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "blended": 0,
+          "blended_cpl": null,
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0,
+          "roas": null,
+          "top_creative": ""
+        },
+        "google": null,
+        "meta": null
+      },
+      {
+        "name": "Synergy Spine & Nerve Center",
+        "vertical": "lead_gen",
+        "google_id": "7628667762",
+        "meta_id": "2121931534696543",
+        "combined": {
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "blended": 0,
+          "blended_cpl": null,
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0,
+          "roas": null,
+          "top_creative": ""
+        },
+        "google": {
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0
+        },
+        "meta": null
+      },
+      {
+        "name": "Texas FHC",
+        "vertical": "lead_gen",
+        "google_id": "8159668041",
+        "meta_id": "331716185722452",
+        "combined": {
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "blended": 0,
+          "blended_cpl": null,
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0,
+          "roas": null,
+          "top_creative": ""
+        },
+        "google": {
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0
+        },
+        "meta": null
+      },
+      {
+        "name": "Voit Dental 1",
+        "vertical": "lead_gen",
+        "google_id": "5216656756",
+        "meta_id": "1092673602882817",
+        "combined": {
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "blended": 0,
+          "blended_cpl": null,
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0,
+          "roas": null,
+          "top_creative": ""
+        },
+        "google": {
+          "spend": 0,
+          "form_leads": 0,
+          "call_leads": 0,
+          "purchases": 0,
+          "purchase_val": 0,
+          "add_to_carts": 0,
+          "checkouts": 0
+        },
+        "meta": null
       }
     ]
   }
